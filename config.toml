@@ -6,7 +6,7 @@ season_start_month = 8
 [paths]
 raw = "data/raw"
 reference = "data/reference"
-warehouse = "data/warehouse
+warehouse = "data/warehouse"
 marts = "data/marts"
 logs = "logs"
 
