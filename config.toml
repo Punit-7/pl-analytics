@@ -1,0 +1,21 @@
+[seasons]
+first = 1993
+understat_first = 2014
+season_start_month = 8
+
+[paths]
+raw = "data/raw"
+reference = "data/reference"
+warehouse = "data/warehouse
+marts = "data/marts"
+logs = "logs"
+
+[http]
+timeout_seconds = 30
+max_retries = 3
+backoff_factor = 2
+delay_seconds = 1
+user_agent = "pl-analytics portifolio project"
+
+[sources]
+understat_enabled = true
