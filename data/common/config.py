@@ -4,7 +4,7 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]   # repo root
+ROOT = Path(__file__).resolve().parents[2]  # repo root
 CONFIG_FILE = ROOT / "config.toml"
 
 

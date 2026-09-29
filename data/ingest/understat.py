@@ -9,8 +9,18 @@ from data.common.seasons import current_season_start
 
 log = logging.getLogger(__name__)
 
-KEEP = ["season", "date", "home_team", "away_team",
-        "home_goals", "away_goals", "home_xg", "away_xg", "is_result"]
+KEEP = [
+    "season",
+    "date",
+    "home_team",
+    "away_team",
+    "home_goals",
+    "away_goals",
+    "home_xg",
+    "away_xg",
+    "is_result",
+]
+
 
 def run(s: Settings) -> dict:
     if not s.understat_enabled:
@@ -34,7 +44,7 @@ def run(s: Settings) -> dict:
     write_atomic(out_dir / "schedule.csv", csv)
     snap = out_dir / "snapshots" / f"schedule_{date.today():%Y-%m-%d}.csv"
     snap.parent.mkdir(exist_ok=True)
-    write_atomic(snap, csv)                # dated copy for reproducibility
+    write_atomic(snap, csv)  # dated copy for reproducibility
     played = int(schedule["is_result"].sum())
     log.info("Saved %d Understat fixtures (%d played)", len(schedule), played)
     return {"rows": len(schedule)}

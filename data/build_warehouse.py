@@ -12,12 +12,26 @@ log = logging.getLogger(__name__)
 
 # football-data.co.uk column -> warehouse column
 RENAME = {
-    "Date": "match_date", "HomeTeam": "home_team", "AwayTeam": "away_team",
-    "FTHG": "home_goals", "FTAG": "away_goals",
-    "HTHG": "home_ht_goals", "HTAG": "away_ht_goals", "Referee": "referee",
-    "HS": "home_shots", "AS": "away_shots", "HST": "home_sot", "AST": "away_sot",
-    "HF": "home_fouls", "AF": "away_fouls", "HC": "home_corners", "AC": "away_corners",
-    "HY": "home_yellows", "AY": "away_yellows", "HR": "home_reds", "AR": "away_reds",
+    "Date": "match_date",
+    "HomeTeam": "home_team",
+    "AwayTeam": "away_team",
+    "FTHG": "home_goals",
+    "FTAG": "away_goals",
+    "HTHG": "home_ht_goals",
+    "HTAG": "away_ht_goals",
+    "Referee": "referee",
+    "HS": "home_shots",
+    "AS": "away_shots",
+    "HST": "home_sot",
+    "AST": "away_sot",
+    "HF": "home_fouls",
+    "AF": "away_fouls",
+    "HC": "home_corners",
+    "AC": "away_corners",
+    "HY": "home_yellows",
+    "AY": "away_yellows",
+    "HR": "home_reds",
+    "AR": "away_reds",
 }
 TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season"]
 
@@ -36,10 +50,11 @@ def load_matches(s: Settings) -> pd.DataFrame:
     for f in files:
         # Some seasons add odds columns mid-season: trim long rows, never drop them
         width = len(pd.read_csv(f, encoding="latin-1", nrows=0).columns)
-        df = pd.read_csv(f, encoding="latin-1", engine="python",
-                         on_bad_lines=lambda row, w=width: row[:w])
-        df = df.dropna(subset=["HomeTeam", "FTHG"])     # drop blank rows
-        df = df.reindex(columns=list(RENAME))            # old seasons lack stats: NaN
+        df = pd.read_csv(
+            f, encoding="latin-1", engine="python", on_bad_lines=lambda row, w=width: row[:w]
+        )
+        df = df.dropna(subset=["HomeTeam", "FTHG"])  # drop blank rows
+        df = df.reindex(columns=list(RENAME))  # old seasons lack stats: NaN
         df["season"] = season_label(start_year_from_code(f.stem.split("_")[1]))
         log.debug("%s: %d matches", f.name, len(df))
         frames.append(df)
@@ -47,6 +62,13 @@ def load_matches(s: Settings) -> pd.DataFrame:
     m["match_date"] = pd.to_datetime(m["match_date"], dayfirst=True, format="mixed")
     for c in ("home_team", "away_team"):
         m[c] = m[c].str.strip()
+    for side in ("home", "away"):  # source typos: more shots on target than shots
+        bad = m[f"{side}_sot"] > m[f"{side}_shots"]
+        if bad.any():
+            log.warning(
+                "%d %s shot counts impossible (on target > total); set to NULL", bad.sum(), side
+            )
+            m.loc[bad, [f"{side}_shots", f"{side}_sot"]] = None
     log.info("Loaded %d matches from %d season files", len(m), len(files))
     return m
 
@@ -62,7 +84,7 @@ def load_xg(s: Settings) -> pd.DataFrame:
     lookup = name_lookup(s, "understat")
     for c in ("home_team", "away_team"):
         u[c] = u[c].map(lookup).fillna(u[c])
-    code = u["season"].astype(str).str.zfill(4)            # '1516'
+    code = u["season"].astype(str).str.zfill(4)  # '1516'
     u["season"] = "20" + code.str[:2] + "/" + code.str[2:]  # '2015/16'
     log.info("Loaded %d played Understat matches", len(u))
     return u[cols]
@@ -156,18 +178,17 @@ def build(s: Settings, engine: Engine) -> dict:
     """Rebuild every table in the staging schema. Never touches mart."""
     st = s.staging_schema
     matches, xg = load_matches(s), load_xg(s)
-    with engine.begin() as conn:                      # one transaction
+    with engine.begin() as conn:  # one transaction
         conn.execute(text(f"DROP SCHEMA IF EXISTS {st} CASCADE"))
         conn.execute(text(f"CREATE SCHEMA {st}"))
-        matches.to_sql("raw_matches", conn, schema=st, index=False,
-                       method="multi", chunksize=1000)
-        xg.to_sql("raw_xg", conn, schema=st, index=False,
-                  method="multi", chunksize=1000)
+        matches.to_sql("raw_matches", conn, schema=st, index=False, method="multi", chunksize=1000)
+        xg.to_sql("raw_xg", conn, schema=st, index=False, method="multi", chunksize=1000)
         for statement in build_sql(st).split(";"):
             if statement.strip():
                 conn.execute(text(statement))
-        counts = {t: conn.execute(text(f"SELECT COUNT(*) FROM {st}.{t}")).scalar_one()
-                  for t in TABLES}
+        counts = {
+            t: conn.execute(text(f"SELECT COUNT(*) FROM {st}.{t}")).scalar_one() for t in TABLES
+        }
     for t, n in counts.items():
         log.info("%s.%s: %s rows", st, t, f"{n:,}")
     return counts

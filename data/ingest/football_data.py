@@ -12,12 +12,9 @@ from data.common.seasons import current_season_start, season_code
 
 log = logging.getLogger(__name__)
 
-
-
-log = logging.getLogger(__name__)
-
 BASE = "https://www.football-data.co.uk/mmz4281/{code}/E0.csv"
 REQUIRED = {"Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"}
+
 
 def validate(content: bytes, code: str) -> int:
     """Check the download is a results CSV. Returns the number of matches."""
@@ -30,6 +27,7 @@ def validate(content: bytes, code: str) -> int:
         raise DataValidationError(f"{code}: missing columns {sorted(missing)}")
     return int(df["HomeTeam"].notna().sum())
 
+
 def run(s: Settings, full_refresh: bool = False) -> dict:
     out_dir = s.raw / "football_data"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -41,7 +39,7 @@ def run(s: Settings, full_refresh: bool = False) -> dict:
         code = season_code(year)
         out = out_dir / f"E0_{code}.csv"
         if out.exists() and year < current and not full_refresh:
-            stats["skipped"] += 1          # finished seasons do not change
+            stats["skipped"] += 1  # finished seasons do not change
             continue
 
         url = BASE.format(code=code)
@@ -54,17 +52,17 @@ def run(s: Settings, full_refresh: bool = False) -> dict:
 
         matches = validate(r.content, code)
         write_atomic(out, r.content)
-        if year == current:                # keep a dated copy of each weekly download
+        if year == current:  # keep a dated copy of each weekly download
             snap = out_dir / "snapshots" / f"E0_{code}_{date.today():%Y-%m-%d}.csv"
             snap.parent.mkdir(exist_ok=True)
             write_atomic(snap, r.content)
         log.info("Saved %s (%d matches)", out.name, matches)
         stats["downloaded"] += 1
-        time.sleep(s.delay)                # be polite to the site
+        time.sleep(s.delay)  # be polite to the site
 
-    log.info("football-data: %d downloaded, %d skipped",
-             stats["downloaded"], stats["skipped"])
+    log.info("football-data: %d downloaded, %d skipped", stats["downloaded"], stats["skipped"])
     return stats
+
 
 if __name__ == "__main__":
     from data.common.config import load_settings
