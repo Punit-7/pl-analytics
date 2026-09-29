@@ -1,6 +1,6 @@
 .venv/
+.env
 data/raw/
-data/warehouse/
 logs/
 *.tmp
 __pycache__/

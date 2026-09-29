@@ -1,21 +1,26 @@
 [seasons]
-first = 1993
-understat_first = 2014
-season_start_month = 8
+first = 1993               # first season in football-data.co.uk
+understat_first = 2014     # first season with Understat xG
+season_start_month = 8     # from August, the new season is "current"
 
 [paths]
 raw = "data/raw"
 reference = "data/reference"
-warehouse = "data/warehouse"
 marts = "data/marts"
 logs = "logs"
+
+[database]
+staging_schema = "staging" # new tables are built here first
+mart_schema = "mart"       # tested tables the dashboards read
+ops_schema = "ops"         # pipeline run log
+reader_role = "pl_reader"  # read-only role for Power BI and Excel
 
 [http]
 timeout_seconds = 30
 max_retries = 3
 backoff_factor = 2
 delay_seconds = 1
-user_agent = "pl-analytics portifolio project"
+user_agent = "pl-analytics portfolio project"
 
 [sources]
 understat_enabled = true
