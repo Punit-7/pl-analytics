@@ -5,7 +5,7 @@ def channel(c: int) -> float:
 
 
 def luminance(hex_colour: str) -> float:
-    r, g, b = (int(hex_colour[i:i + 2], 16) for i in (1, 3, 5))
+    r, g, b = (int(hex_colour[i : i + 2], 16) for i in (1, 3, 5))
     return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
 
 
