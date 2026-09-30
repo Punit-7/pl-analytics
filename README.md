@@ -11,6 +11,15 @@ Every Premier League match since 1993/94, loaded by a tested Python pipeline int
 - **Match centre**: the score, referee and side-by-side stats for any single match.
 - **History**: final position of every club in every season, the all-time table, and head-to-head records.
 
+<details>
+<summary>Screenshots of the other pages</summary>
+
+![Team profile page](docs/TeamProfile.PNG)
+![Match centre page](docs/match_centre.png)
+![History page](docs/history.png)
+
+</details>
+
 The Excel workbook (`analytics/pl_stats_hub.xlsx`) has a dashboard built on the same mart.
 
 ## How it works
