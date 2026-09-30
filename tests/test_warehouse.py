@@ -148,3 +148,28 @@ def test_match_dates_inside_season(con):
            OR match_date > make_date(CAST(LEFT(season, 4) AS INTEGER) + 1, 7, 31)""",
     )
     assert bad == [], f"dates outside their season: {bad[:5]}"
+
+def test_odds_one_row_per_match(con):
+    n_match = rows(con, f"SELECT COUNT(*) FROM {FM}")[0][0]
+    n_odds = rows(con, f"SELECT COUNT(*) FROM {SCHEMA}.fact_match_odds")[0][0]
+    assert n_odds == n_match
+
+
+def test_closing_overround_plausible(con):
+    bad = rows(con, f"""
+        SELECT match_id FROM {SCHEMA}.fact_match_odds
+        WHERE avg_close_home_odds IS NOT NULL
+          AND 1 / avg_close_home_odds + 1 / avg_close_draw_odds + 1 / avg_close_away_odds
+              NOT BETWEEN 0.98 AND 1.15""")
+    assert bad == [], f"implausible overround: {bad[:5]}"
+    
+def test_sb_shots_valid(con):
+    n = rows(con, f"SELECT COUNT(*) FROM {SCHEMA}.sb_shot")[0][0]
+    if n == 0:
+        pytest.skip("StatsBomb shots not downloaded")
+    # Direct corner shots are logged just past the line (x = 120.2), so allow 1 unit of slack.
+    bad = rows(con, f"""
+        SELECT event_id FROM {SCHEMA}.sb_shot
+        WHERE x NOT BETWEEN -1 AND 121 OR y NOT BETWEEN -1 AND 81
+           OR statsbomb_xg NOT BETWEEN 0 AND 1 OR outcome IS NULL""")
+    assert bad == [], f"invalid shots: {bad[:5]}"

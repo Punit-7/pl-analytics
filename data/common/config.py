@@ -27,6 +27,7 @@ class Settings:
     delay: float
     user_agent: str
     understat_enabled: bool
+    modelling: dict
 
 
 def load_settings(path: Path = CONFIG_FILE) -> Settings:
@@ -51,4 +52,5 @@ def load_settings(path: Path = CONFIG_FILE) -> Settings:
         delay=http["delay_seconds"],
         user_agent=http["user_agent"],
         understat_enabled=c["sources"]["understat_enabled"],
+        modelling=c["modelling"],
     )

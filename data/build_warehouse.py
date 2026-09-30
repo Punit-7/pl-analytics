@@ -33,7 +33,20 @@ RENAME = {
     "HR": "home_reds",
     "AR": "away_reds",
 }
-TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season"]
+
+ODDS = {
+    "AvgH": "avg_home_odds", "AvgD": "avg_draw_odds", "AvgA": "avg_away_odds",
+    "AvgCH": "avg_close_home_odds", "AvgCD": "avg_close_draw_odds", "AvgCA": "avg_close_away_odds",
+    "B365CH": "b365_close_home_odds", "B365CD": "b365_close_draw_odds", "B365CA": "b365_close_away_odds",
+}
+
+RENAME = {**RENAME, **ODDS}
+
+TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season","fact_match_odds"]
+
+SB_COLS = ["event_id", "match_id", "competition_id", "period", "minute", "team", "player",
+           "x", "y", "under_pressure", "shot_first_time", "play_pattern", "shot_type",
+           "shot_body_part", "shot_technique", "shot_outcome", "shot_statsbomb_xg"]
 
 
 def name_lookup(s: Settings, source: str) -> dict:
@@ -170,7 +183,46 @@ FROM {st}.fact_match ORDER BY start_year;
 
 ALTER TABLE {st}.dim_season ADD PRIMARY KEY (season);
 
-DROP TABLE {st}.raw_matches, {st}.raw_xg;
+CREATE TABLE {st}.fact_match_odds AS
+SELECT f.match_id,
+       CAST(m.avg_home_odds AS DOUBLE PRECISION) AS avg_home_odds,
+       CAST(m.avg_draw_odds AS DOUBLE PRECISION) AS avg_draw_odds,
+       CAST(m.avg_away_odds AS DOUBLE PRECISION) AS avg_away_odds,
+       CAST(m.avg_close_home_odds AS DOUBLE PRECISION) AS avg_close_home_odds,
+       CAST(m.avg_close_draw_odds AS DOUBLE PRECISION) AS avg_close_draw_odds,
+       CAST(m.avg_close_away_odds AS DOUBLE PRECISION) AS avg_close_away_odds,
+       CAST(m.b365_close_home_odds AS DOUBLE PRECISION) AS b365_close_home_odds,
+       CAST(m.b365_close_draw_odds AS DOUBLE PRECISION) AS b365_close_draw_odds,
+       CAST(m.b365_close_away_odds AS DOUBLE PRECISION) AS b365_close_away_odds
+FROM {st}.fact_match f
+JOIN {st}.raw_matches m
+  ON m.season = f.season AND m.home_team = f.home_team AND m.away_team = f.away_team;
+
+ALTER TABLE {st}.fact_match_odds ADD PRIMARY KEY (match_id);
+
+CREATE TABLE {st}.sb_shot AS
+SELECT CAST(event_id AS TEXT) AS event_id,
+       CAST(match_id AS INTEGER) AS match_id,
+       CAST(competition_id AS INTEGER) AS competition_id,
+       CAST(period AS INTEGER) AS period,
+       CAST(minute AS INTEGER) AS minute,
+       CAST(team AS TEXT) AS team,
+       CAST(player AS TEXT) AS player,
+       CAST(x AS DOUBLE PRECISION) AS x,
+       CAST(y AS DOUBLE PRECISION) AS y,
+       under_pressure,
+       shot_first_time AS first_time,
+       CAST(play_pattern AS TEXT) AS play_pattern,
+       CAST(shot_type AS TEXT) AS shot_type,
+       CAST(shot_body_part AS TEXT) AS body_part,
+       CAST(shot_technique AS TEXT) AS technique,
+       CAST(shot_outcome AS TEXT) AS outcome,
+       CAST(shot_statsbomb_xg AS DOUBLE PRECISION) AS statsbomb_xg
+FROM {st}.raw_sb_shots;
+
+ALTER TABLE {st}.sb_shot ADD PRIMARY KEY (event_id);
+
+DROP TABLE {st}.raw_matches, {st}.raw_xg, {st}.raw_sb_shots;
 """
 
 
@@ -178,11 +230,15 @@ def build(s: Settings, engine: Engine) -> dict:
     """Rebuild every table in the staging schema. Never touches mart."""
     st = s.staging_schema
     matches, xg = load_matches(s), load_xg(s)
+    shots = load_sb_shots(s)
+    
     with engine.begin() as conn:  # one transaction
         conn.execute(text(f"DROP SCHEMA IF EXISTS {st} CASCADE"))
         conn.execute(text(f"CREATE SCHEMA {st}"))
         matches.to_sql("raw_matches", conn, schema=st, index=False, method="multi", chunksize=1000)
         xg.to_sql("raw_xg", conn, schema=st, index=False, method="multi", chunksize=1000)
+        shots.to_sql("raw_sb_shots", conn, schema=st, index=False,
+                     method="multi", chunksize=1000)
         for statement in build_sql(st).split(";"):
             if statement.strip():
                 conn.execute(text(statement))
@@ -223,6 +279,20 @@ def export_marts(s: Settings, engine: Engine) -> None:
     for t in TABLES:
         export_table(s, engine, s.mart_schema, t)
 
+def load_sb_shots(s: Settings) -> pd.DataFrame:
+    folder = s.raw / "statsbomb"
+    files = sorted((folder / "shots").glob("*.csv"))
+    if not files or not (folder / "matches.csv").exists():
+        log.warning("No StatsBomb shots on disk; sb_shot will be empty")
+        return pd.DataFrame(columns=SB_COLS).astype(
+            {"under_pressure": bool, "shot_first_time": bool})
+    shots = pd.concat((pd.read_csv(f) for f in files), ignore_index=True)
+    meta = pd.read_csv(folder / "matches.csv")[["match_id", "competition_id"]]
+    shots = shots.merge(meta, on="match_id", how="left").rename(columns={"id": "event_id"})
+    for c in ("under_pressure", "shot_first_time"):
+        shots[c] = shots[c].eq(True)  # empty cells mean False
+    log.info("Loaded %d StatsBomb shots from %d matches", len(shots), len(files))
+    return shots[SB_COLS]
 
 if __name__ == "__main__":
     from data.common.config import load_settings

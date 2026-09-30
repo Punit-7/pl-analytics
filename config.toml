@@ -24,3 +24,18 @@ user_agent = "pl-analytics portfolio project"
 
 [sources]
 understat_enabled = true
+
+[modelling]
+random_seed = 2026
+# xG model: StatsBomb Open Data 2015/16 Big 5 leagues, as [competition_id, season_id]
+xg_competitions = [[2, 27], [11, 27], [9, 27], [12, 27], [7, 27]]
+xg_test_size = 0.2
+# Dixon-Coles match model
+dc_xi = 0.0019               # time-decay rate per day (half-life about one year)
+dc_history_days = 1095       # each fit uses the last three years of matches
+dc_max_goals = 10            # score matrix covers 0-10 goals per team
+backtest_first_season = 2019 # closing odds exist from 2019/20
+# Season simulation and predictions
+n_sims = 10000
+prediction_window_days = 7
+model_version = "dc-1.0"

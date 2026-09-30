@@ -4,3 +4,4 @@ data/raw/
 logs/
 *.tmp
 __pycache__/
+modelling/artifacts/
