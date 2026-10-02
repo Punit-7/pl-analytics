@@ -1,0 +1,64 @@
+{
+  "overall": {
+    "dc": {
+      "rps": 0.20388489666651263,
+      "log_loss": 0.993545440957823
+    },
+    "poisson": {
+      "rps": 0.20388257045867952,
+      "log_loss": 0.9931572168992707
+    },
+    "freq": {
+      "rps": 0.23392692443028487,
+      "log_loss": 1.0709792286619115
+    },
+    "eqpois": {
+      "rps": 0.2338123102810217,
+      "log_loss": 1.0711697192846419
+    }
+  },
+  "rps_by_season": {
+    "2019/20": {
+      "dc_rps": 0.2014,
+      "poisson_rps": 0.2013,
+      "freq_rps": 0.2303,
+      "eqpois_rps": 0.23
+    },
+    "2020/21": {
+      "dc_rps": 0.2165,
+      "poisson_rps": 0.2163,
+      "freq_rps": 0.2435,
+      "eqpois_rps": 0.2441
+    },
+    "2021/22": {
+      "dc_rps": 0.197,
+      "poisson_rps": 0.197,
+      "freq_rps": 0.2351,
+      "eqpois_rps": 0.2352
+    },
+    "2022/23": {
+      "dc_rps": 0.2116,
+      "poisson_rps": 0.2116,
+      "freq_rps": 0.2308,
+      "eqpois_rps": 0.2303
+    },
+    "2023/24": {
+      "dc_rps": 0.189,
+      "poisson_rps": 0.189,
+      "freq_rps": 0.2341,
+      "eqpois_rps": 0.2342
+    },
+    "2024/25": {
+      "dc_rps": 0.2018,
+      "poisson_rps": 0.2019,
+      "freq_rps": 0.2358,
+      "eqpois_rps": 0.2352
+    },
+    "2025/26": {
+      "dc_rps": 0.21,
+      "poisson_rps": 0.2101,
+      "freq_rps": 0.2279,
+      "eqpois_rps": 0.2277
+    }
+  }
+}
