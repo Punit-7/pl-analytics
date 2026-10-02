@@ -1,0 +1,16 @@
+gameweeks,name,team,position,price,points,start,captain
+6-10,Raya,Arsenal,GKP,6.1,18.81,True,False
+6-10,Calafiori,Arsenal,DEF,5.8,23.19,True,False
+6-10,Hall,Newcastle,DEF,5.3,23.03,True,False
+6-10,Guéhi,Man City,DEF,6.0,22.7,True,False
+6-10,Saka,Arsenal,MID,9.5,29.43,True,False
+6-10,Rogers,Chelsea,MID,7.7,27.56,True,False
+6-10,Mbeumo,Man United,MID,7.9,26.44,True,False
+6-10,Tavernier,Bournemouth,MID,6.1,25.6,True,False
+6-10,E.Le Fée,Sunderland,MID,5.7,22.18,True,False
+6-10,Haaland,Man City,FWD,15.6,29.7,True,True
+6-10,Wissa,Newcastle,FWD,6.2,24.64,True,False
+6-10,Leno,Fulham,GKP,4.5,15.67,False,False
+6-10,Giles,Hull,DEF,4.0,20.75,False,False
+6-10,Egan,Hull,DEF,4.1,17.6,False,False
+6-10,McBurnie,Hull,FWD,5.5,16.99,False,False

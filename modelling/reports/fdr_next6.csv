@@ -1,0 +1,121 @@
+team,n,match_date,opponent,p_win,fdr
+Arsenal,1,2026-10-10,Leeds (H),0.623,2
+Arsenal,2,2026-10-18,Nott'm Forest (A),0.546,2
+Arsenal,3,2026-10-24,Everton (H),0.62,2
+Arsenal,4,2026-11-01,Liverpool (A),0.445,3
+Arsenal,5,2026-11-07,Hull (H),0.497,3
+Arsenal,6,2026-11-21,Newcastle (A),0.54,2
+Aston Villa,1,2026-10-10,Brentford (H),0.4,3
+Aston Villa,2,2026-10-17,Newcastle (A),0.303,4
+Aston Villa,3,2026-10-24,Man City (H),0.222,4
+Aston Villa,4,2026-11-01,Fulham (H),0.462,3
+Aston Villa,5,2026-11-07,Man United (A),0.29,4
+Aston Villa,6,2026-11-21,Sunderland (H),0.473,3
+Bournemouth,1,2026-10-10,Chelsea (A),0.3,4
+Bournemouth,2,2026-10-18,Sunderland (H),0.478,3
+Bournemouth,3,2026-10-25,Man United (A),0.295,4
+Bournemouth,4,2026-10-31,Leeds (H),0.417,3
+Bournemouth,5,2026-11-07,Ipswich (A),0.595,2
+Bournemouth,6,2026-11-21,Nott'm Forest (H),0.441,3
+Brentford,1,2026-10-10,Aston Villa (A),0.332,4
+Brentford,2,2026-10-17,Liverpool (H),0.341,4
+Brentford,3,2026-10-25,Hull (A),0.248,4
+Brentford,4,2026-10-31,Nott'm Forest (H),0.46,3
+Brentford,5,2026-11-07,Brighton (A),0.292,4
+Brentford,6,2026-11-21,Everton (H),0.444,3
+Brighton,1,2026-10-10,Sunderland (A),0.411,3
+Brighton,2,2026-10-18,Crystal Palace (H),0.542,2
+Brighton,3,2026-10-24,Liverpool (A),0.26,4
+Brighton,4,2026-10-31,Man City (A),0.173,5
+Brighton,5,2026-11-07,Brentford (H),0.448,3
+Brighton,6,2026-11-21,Hull (A),0.265,4
+Chelsea,1,2026-10-10,Bournemouth (H),0.445,3
+Chelsea,2,2026-10-17,Everton (A),0.351,3
+Chelsea,3,2026-10-24,Tottenham (H),0.554,2
+Chelsea,4,2026-10-31,Man United (H),0.429,3
+Chelsea,5,2026-11-07,Sunderland (A),0.398,3
+Chelsea,6,2026-11-21,Leeds (H),0.445,3
+Coventry,1,2026-10-12,Newcastle (H),0.048,5
+Coventry,2,2026-10-19,Tottenham (A),0.048,5
+Coventry,3,2026-10-24,Fulham (H),0.066,5
+Coventry,4,2026-10-31,Sunderland (H),0.071,5
+Coventry,5,2026-11-07,Everton (A),0.042,5
+Coventry,6,2026-11-21,Crystal Palace (H),0.072,5
+Crystal Palace,1,2026-10-11,Nott'm Forest (H),0.354,3
+Crystal Palace,2,2026-10-18,Brighton (A),0.208,4
+Crystal Palace,3,2026-10-25,Newcastle (H),0.329,4
+Crystal Palace,4,2026-10-31,Tottenham (A),0.319,4
+Crystal Palace,5,2026-11-07,Liverpool (H),0.247,4
+Crystal Palace,6,2026-11-21,Coventry (A),0.636,2
+Everton,1,2026-10-11,Hull (A),0.208,4
+Everton,2,2026-10-17,Chelsea (H),0.358,3
+Everton,3,2026-10-24,Arsenal (A),0.118,5
+Everton,4,2026-11-02,Newcastle (A),0.269,4
+Everton,5,2026-11-07,Coventry (H),0.704,1
+Everton,6,2026-11-21,Brentford (A),0.261,4
+Fulham,1,2026-10-10,Ipswich (A),0.519,2
+Fulham,2,2026-10-17,Hull (H),0.269,4
+Fulham,3,2026-10-24,Coventry (A),0.648,2
+Fulham,4,2026-11-01,Aston Villa (A),0.262,4
+Fulham,5,2026-11-07,Newcastle (H),0.353,3
+Fulham,6,2026-11-21,Man City (A),0.119,5
+Hull,1,2026-10-11,Everton (H),0.438,3
+Hull,2,2026-10-17,Fulham (A),0.388,3
+Hull,3,2026-10-25,Brentford (H),0.433,3
+Hull,4,2026-10-31,Ipswich (H),0.695,1
+Hull,5,2026-11-07,Arsenal (A),0.171,5
+Hull,6,2026-11-21,Brighton (H),0.413,3
+Ipswich,1,2026-10-10,Fulham (H),0.226,4
+Ipswich,2,2026-10-17,Man City (A),0.036,5
+Ipswich,3,2026-10-23,Nott'm Forest (H),0.207,4
+Ipswich,4,2026-10-31,Hull (A),0.092,5
+Ipswich,5,2026-11-07,Bournemouth (H),0.181,5
+Ipswich,6,2026-11-21,Tottenham (A),0.172,5
+Leeds,1,2026-10-10,Arsenal (A),0.127,5
+Leeds,2,2026-10-18,Man United (H),0.383,3
+Leeds,3,2026-10-25,Sunderland (A),0.355,3
+Leeds,4,2026-10-31,Bournemouth (A),0.296,4
+Leeds,5,2026-11-07,Tottenham (H),0.495,3
+Leeds,6,2026-11-21,Chelsea (A),0.287,4
+Liverpool,1,2026-10-11,Man City (H),0.312,4
+Liverpool,2,2026-10-17,Brentford (A),0.397,3
+Liverpool,3,2026-10-24,Brighton (H),0.49,3
+Liverpool,4,2026-11-01,Arsenal (H),0.266,4
+Liverpool,5,2026-11-07,Crystal Palace (A),0.493,3
+Liverpool,6,2026-11-21,Man United (H),0.511,2
+Man City,1,2026-10-11,Liverpool (A),0.425,3
+Man City,2,2026-10-17,Ipswich (H),0.873,1
+Man City,3,2026-10-24,Aston Villa (A),0.528,2
+Man City,4,2026-10-31,Brighton (H),0.601,2
+Man City,5,2026-11-07,Nott'm Forest (A),0.54,2
+Man City,6,2026-11-21,Fulham (H),0.674,1
+Man United,1,2026-10-10,Tottenham (H),0.547,2
+Man United,2,2026-10-18,Leeds (A),0.334,4
+Man United,3,2026-10-25,Bournemouth (H),0.441,3
+Man United,4,2026-10-31,Chelsea (A),0.321,4
+Man United,5,2026-11-07,Aston Villa (H),0.449,3
+Man United,6,2026-11-21,Liverpool (A),0.245,4
+Newcastle,1,2026-10-12,Coventry (A),0.741,1
+Newcastle,2,2026-10-17,Aston Villa (H),0.443,3
+Newcastle,3,2026-10-25,Crystal Palace (A),0.405,3
+Newcastle,4,2026-11-02,Everton (H),0.446,3
+Newcastle,5,2026-11-07,Fulham (A),0.375,3
+Newcastle,6,2026-11-21,Arsenal (H),0.2,5
+Nott'm Forest,1,2026-10-11,Crystal Palace (A),0.347,4
+Nott'm Forest,2,2026-10-18,Arsenal (H),0.173,5
+Nott'm Forest,3,2026-10-23,Ipswich (A),0.542,2
+Nott'm Forest,4,2026-10-31,Brentford (A),0.265,4
+Nott'm Forest,5,2026-11-07,Man City (H),0.2,4
+Nott'm Forest,6,2026-11-21,Bournemouth (A),0.275,4
+Sunderland,1,2026-10-10,Brighton (H),0.301,4
+Sunderland,2,2026-10-18,Bournemouth (A),0.24,4
+Sunderland,3,2026-10-25,Leeds (H),0.333,4
+Sunderland,4,2026-10-31,Coventry (A),0.621,2
+Sunderland,5,2026-11-07,Chelsea (H),0.324,4
+Sunderland,6,2026-11-21,Aston Villa (A),0.246,4
+Tottenham,1,2026-10-10,Man United (A),0.213,4
+Tottenham,2,2026-10-19,Coventry (H),0.723,1
+Tottenham,3,2026-10-24,Chelsea (A),0.215,4
+Tottenham,4,2026-10-31,Crystal Palace (H),0.402,3
+Tottenham,5,2026-11-07,Leeds (A),0.234,4
+Tottenham,6,2026-11-21,Ipswich (H),0.611,2
