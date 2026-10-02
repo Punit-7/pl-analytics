@@ -1,0 +1,31 @@
+{
+  "ece": {
+    "p_logistic": 0.010793307802547912,
+    "p_lightgbm": 0.008625083503206989,
+    "p_reference_statsbomb": 0.010362975103922326
+  },
+  "lightgbm_log_loss_by_competition": {
+    "2": 0.29128687326647384,
+    "7": 0.25688157188447097,
+    "9": 0.3023807237583567,
+    "11": 0.26452521931569467,
+    "12": 0.23565888746425284
+  },
+  "shap_mean_abs_top15": {
+    "distance": 0.5538,
+    "angle": 0.4437,
+    "body_part_Head": 0.1939,
+    "technique_Normal": 0.1101,
+    "play_pattern_From Corner": 0.0743,
+    "shot_type_Open Play": 0.0528,
+    "under_pressure": 0.0375,
+    "technique_Half Volley": 0.0359,
+    "play_pattern_From Counter": 0.0336,
+    "body_part_Right Foot": 0.033,
+    "first_time": 0.0249,
+    "technique_Lob": 0.0194,
+    "shot_type_Free Kick": 0.0188,
+    "play_pattern_Regular Play": 0.0143,
+    "play_pattern_From Free Kick": 0.012
+  }
+}
