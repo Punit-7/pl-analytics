@@ -1,8 +1,23 @@
 run_id,started_at,finished_at,status,error,fact_match_rows
-50d4a7ee,2026-09-29 11:06:29.242838,2026-09-29 11:06:54.730817,success,,12754
-c6b7e642,2026-09-29 11:11:55.172225,2026-09-29 11:12:11.210671,failed,"RuntimeError: Tests failed (1 failed, 20 passed in 1.67s); nothing published",12754
-399e3ba5,2026-09-29 11:12:30.869055,2026-09-29 11:12:47.309071,success,,12754
-ab003880,2026-09-30 21:32:35.126957,2026-09-30 21:32:58.294929,success,,12754
-aecbd05e,2026-09-30 23:00:33.147059,2026-09-30 23:01:36.949885,failed,"RuntimeError: Tests failed (1 failed, 23 passed in 1.89s); nothing published",12754
-f03d9da0,2026-09-30 23:14:11.790533,2026-09-30 23:14:57.533482,failed,"RuntimeError: Tests failed (1 failed, 23 passed in 1.57s); nothing published",12754
-62c93c42,2026-09-30 23:16:49.382618,2026-09-30 23:17:35.867336,success,,12754
+50d4a7ee,2026-09-29 11:06:29.242838,2026-09-29 11:06:54.730817,success,,12754.0
+c6b7e642,2026-09-29 11:11:55.172225,2026-09-29 11:12:11.210671,failed,"RuntimeError: Tests failed (1 failed, 20 passed in 1.67s); nothing published",12754.0
+399e3ba5,2026-09-29 11:12:30.869055,2026-09-29 11:12:47.309071,success,,12754.0
+ab003880,2026-09-30 21:32:35.126957,2026-09-30 21:32:58.294929,success,,12754.0
+aecbd05e,2026-09-30 23:00:33.147059,2026-09-30 23:01:36.949885,failed,"RuntimeError: Tests failed (1 failed, 23 passed in 1.89s); nothing published",12754.0
+f03d9da0,2026-09-30 23:14:11.790533,2026-09-30 23:14:57.533482,failed,"RuntimeError: Tests failed (1 failed, 23 passed in 1.57s); nothing published",12754.0
+62c93c42,2026-09-30 23:16:49.382618,2026-09-30 23:17:35.867336,success,,12754.0
+56d6df58,2026-10-02 08:24:41.203063,2026-10-02 08:26:14.421622,failed,"ProgrammingError: (psycopg.errors.UndefinedTable) relation ""staging.raw_fixtures"" does not exist
+LINE 9: FROM staging.raw_fixtures
+             ^
+[SQL: 
+
+CREATE TABLE staging.fixture AS
+SELECT season,
+       CAST(match_date AS DATE) AS match_date,
+       home_team,
+       away_team,
+       is_result AS is_played
+FROM staging.raw_fixtures]
+(Background on this error at: https://sqlalche.me/e/21/f405)",
+7b7889c6,2026-10-02 08:27:50.005085,2026-10-02 08:28:46.788521,success,,12754.0
+f517b726,2026-10-02 08:29:17.527519,2026-10-02 08:30:06.921163,success,,12754.0

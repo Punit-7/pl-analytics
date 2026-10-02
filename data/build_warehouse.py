@@ -43,6 +43,7 @@ ODDS = {
 RENAME = {**RENAME, **ODDS}
 
 TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season","fact_match_odds"]
+EXTRA = ["sb_shot", "fixture"]  # counted, not exported to CSV
 
 SB_COLS = ["event_id", "match_id", "competition_id", "period", "minute", "team", "player",
            "x", "y", "under_pressure", "shot_first_time", "play_pattern", "shot_type",
@@ -222,7 +223,17 @@ FROM {st}.raw_sb_shots;
 
 ALTER TABLE {st}.sb_shot ADD PRIMARY KEY (event_id);
 
-DROP TABLE {st}.raw_matches, {st}.raw_xg, {st}.raw_sb_shots;
+CREATE TABLE {st}.fixture AS
+SELECT season,
+       CAST(match_date AS DATE) AS match_date,
+       home_team,
+       away_team,
+       is_result AS is_played
+FROM {st}.raw_fixtures;
+
+ALTER TABLE {st}.fixture ADD PRIMARY KEY (season, home_team, away_team);
+
+DROP TABLE {st}.raw_matches, {st}.raw_xg, {st}.raw_sb_shots, {st}.raw_fixtures;
 """
 
 
@@ -231,6 +242,7 @@ def build(s: Settings, engine: Engine) -> dict:
     st = s.staging_schema
     matches, xg = load_matches(s), load_xg(s)
     shots = load_sb_shots(s)
+    fixtures = load_fixtures(s)
     
     with engine.begin() as conn:  # one transaction
         conn.execute(text(f"DROP SCHEMA IF EXISTS {st} CASCADE"))
@@ -239,11 +251,14 @@ def build(s: Settings, engine: Engine) -> dict:
         xg.to_sql("raw_xg", conn, schema=st, index=False, method="multi", chunksize=1000)
         shots.to_sql("raw_sb_shots", conn, schema=st, index=False,
                      method="multi", chunksize=1000)
+        fixtures.to_sql("raw_fixtures", conn, schema=st, index=False,
+                        method="multi", chunksize=1000)
         for statement in build_sql(st).split(";"):
             if statement.strip():
                 conn.execute(text(statement))
         counts = {
-            t: conn.execute(text(f"SELECT COUNT(*) FROM {st}.{t}")).scalar_one() for t in TABLES
+            t: conn.execute(text(f"SELECT COUNT(*) FROM {st}.{t}")).scalar_one()
+            for t in TABLES + EXTRA
         }
     for t, n in counts.items():
         log.info("%s.%s: %s rows", st, t, f"{n:,}")
@@ -294,6 +309,21 @@ def load_sb_shots(s: Settings) -> pd.DataFrame:
     log.info("Loaded %d StatsBomb shots from %d matches", len(shots), len(files))
     return shots[SB_COLS]
 
+def load_fixtures(s: Settings) -> pd.DataFrame:
+    path = s.raw / "understat" / "schedule.csv"
+    cols = ["season", "match_date", "home_team", "away_team", "is_result"]
+    if not s.understat_enabled or not path.exists():
+        log.warning("No Understat schedule; fixture will be empty")
+        return pd.DataFrame(columns=cols).astype({"is_result": bool})
+    u = pd.read_csv(path)
+    lookup = name_lookup(s, "understat")
+    for c in ("home_team", "away_team"):
+        u[c] = u[c].map(lookup).fillna(u[c])
+    code = u["season"].astype(str).str.zfill(4)            # '2627'
+    u["season"] = "20" + code.str[:2] + "/" + code.str[2:]  # '2026/27'
+    u["match_date"] = pd.to_datetime(u["date"]).dt.normalize()
+    u["is_result"] = u["is_result"].eq(True)
+    return u[cols]
 if __name__ == "__main__":
     from data.common.config import load_settings
     from data.common.db import make_engine

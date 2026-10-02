@@ -173,3 +173,20 @@ def test_sb_shots_valid(con):
         WHERE x NOT BETWEEN -1 AND 121 OR y NOT BETWEEN -1 AND 81
            OR statsbomb_xg NOT BETWEEN 0 AND 1 OR outcome IS NULL""")
     assert bad == [], f"invalid shots: {bad[:5]}"
+    
+def test_current_season_has_380_fixtures(con):
+    if not S.understat_enabled:
+        pytest.skip("Understat disabled")
+    n = rows(con, f"SELECT COUNT(*) FROM {SCHEMA}.fixture WHERE season = '{CURRENT}'")[0][0]
+    assert n == 380
+
+
+def test_played_matches_have_fixtures(con):
+    if not S.understat_enabled:
+        pytest.skip("Understat disabled")
+    missing = rows(con, f"""
+        SELECT f.home_team, f.away_team FROM {FM} f
+        LEFT JOIN {SCHEMA}.fixture x
+          ON x.season = f.season AND x.home_team = f.home_team AND x.away_team = f.away_team
+        WHERE f.season = '{CURRENT}' AND x.season IS NULL""")
+    assert missing == [], f"fixture names not mapped: {missing[:5]}"
