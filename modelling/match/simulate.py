@@ -1,7 +1,7 @@
 """Simulate the rest of the season: title, top-four and relegation probabilities."""
 
 import logging
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 
 import numpy as np
 import pandas as pd
@@ -86,7 +86,7 @@ def main() -> None:
     season, result = run(s, make_engine(), date.today())
     out_dir = ROOT / "modelling" / "predictions" / season.replace("/", "-")
     out_dir.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     result.to_csv(out_dir / f"{stamp}_season_sim.csv", index=False)
     print(result.round(3).to_string(index=False))
 

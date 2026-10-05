@@ -1,7 +1,7 @@
 """Publish predictions for the coming week's matches and a fresh season simulation."""
 
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pandas as pd
 from sqlalchemy import text
@@ -43,7 +43,7 @@ def main() -> None:
     setup_logging(s.logs)
     m = s.modelling
     engine = make_engine()
-    now = datetime.now(timezone.utc).replace(tzinfo=None)
+    now = datetime.now(UTC).replace(tzinfo=None)
     today = pd.Timestamp(now.date())
     stamp = now.strftime("%Y%m%dT%H%M%SZ")
     season = season_label(current_season_start(start_month=s.season_start_month))
