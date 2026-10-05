@@ -4,13 +4,20 @@ from modelling.xg.features import BANNED, add_geometry, build_matrix
 
 
 def fake_shots() -> pd.DataFrame:
-    return pd.DataFrame({
-        "x": [108.0, 108.0], "y": [40.0, 30.0],
-        "under_pressure": [True, False], "first_time": [False, True],
-        "body_part": ["Right Foot", "Head"], "shot_type": ["Open Play", "Open Play"],
-        "play_pattern": ["Regular Play", "From Corner"], "technique": ["Normal", "Normal"],
-        "outcome": ["Goal", "Saved"], "statsbomb_xg": [0.3, 0.05],
-    })
+    return pd.DataFrame(
+        {
+            "x": [108.0, 108.0],
+            "y": [40.0, 30.0],
+            "under_pressure": [True, False],
+            "first_time": [False, True],
+            "body_part": ["Right Foot", "Head"],
+            "shot_type": ["Open Play", "Open Play"],
+            "play_pattern": ["Regular Play", "From Corner"],
+            "technique": ["Normal", "Normal"],
+            "outcome": ["Goal", "Saved"],
+            "statsbomb_xg": [0.3, 0.05],
+        }
+    )
 
 
 def test_no_banned_columns_in_features():

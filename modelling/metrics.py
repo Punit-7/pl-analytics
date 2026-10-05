@@ -7,9 +7,14 @@ EPS = 1e-6
 def binary_report(y, p) -> dict:
     y = np.asarray(y)
     p = np.clip(np.asarray(p, dtype=float), EPS, 1 - EPS)
-    return {"n": int(len(y)), "log_loss": float(log_loss(y, p)),
-            "brier": float(brier_score_loss(y, p)), "auc": float(roc_auc_score(y, p)),
-            "goals": int(y.sum()), "xg_sum": float(p.sum())}
+    return {
+        "n": int(len(y)),
+        "log_loss": float(log_loss(y, p)),
+        "brier": float(brier_score_loss(y, p)),
+        "auc": float(roc_auc_score(y, p)),
+        "goals": int(y.sum()),
+        "xg_sum": float(p.sum()),
+    }
 
 
 def expected_calibration_error(y, p, n_bins: int = 10) -> float:

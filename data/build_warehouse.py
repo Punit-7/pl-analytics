@@ -35,19 +35,41 @@ RENAME = {
 }
 
 ODDS = {
-    "AvgH": "avg_home_odds", "AvgD": "avg_draw_odds", "AvgA": "avg_away_odds",
-    "AvgCH": "avg_close_home_odds", "AvgCD": "avg_close_draw_odds", "AvgCA": "avg_close_away_odds",
-    "B365CH": "b365_close_home_odds", "B365CD": "b365_close_draw_odds", "B365CA": "b365_close_away_odds",
+    "AvgH": "avg_home_odds",
+    "AvgD": "avg_draw_odds",
+    "AvgA": "avg_away_odds",
+    "AvgCH": "avg_close_home_odds",
+    "AvgCD": "avg_close_draw_odds",
+    "AvgCA": "avg_close_away_odds",
+    "B365CH": "b365_close_home_odds",
+    "B365CD": "b365_close_draw_odds",
+    "B365CA": "b365_close_away_odds",
 }
 
 RENAME = {**RENAME, **ODDS}
 
-TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season","fact_match_odds"]
+TABLES = ["fact_match", "fact_team_match", "dim_team", "dim_season", "fact_match_odds"]
 EXTRA = ["sb_shot", "fixture"]  # counted, not exported to CSV
 
-SB_COLS = ["event_id", "match_id", "competition_id", "period", "minute", "team", "player",
-           "x", "y", "under_pressure", "shot_first_time", "play_pattern", "shot_type",
-           "shot_body_part", "shot_technique", "shot_outcome", "shot_statsbomb_xg"]
+SB_COLS = [
+    "event_id",
+    "match_id",
+    "competition_id",
+    "period",
+    "minute",
+    "team",
+    "player",
+    "x",
+    "y",
+    "under_pressure",
+    "shot_first_time",
+    "play_pattern",
+    "shot_type",
+    "shot_body_part",
+    "shot_technique",
+    "shot_outcome",
+    "shot_statsbomb_xg",
+]
 
 
 def name_lookup(s: Settings, source: str) -> dict:
@@ -243,16 +265,16 @@ def build(s: Settings, engine: Engine) -> dict:
     matches, xg = load_matches(s), load_xg(s)
     shots = load_sb_shots(s)
     fixtures = load_fixtures(s)
-    
+
     with engine.begin() as conn:  # one transaction
         conn.execute(text(f"DROP SCHEMA IF EXISTS {st} CASCADE"))
         conn.execute(text(f"CREATE SCHEMA {st}"))
         matches.to_sql("raw_matches", conn, schema=st, index=False, method="multi", chunksize=1000)
         xg.to_sql("raw_xg", conn, schema=st, index=False, method="multi", chunksize=1000)
-        shots.to_sql("raw_sb_shots", conn, schema=st, index=False,
-                     method="multi", chunksize=1000)
-        fixtures.to_sql("raw_fixtures", conn, schema=st, index=False,
-                        method="multi", chunksize=1000)
+        shots.to_sql("raw_sb_shots", conn, schema=st, index=False, method="multi", chunksize=1000)
+        fixtures.to_sql(
+            "raw_fixtures", conn, schema=st, index=False, method="multi", chunksize=1000
+        )
         for statement in build_sql(st).split(";"):
             if statement.strip():
                 conn.execute(text(statement))
@@ -294,13 +316,15 @@ def export_marts(s: Settings, engine: Engine) -> None:
     for t in TABLES:
         export_table(s, engine, s.mart_schema, t)
 
+
 def load_sb_shots(s: Settings) -> pd.DataFrame:
     folder = s.raw / "statsbomb"
     files = sorted((folder / "shots").glob("*.csv"))
     if not files or not (folder / "matches.csv").exists():
         log.warning("No StatsBomb shots on disk; sb_shot will be empty")
         return pd.DataFrame(columns=SB_COLS).astype(
-            {"under_pressure": bool, "shot_first_time": bool})
+            {"under_pressure": bool, "shot_first_time": bool}
+        )
     shots = pd.concat((pd.read_csv(f) for f in files), ignore_index=True)
     meta = pd.read_csv(folder / "matches.csv")[["match_id", "competition_id"]]
     shots = shots.merge(meta, on="match_id", how="left").rename(columns={"id": "event_id"})
@@ -308,6 +332,7 @@ def load_sb_shots(s: Settings) -> pd.DataFrame:
         shots[c] = shots[c].eq(True)  # empty cells mean False
     log.info("Loaded %d StatsBomb shots from %d matches", len(shots), len(files))
     return shots[SB_COLS]
+
 
 def load_fixtures(s: Settings) -> pd.DataFrame:
     path = s.raw / "understat" / "schedule.csv"
@@ -319,11 +344,13 @@ def load_fixtures(s: Settings) -> pd.DataFrame:
     lookup = name_lookup(s, "understat")
     for c in ("home_team", "away_team"):
         u[c] = u[c].map(lookup).fillna(u[c])
-    code = u["season"].astype(str).str.zfill(4)            # '2627'
+    code = u["season"].astype(str).str.zfill(4)  # '2627'
     u["season"] = "20" + code.str[:2] + "/" + code.str[2:]  # '2026/27'
     u["match_date"] = pd.to_datetime(u["date"]).dt.normalize()
     u["is_result"] = u["is_result"].eq(True)
     return u[cols]
+
+
 if __name__ == "__main__":
     from data.common.config import load_settings
     from data.common.db import make_engine

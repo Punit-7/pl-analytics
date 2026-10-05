@@ -9,9 +9,24 @@ from data.common.io_utils import write_atomic
 
 log = logging.getLogger(__name__)
 
-SHOT_COLS = ["match_id", "id", "period", "minute", "second", "team", "player",
-             "location", "under_pressure", "play_pattern", "shot_type", "shot_body_part",
-             "shot_technique", "shot_first_time", "shot_outcome", "shot_statsbomb_xg"]
+SHOT_COLS = [
+    "match_id",
+    "id",
+    "period",
+    "minute",
+    "second",
+    "team",
+    "player",
+    "location",
+    "under_pressure",
+    "play_pattern",
+    "shot_type",
+    "shot_body_part",
+    "shot_technique",
+    "shot_first_time",
+    "shot_outcome",
+    "shot_statsbomb_xg",
+]
 
 
 def shots_for_match(match_id: int) -> pd.DataFrame:
@@ -36,8 +51,9 @@ def run(s: Settings) -> dict:
             matches = sb.matches(competition_id=comp_id, season_id=season_id)
         log.info("Competition %s season %s: %d matches", comp_id, season_id, len(matches))
         matches["competition_id"] = comp_id
-        metas.append(matches[["match_id", "competition_id", "match_date",
-                              "home_team", "away_team"]])
+        metas.append(
+            matches[["match_id", "competition_id", "match_date", "home_team", "away_team"]]
+        )
         for match_id in matches["match_id"]:
             path = shot_dir / f"{match_id}.csv"
             if path.exists():

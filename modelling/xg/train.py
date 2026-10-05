@@ -1,4 +1,5 @@
 """Train the xG models: two baselines, logistic regression and LightGBM."""
+
 import json
 import logging
 
@@ -59,30 +60,53 @@ def main() -> None:
     preds["logistic"] = logit.predict_proba(X_te)[:, 1]
     # Model 2: LightGBM with early stopping on a validation split of the training data.
     inner_tr, inner_va = group_split(train, 0.2, seed + 1)
-    gbm = lgb.LGBMClassifier(n_estimators=2000, learning_rate=0.03, num_leaves=15,
-                             min_child_samples=100, subsample=0.8, subsample_freq=1,
-                             colsample_bytree=0.8, reg_lambda=1.0,
-                             random_state=seed, verbose=-1)
-    gbm.fit(X_tr.loc[inner_tr.index], inner_tr["is_goal"],
-            eval_set=[(X_tr.loc[inner_va.index], inner_va["is_goal"])],
-            eval_metric="binary_logloss",
-            callbacks=[lgb.early_stopping(100, verbose=False)])
+    gbm = lgb.LGBMClassifier(
+        n_estimators=2000,
+        learning_rate=0.03,
+        num_leaves=15,
+        min_child_samples=100,
+        subsample=0.8,
+        subsample_freq=1,
+        colsample_bytree=0.8,
+        reg_lambda=1.0,
+        random_state=seed,
+        verbose=-1,
+    )
+    gbm.fit(
+        X_tr.loc[inner_tr.index],
+        inner_tr["is_goal"],
+        eval_set=[(X_tr.loc[inner_va.index], inner_va["is_goal"])],
+        eval_metric="binary_logloss",
+        callbacks=[lgb.early_stopping(100, verbose=False)],
+    )
     preds["lightgbm"] = gbm.predict_proba(X_te)[:, 1]
     # Reference only, never a feature: StatsBomb's own xG.
     preds["reference_statsbomb"] = test["statsbomb_xg"].to_numpy()
 
     report = {name: binary_report(y_te, p) for name, p in preds.items()}
     for name, r in report.items():
-        log.info("%-20s log_loss %.4f  brier %.4f  auc %.3f  xG %.0f vs goals %d",
-                 name, r["log_loss"], r["brier"], r["auc"], r["xg_sum"], r["goals"])
+        log.info(
+            "%-20s log_loss %.4f  brier %.4f  auc %.3f  xG %.0f vs goals %d",
+            name,
+            r["log_loss"],
+            r["brier"],
+            r["auc"],
+            r["xg_sum"],
+            r["goals"],
+        )
     log.info("LightGBM stopped at %d trees", gbm.best_iteration_)
 
     joblib.dump(logit, ART / "xg_logistic.joblib")
     joblib.dump(gbm, ART / "xg_lightgbm.joblib")
     X_te.to_csv(ART / "xg_X_test.csv", index=False)
-    out = pd.DataFrame({"match_id": test["match_id"].to_numpy(),
-                        "competition_id": test["competition_id"].to_numpy(),
-                        "y": y_te, **{f"p_{k}": v for k, v in preds.items()}})
+    out = pd.DataFrame(
+        {
+            "match_id": test["match_id"].to_numpy(),
+            "competition_id": test["competition_id"].to_numpy(),
+            "y": y_te,
+            **{f"p_{k}": v for k, v in preds.items()},
+        }
+    )
     out.to_csv(REP / "xg_test_predictions.csv", index=False)
     (REP / "xg_metrics.json").write_text(json.dumps(report, indent=2))
 

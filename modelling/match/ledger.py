@@ -1,4 +1,5 @@
 """Score published predictions against results. Only each match's first prediction counts."""
+
 import logging
 
 import pandas as pd
@@ -21,6 +22,7 @@ WITH first_pred AS (
 )
 SELECT p.prediction_id, p.created_at, p.model_version, p.season, p.match_date,
        p.home_team, p.away_team, p.p_home, p.p_draw, p.p_away,
+       p.most_likely_score, p.predicted_result,
        m.home_goals, m.away_goals,
        o.avg_close_home_odds, o.avg_close_draw_odds, o.avg_close_away_odds
 FROM first_pred p
@@ -45,6 +47,8 @@ def main() -> None:
     has_odds = df[ODDS].notna().all(axis=1).to_numpy()
     book, _ = implied_probs(df.loc[has_odds, ODDS].to_numpy())
     df.loc[has_odds, "book_rps"] = rps(book, y[has_odds])
+    picks = pd.Series(y).map({0: "home", 1: "draw", 2: "away"}).to_numpy()
+    df["pick_correct"] = df["predicted_result"].to_numpy() == picks
     df["cumulative_model_rps"] = df["model_rps"].expanding().mean()
 
     with engine.begin() as conn:
@@ -54,10 +58,16 @@ def main() -> None:
     out = ROOT / "modelling" / "ledger" / f"ledger_{season_dir}.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(out, index=False)
+    log.info("Headline picks correct: %.0f%%", 100 * df["pick_correct"].mean())
     both = df[has_odds]
-    log.info("%d scored | model RPS %.4f | on %d matches with odds: model %.4f vs odds %.4f",
-             len(df), df["model_rps"].mean(), len(both),
-             both["model_rps"].mean(), both["book_rps"].mean())
+    log.info(
+        "%d scored | model RPS %.4f | on %d matches with odds: model %.4f vs odds %.4f",
+        len(df),
+        df["model_rps"].mean(),
+        len(both),
+        both["model_rps"].mean(),
+        both["book_rps"].mean(),
+    )
 
 
 if __name__ == "__main__":

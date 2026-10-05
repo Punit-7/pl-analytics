@@ -1,4 +1,5 @@
 """Dixon-Coles match model, written from scratch."""
+
 from __future__ import annotations
 
 import logging
@@ -67,8 +68,14 @@ class DixonColes:
         return float(np.tril(m, -1).sum()), float(np.trace(m)), float(np.triu(m, 1).sum())
 
 
-def fit_dixon_coles(matches: pd.DataFrame, as_of, xi: float, history_days: int | None = None,
-                    max_goals: int = 10, fit_rho: bool = True) -> DixonColes:
+def fit_dixon_coles(
+    matches: pd.DataFrame,
+    as_of,
+    xi: float,
+    history_days: int | None = None,
+    max_goals: int = 10,
+    fit_rho: bool = True,
+) -> DixonColes:
     """Fit on matches strictly before `as_of`. Columns: home_team, away_team,
     home_goals, away_goals, match_date."""
     as_of = pd.Timestamp(as_of)
@@ -91,7 +98,7 @@ def fit_dixon_coles(matches: pd.DataFrame, as_of, xi: float, history_days: int |
 
     def unpack(p):
         attack = p[:n] - p[:n].mean()  # identifiability: attack ratings average zero
-        return attack, p[n:2 * n], p[2 * n], p[2 * n + 1]
+        return attack, p[n : 2 * n], p[2 * n], p[2 * n + 1]
 
     def neg_log_lik(p):
         attack, defence, home, rho = unpack(p)
@@ -106,6 +113,8 @@ def fit_dixon_coles(matches: pd.DataFrame, as_of, xi: float, history_days: int |
     bounds = [(None, None)] * (2 * n + 1) + [rho_bounds]
     res = minimize(neg_log_lik, p0, method="L-BFGS-B", bounds=bounds)
     if not res.success:
-        log.warning("Dixon-Coles fit as of %s did not fully converge: %s", as_of.date(), res.message)
+        log.warning(
+            "Dixon-Coles fit as of %s did not fully converge: %s", as_of.date(), res.message
+        )
     attack, defence, home, rho = unpack(res.x)
     return DixonColes(teams, attack, defence, float(home), float(rho), max_goals)

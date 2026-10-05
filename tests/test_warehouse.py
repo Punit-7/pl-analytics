@@ -149,6 +149,7 @@ def test_match_dates_inside_season(con):
     )
     assert bad == [], f"dates outside their season: {bad[:5]}"
 
+
 def test_odds_one_row_per_match(con):
     n_match = rows(con, f"SELECT COUNT(*) FROM {FM}")[0][0]
     n_odds = rows(con, f"SELECT COUNT(*) FROM {SCHEMA}.fact_match_odds")[0][0]
@@ -156,24 +157,32 @@ def test_odds_one_row_per_match(con):
 
 
 def test_closing_overround_plausible(con):
-    bad = rows(con, f"""
+    bad = rows(
+        con,
+        f"""
         SELECT match_id FROM {SCHEMA}.fact_match_odds
         WHERE avg_close_home_odds IS NOT NULL
           AND 1 / avg_close_home_odds + 1 / avg_close_draw_odds + 1 / avg_close_away_odds
-              NOT BETWEEN 0.98 AND 1.15""")
+              NOT BETWEEN 0.98 AND 1.15""",
+    )
     assert bad == [], f"implausible overround: {bad[:5]}"
-    
+
+
 def test_sb_shots_valid(con):
     n = rows(con, f"SELECT COUNT(*) FROM {SCHEMA}.sb_shot")[0][0]
     if n == 0:
         pytest.skip("StatsBomb shots not downloaded")
     # Direct corner shots are logged just past the line (x = 120.2), so allow 1 unit of slack.
-    bad = rows(con, f"""
+    bad = rows(
+        con,
+        f"""
         SELECT event_id FROM {SCHEMA}.sb_shot
         WHERE x NOT BETWEEN -1 AND 121 OR y NOT BETWEEN -1 AND 81
-           OR statsbomb_xg NOT BETWEEN 0 AND 1 OR outcome IS NULL""")
+           OR statsbomb_xg NOT BETWEEN 0 AND 1 OR outcome IS NULL""",
+    )
     assert bad == [], f"invalid shots: {bad[:5]}"
-    
+
+
 def test_current_season_has_380_fixtures(con):
     if not S.understat_enabled:
         pytest.skip("Understat disabled")
@@ -184,9 +193,12 @@ def test_current_season_has_380_fixtures(con):
 def test_played_matches_have_fixtures(con):
     if not S.understat_enabled:
         pytest.skip("Understat disabled")
-    missing = rows(con, f"""
+    missing = rows(
+        con,
+        f"""
         SELECT f.home_team, f.away_team FROM {FM} f
         LEFT JOIN {SCHEMA}.fixture x
           ON x.season = f.season AND x.home_team = f.home_team AND x.away_team = f.away_team
-        WHERE f.season = '{CURRENT}' AND x.season IS NULL""")
+        WHERE f.season = '{CURRENT}' AND x.season IS NULL""",
+    )
     assert missing == [], f"fixture names not mapped: {missing[:5]}"

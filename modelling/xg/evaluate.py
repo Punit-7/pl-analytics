@@ -1,4 +1,5 @@
 """Calibration plots and SHAP explanations for the xG models."""
+
 import json
 import logging
 
@@ -21,8 +22,11 @@ log = logging.getLogger("modelling.xg.evaluate")
 ART = ROOT / "modelling" / "artifacts"
 REP = ROOT / "modelling" / "reports"
 FIG = REP / "figures"
-MODELS = {"p_logistic": "Logistic regression", "p_lightgbm": "LightGBM",
-          "p_reference_statsbomb": "StatsBomb xG (reference)"}
+MODELS = {
+    "p_logistic": "Logistic regression",
+    "p_lightgbm": "LightGBM",
+    "p_reference_statsbomb": "StatsBomb xG (reference)",
+}
 
 
 def reliability_plot(df: pd.DataFrame) -> None:
@@ -49,7 +53,8 @@ def main() -> None:
     ece = {col: expected_calibration_error(df["y"], df[col]) for col in MODELS}
     by_competition = {
         int(c): float(log_loss(g["y"], g["p_lightgbm"].clip(1e-6, 1 - 1e-6), labels=[0, 1]))
-        for c, g in df.groupby("competition_id")}
+        for c, g in df.groupby("competition_id")
+    }
 
     gbm = joblib.load(ART / "xg_lightgbm.joblib")
     X_te = pd.read_csv(ART / "xg_X_test.csv")
@@ -63,11 +68,15 @@ def main() -> None:
     shap.dependence_plot("distance", values, sample, show=False)
     plt.savefig(FIG / "xg_shap_distance.png", dpi=150, bbox_inches="tight")
     plt.close()
-    importance = (pd.Series(np.abs(values).mean(axis=0), index=sample.columns)
-                  .sort_values(ascending=False))
+    importance = pd.Series(np.abs(values).mean(axis=0), index=sample.columns).sort_values(
+        ascending=False
+    )
 
-    result = {"ece": ece, "lightgbm_log_loss_by_competition": by_competition,
-              "shap_mean_abs_top15": importance.head(15).round(4).to_dict()}
+    result = {
+        "ece": ece,
+        "lightgbm_log_loss_by_competition": by_competition,
+        "shap_mean_abs_top15": importance.head(15).round(4).to_dict(),
+    }
     (REP / "xg_evaluation.json").write_text(json.dumps(result, indent=2))
     for col, value in ece.items():
         log.info("ECE %-24s %.4f", MODELS[col], value)

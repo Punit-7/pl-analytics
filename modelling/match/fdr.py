@@ -1,4 +1,5 @@
 """FPL add-on: fixture difficulty (1 easiest - 5 hardest) for each team's next fixtures."""
+
 import logging
 from datetime import date
 
@@ -37,8 +38,9 @@ def main() -> None:
     engine = make_engine()
     season = season_label(current_season_start(start_month=s.season_start_month))
     results = load_results(engine)
-    model = fit_dixon_coles(results, date.today(), m["dc_xi"], m["dc_history_days"],
-                            m["dc_max_goals"])
+    model = fit_dixon_coles(
+        results, date.today(), m["dc_xi"], m["dc_history_days"], m["dc_max_goals"]
+    )
     remaining = remaining_fixtures(load_fixtures(engine, season), results, season)
     remaining = remaining.sort_values("match_date")
 
@@ -51,9 +53,16 @@ def main() -> None:
             p_home, _, p_away = model.outcome_probs(g.home_team, g.away_team)
             p_win = p_home if at_home else p_away
             opponent = g.away_team if at_home else g.home_team
-            rows.append({"team": team, "n": n, "match_date": g.match_date.date(),
-                         "opponent": f"{opponent} ({'H' if at_home else 'A'})",
-                         "p_win": round(p_win, 3), "fdr": difficulty(p_win)})
+            rows.append(
+                {
+                    "team": team,
+                    "n": n,
+                    "match_date": g.match_date.date(),
+                    "opponent": f"{opponent} ({'H' if at_home else 'A'})",
+                    "p_win": round(p_win, 3),
+                    "fdr": difficulty(p_win),
+                }
+            )
     df = pd.DataFrame(rows)
     grid = df.pivot(index="team", columns="n", values="fdr")
     labels = df.pivot(index="team", columns="n", values="opponent")

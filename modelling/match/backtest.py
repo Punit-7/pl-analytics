@@ -1,4 +1,5 @@
 """Walk-forward backtest: every week, refit on past matches only and predict that week."""
+
 import argparse
 import json
 import logging
@@ -32,8 +33,10 @@ def freq_probs(train: pd.DataFrame) -> np.ndarray:
 
 def eqpois_probs(train: pd.DataFrame, max_goals: int) -> np.ndarray:
     goals = np.arange(max_goals + 1)
-    m = np.outer(poisson.pmf(goals, train["home_goals"].mean()),
-                 poisson.pmf(goals, train["away_goals"].mean()))
+    m = np.outer(
+        poisson.pmf(goals, train["home_goals"].mean()),
+        poisson.pmf(goals, train["away_goals"].mean()),
+    )
     m /= m.sum()
     return np.array([np.tril(m, -1).sum(), np.trace(m), np.triu(m, 1).sum()])
 
@@ -59,16 +62,24 @@ def main(argv=None) -> None:
         window = pd.Timedelta(days=m["dc_history_days"])
         train = results[(results["match_date"] < week) & (results["match_date"] >= week - window)]
         dc = fit_dixon_coles(results, week, m["dc_xi"], m["dc_history_days"], m["dc_max_goals"])
-        pois = fit_dixon_coles(results, week, m["dc_xi"], m["dc_history_days"],
-                               m["dc_max_goals"], fit_rho=False)
+        pois = fit_dixon_coles(
+            results, week, m["dc_xi"], m["dc_history_days"], m["dc_max_goals"], fit_rho=False
+        )
         freq, eq = freq_probs(train), eqpois_probs(train, m["dc_max_goals"])
         for g in games.itertuples():
-            row = {"match_id": g.match_id, "season": g.season, "match_date": g.match_date.date(),
-                   "train_max_date": train["match_date"].max().date(),
-                   "outcome": int(outcome_index(g.home_goals, g.away_goals))}
-            for name, probs in (("dc", dc.outcome_probs(g.home_team, g.away_team)),
-                                ("poisson", pois.outcome_probs(g.home_team, g.away_team)),
-                                ("freq", freq), ("eqpois", eq)):
+            row = {
+                "match_id": g.match_id,
+                "season": g.season,
+                "match_date": g.match_date.date(),
+                "train_max_date": train["match_date"].max().date(),
+                "outcome": int(outcome_index(g.home_goals, g.away_goals)),
+            }
+            for name, probs in (
+                ("dc", dc.outcome_probs(g.home_team, g.away_team)),
+                ("poisson", pois.outcome_probs(g.home_team, g.away_team)),
+                ("freq", freq),
+                ("eqpois", eq),
+            ):
                 row[f"{name}_h"], row[f"{name}_d"], row[f"{name}_a"] = probs
             rows.append(row)
         log.info("week of %s: %d matches", week.date(), len(games))
@@ -78,12 +89,17 @@ def main(argv=None) -> None:
     for name in MODELS:
         p = out[[f"{name}_h", f"{name}_d", f"{name}_a"]].to_numpy()
         out[f"{name}_rps"] = rps(p, out["outcome"].to_numpy())
-        summary[name] = {"rps": float(out[f"{name}_rps"].mean()),
-                         "log_loss": multiclass_log_loss(p, out["outcome"].to_numpy())}
+        summary[name] = {
+            "rps": float(out[f"{name}_rps"].mean()),
+            "log_loss": multiclass_log_loss(p, out["outcome"].to_numpy()),
+        }
     by_season = out.groupby("season")[[f"{n}_rps" for n in MODELS]].mean().round(4)
     out.to_csv(REP / "backtest_predictions.csv", index=False)
-    (REP / "backtest_summary.json").write_text(json.dumps(
-        {"overall": summary, "rps_by_season": by_season.to_dict(orient="index")}, indent=2))
+    (REP / "backtest_summary.json").write_text(
+        json.dumps(
+            {"overall": summary, "rps_by_season": by_season.to_dict(orient="index")}, indent=2
+        )
+    )
     log.info("%d matches backtested\n%s", len(out), by_season.to_string())
     for name, r in summary.items():
         log.info("%-8s RPS %.4f  log loss %.4f", name, r["rps"], r["log_loss"])

@@ -1,4 +1,5 @@
 """Simulate the rest of the season: title, top-four and relegation probabilities."""
+
 import logging
 from datetime import date, datetime, timezone
 
@@ -22,8 +23,9 @@ def remaining_fixtures(fixtures: pd.DataFrame, results: pd.DataFrame, season: st
     return merged[merged["_merge"] == "left_only"].drop(columns="_merge")
 
 
-def simulate(model: DixonColes, table: pd.DataFrame, fixtures: pd.DataFrame,
-             n_sims: int, seed: int) -> pd.DataFrame:
+def simulate(
+    model: DixonColes, table: pd.DataFrame, fixtures: pd.DataFrame, n_sims: int, seed: int
+) -> pd.DataFrame:
     teams = sorted(set(table["team"]) | set(fixtures["home_team"]) | set(fixtures["away_team"]))
     ix = {t: i for i, t in enumerate(teams)}
     base = table.set_index("team").reindex(teams)[["pts", "gf", "ga"]].fillna(0).astype(float)
@@ -51,13 +53,19 @@ def simulate(model: DixonColes, table: pd.DataFrame, fixtures: pd.DataFrame,
     position = np.empty_like(order)
     position[np.arange(n_sims)[:, None], order] = np.arange(1, len(teams) + 1)
     n = len(teams)
-    return (pd.DataFrame({
-        "team": teams,
-        "exp_points": pts.mean(axis=0),
-        "p_title": (position == 1).mean(axis=0),
-        "p_top4": (position <= 4).mean(axis=0),
-        "p_relegation": (position >= n - 2).mean(axis=0),
-    }).sort_values("exp_points", ascending=False).reset_index(drop=True))
+    return (
+        pd.DataFrame(
+            {
+                "team": teams,
+                "exp_points": pts.mean(axis=0),
+                "p_title": (position == 1).mean(axis=0),
+                "p_top4": (position <= 4).mean(axis=0),
+                "p_relegation": (position >= n - 2).mean(axis=0),
+            }
+        )
+        .sort_values("exp_points", ascending=False)
+        .reset_index(drop=True)
+    )
 
 
 def run(s, engine, as_of: date) -> tuple[str, pd.DataFrame]:
@@ -67,8 +75,9 @@ def run(s, engine, as_of: date) -> tuple[str, pd.DataFrame]:
     model = fit_dixon_coles(results, as_of, m["dc_xi"], m["dc_history_days"], m["dc_max_goals"])
     remaining = remaining_fixtures(load_fixtures(engine, season), results, season)
     log.info("%s: %d fixtures left to simulate", season, len(remaining))
-    return season, simulate(model, current_table(engine, season), remaining,
-                            m["n_sims"], m["random_seed"])
+    return season, simulate(
+        model, current_table(engine, season), remaining, m["n_sims"], m["random_seed"]
+    )
 
 
 def main() -> None:
