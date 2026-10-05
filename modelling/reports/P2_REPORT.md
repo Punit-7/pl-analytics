@@ -60,7 +60,7 @@ international break with no fixture inside the 7-day window. The ledger starts w
 
 ## Limitations
 - The match model uses goals only: no injuries, line-ups, transfers or manager changes.
-- Promoted teams are rated on five matches, without regularisation, so their numbers
+- Coventry and Hull are rated on five matches, without regularisation, so their numbers
   above are overconfident.
 - The simulation breaks ties at random after points, goal difference and goals.
 - The xG model has one season (2015/16), no player-position features and almost no

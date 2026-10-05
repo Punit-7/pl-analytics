@@ -84,7 +84,7 @@ Lower is better. The low-score correction made no measurable difference here: pl
 | Ipswich | 29.4 | 0.0% | 0.0% | 91.5% |
 | Coventry | 15.2 | 0.0% | 0.0% | 100.0% |
 
-The promoted teams (Hull, Ipswich, Coventry) are rated on five matches only, so their numbers are overconfident; see Limits.
+Two of the promoted teams (Hull, Coventry) are rated on five matches only, so their numbers are overconfident; see Limits.
 
 Each week's predictions are written to the `predictions` schema and committed to `modelling/predictions/` at least a day before kick-off. A ledger then scores each match's first prediction against the result and the closing odds (`modelling/ledger/`).
 
