@@ -39,3 +39,22 @@ backtest_first_season = 2019 # closing odds exist from 2019/20
 n_sims = 10000
 prediction_window_days = 7
 model_version = "dc-1.0"
+
+[nlp]
+labels = ["PLAYER", "TEAM", "VENUE"]
+# Wikimedia requires a descriptive User-Agent: name/version (contact). Put your own details here.
+wiki_user_agent = "pl-analytics-portfolio/0.1 (https://github.com/YOUR-NAME/pl-analytics; your-email@example.com)"
+wiki_delay_seconds = 1.0    # one request per second, one at a time
+first_season = 2015         # club season articles from 2015/16
+min_paragraph_chars = 200   # shorter paragraphs are mostly captions or lists
+label_target = 400          # paragraphs to label
+test_share = 0.2
+dev_share = 0.1
+base_model = "distilroberta-base"
+max_length = 384            # subword tokens per paragraph
+epochs = 4
+learning_rate = 5e-5
+batch_size = 8
+link_threshold = 85         # fuzzy-match score (0-100) needed to accept a link
+random_seed = 2026
+model_version = "ner-1.0"

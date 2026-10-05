@@ -28,6 +28,7 @@ class Settings:
     user_agent: str
     understat_enabled: bool
     modelling: dict
+    nlp: dict
 
 
 def load_settings(path: Path = CONFIG_FILE) -> Settings:
@@ -53,4 +54,5 @@ def load_settings(path: Path = CONFIG_FILE) -> Settings:
         user_agent=http["user_agent"],
         understat_enabled=c["sources"]["understat_enabled"],
         modelling=c["modelling"],
+        nlp=c["nlp"],
     )
