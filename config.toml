@@ -58,3 +58,35 @@ batch_size = 8
 link_threshold = 85         # fuzzy-match score (0-100) needed to accept a link
 random_seed = 2026
 model_version = "ner-1.0"
+
+[assistant]
+provider = "ollama"                 # "ollama" (local, free) or "openai_compatible" (hosted, paid)
+ollama_url = "http://localhost:11434"
+chat_model = "llama3.2:3b"          # 2.0 GB download; fits a PC with 8 GB of RAM
+embed_model = "all-minilm"          # 46 MB embedding model
+num_ctx = 4096                      # context window in tokens
+temperature = 0.0                   # 0 = always pick the most likely token
+seed = 2026
+keep_alive = "30m"                  # keep the model in memory between questions
+request_timeout_seconds = 600
+# think = false                     # uncomment only for thinking models such as qwen3
+# Hosted model, used only in Stage 12. The key goes in .env as LLM_API_KEY, never here.
+hosted_base_url = "https://api.openai.com/v1"
+hosted_model = ""
+hosted_price_in = 0.0               # US dollars per 1 million input tokens
+hosted_price_out = 0.0              # US dollars per 1 million output tokens
+# Text-to-SQL
+sql_tables = ["mart.fact_team_match", "mart.fact_match", "mart.fixture"]
+sql_timeout_ms = 5000               # the database cancels a slower query
+sql_max_rows = 200                  # rows returned to the assistant at most
+few_shot = 6                        # dev examples shown to the model
+# Article search
+top_k = 5                           # paragraphs given to the model
+source_chars = 700                  # characters of each paragraph given to the model
+rrf_k = 60
+bm25_k1 = 1.5
+bm25_b = 0.75
+embed_batch = 16
+# Agent
+max_steps = 3                       # model calls allowed per question
+assistant_version = "assistant-1.0"

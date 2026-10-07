@@ -7,3 +7,6 @@ __pycache__/
 modelling/artifacts/
 nlp/artifacts/
 .venv-ls/
+.archify/
+assistant/artifacts/
+assistant/logs/

@@ -29,6 +29,7 @@ class Settings:
     understat_enabled: bool
     modelling: dict
     nlp: dict
+    assistant: dict = None  # Optional field for assistant settings
 
 
 def load_settings(path: Path = CONFIG_FILE) -> Settings:
@@ -55,4 +56,5 @@ def load_settings(path: Path = CONFIG_FILE) -> Settings:
         understat_enabled=c["sources"]["understat_enabled"],
         modelling=c["modelling"],
         nlp=c["nlp"],
+        assistant=c.get("assistant")
     )
