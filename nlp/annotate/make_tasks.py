@@ -1,4 +1,5 @@
 """Assign articles to splits, sample paragraphs, and pre-annotate train/dev tasks only."""
+
 import argparse
 import json
 import logging
@@ -21,8 +22,10 @@ SPLITS = ROOT / "nlp" / "data" / "splits"
 def assign_splits(articles: list[str], test_share: float, dev_share: float, seed: int) -> dict:
     order = np.random.default_rng(seed).permutation(sorted(articles))
     n_test, n_dev = round(len(order) * test_share), round(len(order) * dev_share)
-    return {a: "test" if i < n_test else "dev" if i < n_test + n_dev else "train"
-            for i, a in enumerate(order)}
+    return {
+        a: "test" if i < n_test else "dev" if i < n_test + n_dev else "train"
+        for i, a in enumerate(order)
+    }
 
 
 def main(argv=None) -> None:
@@ -39,14 +42,16 @@ def main(argv=None) -> None:
         picked = [tasks[i] for i in rng.choice(len(tasks), size=args.recheck, replace=False)]
         recheck = [{"data": t["data"]} for t in picked]  # no suggestions
         (LABELLED / "recheck_tasks.json").write_text(
-            json.dumps(recheck, ensure_ascii=False, indent=1), encoding="utf-8")
+            json.dumps(recheck, ensure_ascii=False, indent=1), encoding="utf-8"
+        )
         log.info("Wrote %d recheck tasks", len(recheck))
         return
 
     engine = make_engine()
     docs = pd.read_sql(text("SELECT doc_id, article_title, season, text FROM nlp.document"), engine)
-    split = assign_splits(docs["article_title"].unique().tolist(),
-                          cfg["test_share"], cfg["dev_share"], seed)
+    split = assign_splits(
+        docs["article_title"].unique().tolist(), cfg["test_share"], cfg["dev_share"], seed
+    )
     docs["split"] = docs["article_title"].map(split)
     SPLITS.mkdir(parents=True, exist_ok=True)
     splits = pd.Series(split, name="split").rename_axis("article_title")
@@ -59,17 +64,34 @@ def main(argv=None) -> None:
     gaz = Gazetteer(gazetteer_terms(load_kb(engine)))
     tasks = []
     for r in sample.itertuples():
-        task = {"data": {"text": r.text, "doc_id": r.doc_id, "split": r.split,
-                         "article": r.article_title}}
+        task = {
+            "data": {
+                "text": r.text,
+                "doc_id": r.doc_id,
+                "split": r.split,
+                "article": r.article_title,
+            }
+        }
         if r.split != "test":  # test paragraphs are labelled from scratch
-            task["predictions"] = [{"model_version": "gazetteer-1", "result": [
-                {"from_name": "label", "to_name": "text", "type": "labels",
-                 "value": {"start": a, "end": b, "text": r.text[a:b], "labels": [lab]}}
-                for a, b, lab in gaz.predict(r.text)]}]
+            task["predictions"] = [
+                {
+                    "model_version": "gazetteer-1",
+                    "result": [
+                        {
+                            "from_name": "label",
+                            "to_name": "text",
+                            "type": "labels",
+                            "value": {"start": a, "end": b, "text": r.text[a:b], "labels": [lab]},
+                        }
+                        for a, b, lab in gaz.predict(r.text)
+                    ],
+                }
+            ]
         tasks.append(task)
     LABELLED.mkdir(parents=True, exist_ok=True)
-    (LABELLED / "tasks.json").write_text(json.dumps(tasks, ensure_ascii=False, indent=1),
-                                         encoding="utf-8")
+    (LABELLED / "tasks.json").write_text(
+        json.dumps(tasks, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
     log.info("Wrote %d tasks: %s", len(tasks), sample["split"].value_counts().to_dict())
 
 

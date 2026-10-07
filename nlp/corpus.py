@@ -1,4 +1,5 @@
 """Split Wikipedia articles into paragraphs and store them in nlp.document."""
+
 import json
 import logging
 import re
@@ -12,8 +13,15 @@ from data.common.logging_setup import setup_logging
 
 log = logging.getLogger("nlp.corpus")
 HEADING = re.compile(r"^(=+)\s*(.+?)\s*\1$")
-SKIP_SECTIONS = {"References", "External links", "See also", "Notes",
-                 "Bibliography", "Further reading", "Footnotes"}
+SKIP_SECTIONS = {
+    "References",
+    "External links",
+    "See also",
+    "Notes",
+    "Bibliography",
+    "Further reading",
+    "Footnotes",
+}
 
 
 def paragraphs(article: dict, min_chars: int) -> list[dict]:
@@ -28,11 +36,20 @@ def paragraphs(article: dict, min_chars: int) -> list[dict]:
             continue
         if section in SKIP_SECTIONS or len(line) < min_chars:
             continue
-        rows.append({"doc_id": f"{article['revid']}-{idx}", "article_title": article["title"],
-                     "revid": article["revid"], "url": article["url"],
-                     "season": article["season"], "team": article["team"],
-                     "section": section, "para_index": idx, "text": line,
-                     "n_chars": len(line)})
+        rows.append(
+            {
+                "doc_id": f"{article['revid']}-{idx}",
+                "article_title": article["title"],
+                "revid": article["revid"],
+                "url": article["url"],
+                "season": article["season"],
+                "team": article["team"],
+                "section": section,
+                "para_index": idx,
+                "text": line,
+                "n_chars": len(line),
+            }
+        )
         idx += 1
     return rows
 
@@ -43,8 +60,9 @@ def main() -> None:
     files = sorted((s.raw / "wikipedia").glob("*.json"))
     rows = []
     for f in files:
-        rows.extend(paragraphs(json.loads(f.read_text(encoding="utf-8")),
-                               s.nlp["min_paragraph_chars"]))
+        rows.extend(
+            paragraphs(json.loads(f.read_text(encoding="utf-8")), s.nlp["min_paragraph_chars"])
+        )
     docs = pd.DataFrame(rows)
     engine = make_engine()
     with engine.begin() as conn:

@@ -1,4 +1,5 @@
 """Optional label audit: list likely misses and wrong label types for a quick review."""
+
 import json
 import re
 from collections import Counter
@@ -26,18 +27,34 @@ def main() -> None:
         if not anns:
             continue
         text = t["data"]["text"]
-        gold = [(r["value"]["start"], r["value"]["end"], r["value"]["labels"][0])
-                for r in anns[-1]["result"] if r.get("type") == "labels"]
+        gold = [
+            (r["value"]["start"], r["value"]["end"], r["value"]["labels"][0])
+            for r in anns[-1]["result"]
+            if r.get("type") == "labels"
+        ]
         for a, b, lab in gaz.predict(text):  # known names you did not label
             if not overlaps(a, b, gold):
-                rows.append({"task_id": t["id"], "issue": "possible_miss", "text": text[a:b],
-                             "suggested": lab, "context": text[max(0, a - 60):b + 60]})
+                rows.append(
+                    {
+                        "task_id": t["id"],
+                        "issue": "possible_miss",
+                        "text": text[a:b],
+                        "suggested": lab,
+                        "context": text[max(0, a - 60) : b + 60],
+                    }
+                )
         for a, b, lab in gold:  # labels whose type disagrees with the knowledge base
             types = kb_types.get(text[a:b], set())
             if types and lab not in types:
-                rows.append({"task_id": t["id"], "issue": "possible_wrong_type",
-                             "text": text[a:b], "suggested": "/".join(sorted(types)),
-                             "context": text[max(0, a - 60):b + 60]})
+                rows.append(
+                    {
+                        "task_id": t["id"],
+                        "issue": "possible_wrong_type",
+                        "text": text[a:b],
+                        "suggested": "/".join(sorted(types)),
+                        "context": text[max(0, a - 60) : b + 60],
+                    }
+                )
         for m in re.finditer(r"(?<=[a-z,;] )[A-Z][\w'-]+", text):  # mid-sentence capitals
             if not overlaps(m.start(), m.end(), gold):
                 caps[m.group()] += 1
@@ -45,8 +62,7 @@ def main() -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(out, index=False, encoding="utf-8-sig")
     print(f"{len(rows)} flagged cases written to {out}")
-    print("Frequent unlabelled capitalised words:",
-          [w for w, n in caps.most_common(40) if n >= 5])
+    print("Frequent unlabelled capitalised words:", [w for w, n in caps.most_common(40) if n >= 5])
 
 
 if __name__ == "__main__":

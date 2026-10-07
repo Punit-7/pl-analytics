@@ -1,4 +1,5 @@
 """Rule-based NER: exact lookup of knowledge-base names with spaCy's PhraseMatcher."""
+
 import pandas as pd
 import spacy
 from spacy.matcher import PhraseMatcher
@@ -35,6 +36,7 @@ class Gazetteer:
 
     def predict(self, text: str) -> list[tuple[int, int, str]]:
         doc = self.nlp.make_doc(text)
-        spans = [Span(doc, start, end, label=match_id)
-                 for match_id, start, end in self.matcher(doc)]
+        spans = [
+            Span(doc, start, end, label=match_id) for match_id, start, end in self.matcher(doc)
+        ]
         return [(s.start_char, s.end_char, s.label_) for s in filter_spans(spans)]

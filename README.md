@@ -135,12 +135,64 @@ python -m data.ingest.fpl              # FPL players, prices and rules
 python -m modelling.match.fpl_squad    # FPL squad optimiser
 ```
 
+## P3 — Match report entity extraction
+
+A named entity recognition system that finds players, clubs and stadiums in Premier League writing, compares a rule-based baseline, a small pretrained model and a fine-tuned transformer, and links every name it finds to an ID in the warehouse. The code is in `nlp/`.
+
+The plan named Guardian match reports; their terms do not appear to allow storing the text or training on it, so the corpus is English Wikipedia club season articles (2015/16 onwards), which are licensed for reuse.
+
+### Three systems on the same test set
+
+400 paragraphs were labelled by hand in Label Studio and split by article. Scores are exact-match precision, recall and F1 on 75 test paragraphs (547 entities):
+
+| System | Precision | Recall | F1 | Macro F1 |
+|---|---|---|---|---|
+| Gazetteer (lookup of known names) | 0.817 | 0.671 | 0.737 | 0.726 |
+| spaCy `en_core_web_sm` (pretrained) | 0.465 | 0.437 | 0.451 | 0.380 |
+| Fine-tuned DistilRoBERTa | 0.860 | 0.947 | 0.902 | 0.850 |
+
+The transformer's F1 by label is 0.911 for players, 0.909 for clubs and 0.731 for stadiums. Of its 113 errors, 72 trace back to the test labels (mostly repeated names left unlabelled), so its precision is understated; the model's own most common error is tagging a manager as a player.
+
+### Linking and the full corpus
+
+Each name is linked to an Understat player ID, a `dim_team` club or a venue, or to NIL when it is not in the knowledge base. On 200 hand-checked test mentions the linker is right 92.5% of the time, and every link it made was correct; its errors are all names it left as NIL.
+
+Run over all 3,030 paragraphs, the model found 28,344 mentions and linked 81% of them. They are stored in `nlp.mention` for P4 to query.
+
+### More detail
+
+- [NER model card](nlp/MODEL_CARD_ner.md)
+- [Results report](nlp/reports/P3_REPORT.md)
+- [Annotation guidelines](nlp/ANNOTATION_GUIDELINES.md)
+- [Text findings](nlp/notebooks/FINDINGS.md)
+- [Wikipedia sources](nlp/data/SOURCES.csv) and [dataset licence](nlp/data/labelled/LICENSE.md)
+
+### How to run P3
+
+```
+python -m data.ingest.wikipedia        # once: club season articles (about 5 minutes)
+python -m nlp.corpus                   # articles -> nlp.document paragraphs
+python -m nlp.kb                       # knowledge base: players, clubs, venues
+python -m nlp.annotate.make_tasks      # sample 400 paragraphs for Label Studio
+python -m nlp.dataset                  # Label Studio export -> train/dev/test files
+python -m nlp.annotate.audit           # optional: list labels worth a second look
+python -m nlp.models.baselines         # gazetteer and spaCy scores
+python -m nlp.models.transformer       # fine-tune and score (about 30 minutes on a CPU)
+python -m nlp.linking.review --make    # linking review sheet; fill gold_id by hand
+python -m nlp.linking.review --score   # linking accuracy
+python -m nlp.run                      # tag and link the whole corpus -> nlp.mention
+python -m nlp.attribution              # list every Wikipedia revision used
+```
+
+Label Studio runs in its own environment (`.venv-ls`); the labelled export is `nlp/data/labelled/export_main.json`.
+
 ## Data credits
 
 - Results, match stats and odds: [football-data.co.uk](https://www.football-data.co.uk/). Match stats (shots, corners, fouls, cards) start in **2000/01**; earlier seasons have results only (checked with `data/checks.py`). Closing odds start in **2019/20**.
 - Expected goals and fixtures: [Understat](https://understat.com/) via [soccerdata](https://github.com/probberechts/soccerdata). xG starts in **2014/15**.
 - Shot events for the xG model: data provided by [StatsBomb](https://github.com/statsbomb/open-data) (Open Data, 2015/16). Only 34 Bundesliga and 377 Ligue 1 matches were available, so the model has 1,551 matches, not 1,826.
 - Players, prices and game rules for the squad optimiser: the [Fantasy Premier League](https://fantasy.premierleague.com/) API.
+- Text for the entity model: [English Wikipedia](https://en.wikipedia.org/) club season articles, by Wikipedia contributors, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Every revision used is listed in [`nlp/data/SOURCES.csv`](nlp/data/SOURCES.csv); the labelled dataset carries the same licence.
 
 Data problems found and how they are handled are in [`analytics/notebooks/FINDINGS.md`](analytics/notebooks/FINDINGS.md).
 

@@ -2,13 +2,34 @@ import pandas as pd
 
 from nlp.linking.linker import Linker, normalise
 
-KB = pd.DataFrame([
-    ("player:1", "PLAYER", "Ben White", "Ben White", "full", "2024/25", "Arsenal", 2000),
-    ("player:1", "PLAYER", "Ben White", "White", "surname", "2024/25", "Arsenal", 2000),
-    ("player:2", "PLAYER", "Kyle White", "White", "surname", "2024/25", "Fulham", 900),
-    ("team:Newcastle", "TEAM", "Newcastle", "Newcastle United", "alias", None, "Newcastle", None),
-    ("team:Man United", "TEAM", "Man United", "United", "alias", None, "Man United", None),
-], columns=["entity_id", "entity_type", "name", "alias", "alias_kind", "season", "team", "minutes"])
+KB = pd.DataFrame(
+    [
+        ("player:1", "PLAYER", "Ben White", "Ben White", "full", "2024/25", "Arsenal", 2000),
+        ("player:1", "PLAYER", "Ben White", "White", "surname", "2024/25", "Arsenal", 2000),
+        ("player:2", "PLAYER", "Kyle White", "White", "surname", "2024/25", "Fulham", 900),
+        (
+            "team:Newcastle",
+            "TEAM",
+            "Newcastle",
+            "Newcastle United",
+            "alias",
+            None,
+            "Newcastle",
+            None,
+        ),
+        ("team:Man United", "TEAM", "Man United", "United", "alias", None, "Man United", None),
+    ],
+    columns=[
+        "entity_id",
+        "entity_type",
+        "name",
+        "alias",
+        "alias_kind",
+        "season",
+        "team",
+        "minutes",
+    ],
+)
 
 
 def test_normalise_removes_accents():

@@ -54,3 +54,22 @@ The knowledge base holds every player since 2015/16, so a former player who late
 still matches by name. `Arteta` (a player in 2015/16) is suggested as PLAYER in Arsenal articles from
 2019/20 onwards, where he is the manager. The guidelines say managers are not labelled, so these
 suggestions must be deleted.
+
+## Transformer errors on the test set
+
+All 113 errors in `nlp/reports/ner_errors_transformer.csv` (84 false positives, 29 false
+negatives), sorted by cause:
+
+| Category | Errors |
+| --- | --- |
+| Test label missed a real entity; the model found it | 47 |
+| Test label has the wrong edge, type or a nested span | 25 |
+| Model tagged a manager, referee or presenter as PLAYER | 19 |
+| Model missed an entity | 8 |
+| Model got the edge wrong | 8 |
+| Model tagged something that is not an entity | 4 |
+| Model gave the wrong type | 2 |
+
+72 of the 113 come from the test labels. The most common is a club named again later in a
+paragraph and not labelled (`Stoke` 7 times, `Arsenal` 5). The model's own most common error is
+`Arteta` as PLAYER (8 times), which it learned from 10 training and dev labels.

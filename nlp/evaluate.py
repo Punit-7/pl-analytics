@@ -1,4 +1,5 @@
 """Exact-match span precision, recall and F1; also the self-agreement check."""
+
 import argparse
 
 from data.common.config import ROOT
@@ -26,9 +27,11 @@ def span_scores(gold: list, pred: list, labels=LABELS) -> dict:
             counts[lab]["fn"] += 1
     per_label = {lab: prf(**c) for lab, c in counts.items()}
     totals = {k: sum(c[k] for c in counts.values()) for k in ("tp", "fp", "fn")}
-    return {"micro": prf(**totals),
-            "macro_f1": sum(v["f1"] for v in per_label.values()) / len(per_label),
-            "per_label": per_label}
+    return {
+        "micro": prf(**totals),
+        "macro_f1": sum(v["f1"] for v in per_label.values()) / len(per_label),
+        "per_label": per_label,
+    }
 
 
 def main(argv=None) -> None:

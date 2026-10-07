@@ -1,4 +1,5 @@
 """Download Premier League club season articles from English Wikipedia (CC BY-SA 4.0)."""
+
 import json
 import logging
 import time
@@ -22,23 +23,36 @@ def season_title(season: str, wiki_name: str) -> str:
 
 
 def club_seasons(engine, first_season: int) -> pd.DataFrame:
-    return pd.read_sql(text("""
+    return pd.read_sql(
+        text("""
         SELECT DISTINCT season, team FROM mart.fact_team_match
         WHERE CAST(LEFT(season, 4) AS INTEGER) >= :first ORDER BY season, team"""),
-        engine, params={"first": first_season})
+        engine,
+        params={"first": first_season},
+    )
 
 
 def fetch(session: requests.Session, title: str) -> dict | None:
-    params = {"action": "query", "prop": "extracts|revisions", "explaintext": 1,
-              "rvprop": "ids", "titles": title, "redirects": 1,
-              "format": "json", "formatversion": 2}
+    params = {
+        "action": "query",
+        "prop": "extracts|revisions",
+        "explaintext": 1,
+        "rvprop": "ids",
+        "titles": title,
+        "redirects": 1,
+        "format": "json",
+        "formatversion": 2,
+    }
     r = session.get(API, params=params, timeout=30)
     r.raise_for_status()
     page = r.json()["query"]["pages"][0]
     if page.get("missing"):
         return None
-    return {"title": page["title"], "revid": page["revisions"][0]["revid"],
-            "text": page.get("extract", "")}
+    return {
+        "title": page["title"],
+        "revid": page["revisions"][0]["revid"],
+        "text": page.get("extract", ""),
+    }
 
 
 def run(s: Settings) -> dict:
@@ -67,9 +81,13 @@ def run(s: Settings) -> dict:
             log.info("No article: %s", title)
             counts["missing"] += 1
             continue
-        page.update(season=row.season, team=row.team, licence="CC BY-SA 4.0",
-                    url=f"https://en.wikipedia.org/w/index.php?oldid={page['revid']}",
-                    fetched_at=datetime.now(UTC).isoformat())
+        page.update(
+            season=row.season,
+            team=row.team,
+            licence="CC BY-SA 4.0",
+            url=f"https://en.wikipedia.org/w/index.php?oldid={page['revid']}",
+            fetched_at=datetime.now(UTC).isoformat(),
+        )
         write_atomic(path, json.dumps(page, ensure_ascii=False).encode("utf-8"))
         counts["saved"] += 1
     log.info("Wikipedia: %s", counts)

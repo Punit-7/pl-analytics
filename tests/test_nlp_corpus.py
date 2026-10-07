@@ -1,8 +1,18 @@
 from nlp.corpus import paragraphs
 
-ARTICLE = {"title": "T", "revid": 1, "url": "u", "season": "2024/25", "team": "Arsenal",
-           "text": "Intro " + "x" * 250 + "\n== Season ==\n" + "y" * 250
-                   + "\nshort line\n== References ==\n" + "z" * 250}
+ARTICLE = {
+    "title": "T",
+    "revid": 1,
+    "url": "u",
+    "season": "2024/25",
+    "team": "Arsenal",
+    "text": "Intro "
+    + "x" * 250
+    + "\n== Season ==\n"
+    + "y" * 250
+    + "\nshort line\n== References ==\n"
+    + "z" * 250,
+}
 
 
 def test_sections_and_skips():

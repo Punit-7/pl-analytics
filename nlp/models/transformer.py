@@ -1,4 +1,5 @@
 """Fine-tune DistilRoBERTa for NER, then score it on the test set like the baselines."""
+
 import json
 import logging
 
@@ -6,9 +7,14 @@ import pandas as pd
 import torch
 from datasets import Dataset
 from seqeval.metrics import f1_score
-from transformers import (AutoModelForTokenClassification, AutoTokenizer,
-                          DataCollatorForTokenClassification, Trainer, TrainingArguments,
-                          set_seed)
+from transformers import (
+    AutoModelForTokenClassification,
+    AutoTokenizer,
+    DataCollatorForTokenClassification,
+    Trainer,
+    TrainingArguments,
+    set_seed,
+)
 
 from data.common.config import ROOT, load_settings
 from data.common.logging_setup import setup_logging
@@ -25,12 +31,12 @@ ID2TAG = {i: t for t, i in TAG2ID.items()}
 
 
 def encode(rows: list[dict], tok, max_length: int) -> Dataset:
-    ds = Dataset.from_list([{"tokens": r["tokens"], "tags": [TAG2ID[t] for t in r["tags"]]}
-                            for r in rows])
+    ds = Dataset.from_list(
+        [{"tokens": r["tokens"], "tags": [TAG2ID[t] for t in r["tags"]]} for r in rows]
+    )
 
     def align(batch):
-        enc = tok(batch["tokens"], is_split_into_words=True, truncation=True,
-                  max_length=max_length)
+        enc = tok(batch["tokens"], is_split_into_words=True, truncation=True, max_length=max_length)
         labels = []
         for i, tags in enumerate(batch["tags"]):
             previous, row = None, []
@@ -60,8 +66,13 @@ def predict_spans(model, tok, rows: list[dict], max_length: int) -> list[list[tu
     model.eval()
     out, truncated = [], 0
     for r in rows:
-        enc = tok(r["tokens"], is_split_into_words=True, truncation=True,
-                  max_length=max_length, return_tensors="pt")
+        enc = tok(
+            r["tokens"],
+            is_split_into_words=True,
+            truncation=True,
+            max_length=max_length,
+            return_tensors="pt",
+        )
         ids = model(**enc).logits[0].argmax(-1).tolist()
         tags, previous = ["O"] * len(r["tokens"]), None
         word_ids = enc.word_ids(0)
@@ -74,8 +85,9 @@ def predict_spans(model, tok, rows: list[dict], max_length: int) -> list[list[tu
         tokens = [(t, a, b) for t, (a, b) in zip(r["tokens"], r["offsets"], strict=True)]
         out.append(bio_to_spans(tokens, tags))
     if truncated:
-        log.warning("%d paragraphs were longer than max_length; their ends were not tagged",
-                    truncated)
+        log.warning(
+            "%d paragraphs were longer than max_length; their ends were not tagged", truncated
+        )
     return out
 
 
@@ -85,9 +97,15 @@ def error_table(rows, gold, pred) -> pd.DataFrame:
         g, p = set(g), set(p)
         for kind, spans in (("false_positive", p - g), ("false_negative", g - p)):
             for a, b, lab in sorted(spans):
-                out.append({"doc_id": r["doc_id"], "kind": kind, "label": lab,
-                            "text": r["text"][a:b],
-                            "context": r["text"][max(0, a - 60):b + 60]})
+                out.append(
+                    {
+                        "doc_id": r["doc_id"],
+                        "kind": kind,
+                        "label": lab,
+                        "text": r["text"][a:b],
+                        "context": r["text"][max(0, a - 60) : b + 60],
+                    }
+                )
     return pd.DataFrame(out)
 
 
@@ -100,20 +118,33 @@ def main() -> None:
 
     tok = AutoTokenizer.from_pretrained(cfg["base_model"], add_prefix_space=True)
     model = AutoModelForTokenClassification.from_pretrained(
-        cfg["base_model"], num_labels=len(TAGS), id2label=ID2TAG, label2id=TAG2ID)
+        cfg["base_model"], num_labels=len(TAGS), id2label=ID2TAG, label2id=TAG2ID
+    )
     args = TrainingArguments(
-        output_dir=str(ART / "ner_runs"), learning_rate=cfg["learning_rate"],
+        output_dir=str(ART / "ner_runs"),
+        learning_rate=cfg["learning_rate"],
         per_device_train_batch_size=cfg["batch_size"],
         per_device_eval_batch_size=cfg["batch_size"],
-        num_train_epochs=cfg["epochs"], weight_decay=0.01,
-        eval_strategy="epoch", save_strategy="epoch", load_best_model_at_end=True,
-        metric_for_best_model="f1", save_total_limit=1, logging_steps=10,
-        seed=cfg["random_seed"], report_to="none")
-    trainer = Trainer(model=model, args=args,
-                      train_dataset=encode(train, tok, cfg["max_length"]),
-                      eval_dataset=encode(dev, tok, cfg["max_length"]),
-                      data_collator=DataCollatorForTokenClassification(tok),
-                      processing_class=tok, compute_metrics=compute_metrics)
+        num_train_epochs=cfg["epochs"],
+        weight_decay=0.01,
+        eval_strategy="epoch",
+        save_strategy="epoch",
+        load_best_model_at_end=True,
+        metric_for_best_model="f1",
+        save_total_limit=1,
+        logging_steps=10,
+        seed=cfg["random_seed"],
+        report_to="none",
+    )
+    trainer = Trainer(
+        model=model,
+        args=args,
+        train_dataset=encode(train, tok, cfg["max_length"]),
+        eval_dataset=encode(dev, tok, cfg["max_length"]),
+        data_collator=DataCollatorForTokenClassification(tok),
+        processing_class=tok,
+        compute_metrics=compute_metrics,
+    )
     trainer.train()
     trainer.save_model(str(ART / "ner_model"))
     tok.save_pretrained(str(ART / "ner_model"))
@@ -125,8 +156,10 @@ def main() -> None:
     (REP / "ner_results.json").write_text(json.dumps(results, indent=2))
     error_table(test, gold, preds).to_csv(REP / "ner_errors_transformer.csv", index=False)
     log.info("\n%s", summary(results).to_string())
-    log.info("transformer per label: %s",
-             {lab: round(v["f1"], 3) for lab, v in results["transformer"]["per_label"].items()})
+    log.info(
+        "transformer per label: %s",
+        {lab: round(v["f1"], 3) for lab, v in results["transformer"]["per_label"].items()},
+    )
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 """Convert a Label Studio export into token/BIO JSONL files, split by article."""
+
 import json
 import logging
 import re
@@ -20,11 +21,20 @@ def load_export(path: Path) -> dict[str, dict]:
         anns = [a for a in task.get("annotations", []) if not a.get("was_cancelled")]
         if not anns:
             continue
-        spans = sorted({(r["value"]["start"], r["value"]["end"], r["value"]["labels"][0])
-                        for r in anns[-1]["result"] if r.get("type") == "labels"})
+        spans = sorted(
+            {
+                (r["value"]["start"], r["value"]["end"], r["value"]["labels"][0])
+                for r in anns[-1]["result"]
+                if r.get("type") == "labels"
+            }
+        )
         d = task["data"]
-        out[d["doc_id"]] = {"text": d["text"], "split": d.get("split"),
-                            "article": d.get("article"), "spans": spans}
+        out[d["doc_id"]] = {
+            "text": d["text"],
+            "split": d.get("split"),
+            "article": d.get("article"),
+            "spans": spans,
+        }
     return out
 
 
@@ -67,7 +77,8 @@ def bio_to_spans(tokens, tags) -> list[tuple[int, int, str]]:
     spans, current = [], None
     for (_, a, b), tag in zip(tokens, tags, strict=True):
         starts_new = tag.startswith("B-") or (
-            tag.startswith("I-") and (current is None or current[2] != tag[2:]))
+            tag.startswith("I-") and (current is None or current[2] != tag[2:])
+        )
         if starts_new:
             if current:
                 spans.append(tuple(current))
@@ -87,8 +98,10 @@ def main() -> None:
     s = load_settings()
     setup_logging(s.logs)
     data = load_export(LABELLED / "export_main.json")
-    files = {name: open(SPLITS / f"{name}.jsonl", "w", encoding="utf-8")
-             for name in ("train", "dev", "test")}
+    files = {
+        name: open(SPLITS / f"{name}.jsonl", "w", encoding="utf-8")
+        for name in ("train", "dev", "test")
+    }
     label_counts, total_misaligned, cleaned = Counter(), 0, 0
     for doc_id, d in data.items():
         spans = set()
@@ -102,14 +115,24 @@ def main() -> None:
         tags, misaligned = to_bio(tokens, d["spans"])
         total_misaligned += misaligned
         label_counts.update(f"{d['split']}:{lab}" for _, _, lab in d["spans"])
-        row = {"doc_id": doc_id, "article": d["article"], "text": d["text"],
-               "tokens": [t for t, _, _ in tokens], "offsets": [[a, b] for _, a, b in tokens],
-               "tags": tags, "spans": [list(sp) for sp in d["spans"]]}
+        row = {
+            "doc_id": doc_id,
+            "article": d["article"],
+            "text": d["text"],
+            "tokens": [t for t, _, _ in tokens],
+            "offsets": [[a, b] for _, a, b in tokens],
+            "tags": tags,
+            "spans": [list(sp) for sp in d["spans"]],
+        }
         files[d["split"]].write(json.dumps(row, ensure_ascii=False) + "\n")
     for f in files.values():
         f.close()
-    log.info("%d labelled paragraphs, %d labels cleaned, %d misaligned spans",
-             len(data), cleaned, total_misaligned)
+    log.info(
+        "%d labelled paragraphs, %d labels cleaned, %d misaligned spans",
+        len(data),
+        cleaned,
+        total_misaligned,
+    )
     log.info("entities by split and label: %s", dict(sorted(label_counts.items())))
 
 

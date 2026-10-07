@@ -1,6 +1,7 @@
 """Tag every paragraph with the fine-tuned model, link each mention, store in nlp.mention."""
+
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pandas as pd
 from sqlalchemy import text
@@ -33,23 +34,36 @@ def main() -> None:
     spans = predict_spans(model, tok, rows, cfg["max_length"])
 
     linker = Linker(load_kb(engine), cfg["link_threshold"])
-    now = datetime.now(timezone.utc).replace(tzinfo=None)
+    now = datetime.now(UTC).replace(tzinfo=None)
     mentions = []
     for d, doc_spans in zip(docs.itertuples(), spans, strict=True):
         for a, b, label in doc_spans:
             entity_id, score = linker.resolve(d.text[a:b], label, d.season, d.team)
-            mentions.append({"mention_id": f"{d.doc_id}:{a}", "doc_id": d.doc_id,
-                             "start_char": a, "end_char": b, "label": label,
-                             "mention": d.text[a:b], "entity_id": entity_id,
-                             "link_score": score, "model_version": cfg["model_version"],
-                             "created_at": now})
+            mentions.append(
+                {
+                    "mention_id": f"{d.doc_id}:{a}",
+                    "doc_id": d.doc_id,
+                    "start_char": a,
+                    "end_char": b,
+                    "label": label,
+                    "mention": d.text[a:b],
+                    "entity_id": entity_id,
+                    "link_score": score,
+                    "model_version": cfg["model_version"],
+                    "created_at": now,
+                }
+            )
     df = pd.DataFrame(mentions)
     with engine.begin() as conn:
         df.to_sql("mention", conn, schema="nlp", if_exists="replace", index=False)
         conn.execute(text("ALTER TABLE nlp.mention ADD PRIMARY KEY (mention_id)"))
         conn.execute(text(f"GRANT SELECT ON nlp.mention TO {s.reader_role}"))
-    log.info("%d mentions in %d paragraphs; %.0f%% linked",
-             len(df), len(docs), 100 * df["entity_id"].notna().mean())
+    log.info(
+        "%d mentions in %d paragraphs; %.0f%% linked",
+        len(df),
+        len(docs),
+        100 * df["entity_id"].notna().mean(),
+    )
 
 
 if __name__ == "__main__":
