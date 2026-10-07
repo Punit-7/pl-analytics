@@ -2,7 +2,19 @@
 
 ## Stage 1 — model speed
 
-Tokens per second from `python -m assistant.llm`: _not recorded yet — run it and write the number here._
+Measured on 8 October 2026: `llama3.2:3b` (Q4_K_M) on Ollama 0.40.0, 100% CPU, Intel Core i5-3450 (4 cores), 12 GB RAM.
+
+| Measure                                   | Value                         |
+|-------------------------------------------|-------------------------------|
+| Writing, free text                        | 4.6 tokens per second         |
+| Writing, SQL as JSON after a long prompt  | 3.3 – 3.5 tokens per second   |
+| Reading a new prompt                      | 22 tokens per second          |
+| Reading a prompt whose start is cached    | 2 – 3 s for 1,700 tokens      |
+| Embedding 16 short texts (`all-minilm`)   | 2.3 s                         |
+
+- `python -m assistant.llm` prints 1.2 output tokens/s. That number is misleading: it divides 3 output tokens by the whole 2.5 s, most of which is reading the prompt.
+- A new 1,700-token prompt costs about 80 s once. After that Ollama reuses it, and it stayed cached even after a different 1,175-token prompt was sent in between.
+- One SQL question takes about 14 s (median) when the query runs first time and 37 – 47 s with a retry. The first question of a run takes 85 – 90 s. A run of 40 took 12 to 20 minutes.
 
 ## Stage 5 — text-to-SQL execution accuracy
 
