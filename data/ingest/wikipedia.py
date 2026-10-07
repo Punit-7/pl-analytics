@@ -2,7 +2,7 @@
 import json
 import logging
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pandas as pd
 import requests
@@ -69,7 +69,7 @@ def run(s: Settings) -> dict:
             continue
         page.update(season=row.season, team=row.team, licence="CC BY-SA 4.0",
                     url=f"https://en.wikipedia.org/w/index.php?oldid={page['revid']}",
-                    fetched_at=datetime.now(timezone.utc).isoformat())
+                    fetched_at=datetime.now(UTC).isoformat())
         write_atomic(path, json.dumps(page, ensure_ascii=False).encode("utf-8"))
         counts["saved"] += 1
     log.info("Wikipedia: %s", counts)

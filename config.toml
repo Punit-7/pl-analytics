@@ -42,8 +42,8 @@ model_version = "dc-1.0"
 
 [nlp]
 labels = ["PLAYER", "TEAM", "VENUE"]
-# Wikimedia requires a descriptive User-Agent: name/version (contact). Put your own details here.
-wiki_user_agent = "pl-analytics-portfolio/0.1 (https://github.com/YOUR-NAME/pl-analytics; your-email@example.com)"
+# Wikimedia requires a descriptive User-Agent: name/version (contact).
+wiki_user_agent = "pl-analytics-portfolio/0.1 (https://github.com/Punit-7/pl-analytics)"
 wiki_delay_seconds = 1.0    # one request per second, one at a time
 first_season = 2015         # club season articles from 2015/16
 min_paragraph_chars = 200   # shorter paragraphs are mostly captions or lists
