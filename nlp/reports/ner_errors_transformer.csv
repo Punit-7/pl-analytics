@@ -1,0 +1,114 @@
+doc_id,kind,label,text,context
+1376913273-50,false_positive,PLAYER,Arteta,Arteta's men followed this success with a trip to Hill Dickinson S
+1376913273-50,false_positive,PLAYER,Gyökeres,"l a 27th-minute penalty, which was powerfully dispatched by Gyökeres. In the second half, Trossard was fed a through pass by Ric"
+1376913273-50,false_positive,PLAYER,Trossard," was powerfully dispatched by Gyökeres. In the second half, Trossard was fed a through pass by Rice and unleashed a potent shot "
+1376913273-50,false_positive,PLAYER,Rice,"res. In the second half, Trossard was fed a through pass by Rice and unleashed a potent shot onto the post. The visitors mis"
+1376913273-50,false_negative,TEAM,Gyökeres,"l a 27th-minute penalty, which was powerfully dispatched by Gyökeres. In the second half, Trossard was fed a through pass by Ric"
+1376913273-50,false_negative,TEAM,Trossard," was powerfully dispatched by Gyökeres. In the second half, Trossard was fed a through pass by Rice and unleashed a potent shot "
+1376913273-50,false_negative,TEAM,Rice,"res. In the second half, Trossard was fed a through pass by Rice and unleashed a potent shot onto the post. The visitors mis"
+1376913273-91,false_positive,VENUE,National Stadium,"he matches took place on 23 and 27 July respectively at the National Stadium, and finalised the club's three-match Asian pre-season sche"
+1376913273-91,false_positive,VENUE,Emirates,luding fixtures of the pre-season schedule would feature an Emirates Cup game against Athletic Bilbao on 9 August 2025 and a fri
+1374517245-6,false_positive,TEAM,United,"g second in their group and progressing to the round of 16, United were drawn against French champions Paris Saint-Germain in "
+1374517245-6,false_positive,PLAYER,Skomina,"had rounded David de Gea. In the 90th minute, referee Damir Skomina awarded United a penalty after using a VAR review to adjudg"
+1374517245-6,false_negative,PLAYER,Kimpembe,"sides. In the first leg at Old Trafford, goals from Presnel Kimpembe and Kylian Mbappé gave PSG a 2–0 lead to take back to the P"
+1374517245-6,false_negative,PLAYER,Lukaku,"s Princes. Needing to score three times to progress, Romelu Lukaku opened the scoring for United in the second minute of the s"
+1376912157-3,false_negative,TEAM,AFC Wimbledon, the competition in the second round and were drawn away to AFC Wimbledon. It was the first competitive meeting between the clubs sin
+1376912157-3,false_negative,TEAM,AFC Wimbledon,t was the first competitive meeting between the clubs since AFC Wimbledon were formed in 2002. The third round draw was made on 30 Au
+1376913273-22,false_positive,PLAYER,Nelson, League sides Nottingham Forest and Brentford respectively. Nelson had graduated from the club's academy and had been at the c
+1376913273-22,false_positive,PLAYER,Lokonga,"s at the time of his departure. Lastly, Fábio Vieira joined Lokonga as he made a loan move to Hamburger SV, with an option to m"
+1378012860-106,false_positive,TEAM,Arsenal,"n 1994–95. Raya played 55 games this season, the most by an Arsenal goalkeeper since David Seaman in 1993–94."
+1376808313-3,false_positive,TEAM,Stoke, then travelled out to Florida for a ten-day training camp. Stoke earned their first win of pre-season on 27 July 2016 with a
+1376808313-3,false_positive,TEAM,Stoke,ainst Orlando's B team in a behind closed doors match which Stoke won 5–0. Stoke ended their low-key pre-season with a 1–0 de
+1376808313-3,false_positive,TEAM,Stoke, B team in a behind closed doors match which Stoke won 5–0. Stoke ended their low-key pre-season with a 1–0 defeat at German 
+1376808313-3,false_negative,VENUE,Kitzbühel,"ly 2016, where they then went on a six-day training camp in Kitzbühel, Austria. Stoke's first pre-season match saw them lose 3–0 "
+1374023621-2,false_positive,VENUE,Stadium of Light,The second round draw was made from the Stadium of Light on 16 August. The third round draw was made on 30 August by
+1374023621-2,false_positive,PLAYER,Yankey,ott. The fourth round draw was made live on Quest by Rachel Yankey and Rachel Riley on 29 September.
+1374023621-2,false_positive,PLAYER,Riley,und draw was made live on Quest by Rachel Yankey and Rachel Riley on 29 September.
+1324506488-6,false_positive,TEAM,Wolves," home loss to West Ham United. The next game was at home to Wolves, Palace gainining revenge for their FA Cup defeat, as Eze s"
+1376913273-76,false_negative,PLAYER,Havertz,"ncapié (Ecuador), Madueke, Saka, Rice, and White (England), Havertz (Germany), Calafiori (Italy), Mosquera, Zubimendi, and Raya"
+1376913273-76,false_negative,PLAYER,Raya,"ertz (Germany), Calafiori (Italy), Mosquera, Zubimendi, and Raya (Spain), and Gyökeres (Sweden)."
+1376892747-2,false_positive,TEAM,Norwich City,wing an away defeat to Arsenal on 9 May 2021. This equalled Norwich City's record of five Premier League relegations and was the fir
+1376892747-2,false_positive,PLAYER,Sam Allardyce,e relegations and was the first time that a team managed by Sam Allardyce had been relegated from the top flight.
+1376892747-2,false_negative,TEAM,Norwich,wing an away defeat to Arsenal on 9 May 2021. This equalled Norwich City's record of five Premier League relegations and was th
+1377034100-7,false_positive,PLAYER,Gary Neville,"3 August 2019, the Second Round of the EFL Cup was drawn by Gary Neville and Paul Robinson at Salford City's Moor Lane stadium. The "
+1377034100-7,false_positive,PLAYER,Paul Robinson,e Second Round of the EFL Cup was drawn by Gary Neville and Paul Robinson at Salford City's Moor Lane stadium. The Third Round draw w
+1377034100-7,false_positive,VENUE,Moor Lane stadium,s drawn by Gary Neville and Paul Robinson at Salford City's Moor Lane stadium. The Third Round draw was held on 28 August 2019 at Lincoln
+1377034100-7,false_positive,TEAM,Lincoln City,stadium. The Third Round draw was held on 28 August 2019 at Lincoln City's Sincil Bank stadium. The Fourth Round draw was held on 25
+1377034100-7,false_positive,VENUE,Sincil Bank stadium,ird Round draw was held on 28 August 2019 at Lincoln City's Sincil Bank stadium. The Fourth Round draw was held on 25 September 2019 at MK 
+1377034100-7,false_positive,VENUE,Stadium MK,"Fourth Round draw was held on 25 September 2019 at MK Dons' Stadium MK. The Quarter-Final draw was held on 31 October 2019, by Dav"
+1377034100-7,false_positive,TEAM,Oxford United,"dio 2. The Semi-Final draw was held on 18 December 2019, at Oxford United's Kassam Stadium by Dennis Wise and Chris Kamara."
+1377034100-7,false_positive,VENUE,Kassam Stadium,"Final draw was held on 18 December 2019, at Oxford United's Kassam Stadium by Dennis Wise and Chris Kamara."
+1377034100-7,false_positive,PLAYER,Dennis,"d on 18 December 2019, at Oxford United's Kassam Stadium by Dennis Wise and Chris Kamara."
+1377034100-7,false_positive,PLAYER,Chris Kamara," 2019, at Oxford United's Kassam Stadium by Dennis Wise and Chris Kamara."
+1377034100-7,false_negative,VENUE,Moor Lane,s drawn by Gary Neville and Paul Robinson at Salford City's Moor Lane stadium. The Third Round draw was held on 28 August 2019 at
+1352350294-12,false_positive,TEAM,Bournemouth," On 12 December, United travelled to Dean Court to face AFC Bournemouth, who were new to the Premier League. They fell behind after"
+1352350294-12,false_negative,TEAM,AFC Bournemouth,"ord. On 12 December, United travelled to Dean Court to face AFC Bournemouth, who were new to the Premier League. They fell behind after"
+1378012860-48,false_positive,VENUE,Emirates Stadium,nal played their 500th competitive men's first-team game at Emirates Stadium against 9th-placed Manchester United. Timber broke the dead
+1378012860-48,false_positive,PLAYER,Raya,"e near post for his first Gunners goal. In the 67th minute, Raya made a one-handed save at full stretch to claw away Matthij"
+1378012860-48,false_positive,PLAYER,Arteta,"ch to claw away Matthijs de Ligt's header from a free-kick. Arteta's side doubled their advantage in the 73rd minute, as Saka'"
+1378012860-48,false_negative,VENUE,Emirates,nal played their 500th competitive men's first-team game at Emirates Stadium against 9th-placed Manchester United. Timber broke 
+1378012860-48,false_negative,TEAM,Rice,ed. Timber broke the deadlock on 54 minutes when he flicked Rice's corner in at the near post for his first Gunners goal. In
+1378012860-48,false_negative,TEAM,Arteta,"ch to claw away Matthijs de Ligt's header from a free-kick. Arteta's side doubled their advantage in the 73rd minute, as Saka'"
+1376618994-1,false_positive,TEAM,Norwich City,"On 7 June 2021, Norwich City announced that they had terminated the shirt sponsorship wi"
+1376618994-1,false_negative,TEAM,Norwich,"On 7 June 2021, Norwich City announced that they had terminated the shirt sponsorsh"
+1378012860-47,false_negative,TEAM,West Ham,"Arteta's side faced 14th-placed West Ham United away on 30 November, winning 5–2 to move up to secon"
+1378012860-47,false_negative,PLAYER,Gabriel,"ecord for the highest number of goals in a first half, with Gabriel Magalhães, Trossard, Ødegaard and Havertz putting the Gunne"
+1377034100-4,false_positive,PLAYER,Alan Hutton,"This season was the first since 2010-11 without Alan Hutton, who departed following the expiration of his contract befo"
+1377034100-4,false_positive,PLAYER,Gary Gardner,"ation of his contract before retiring in February 2020, and Gary Gardner, who joined Birmingham City after spending the previous sea"
+1324506488-0,false_positive,TEAM,Palace,"football) and the 115th year in their history. This season, Palace participated in the Premier League, FA Cup and EFL Cup. The"
+1324506488-0,false_positive,TEAM,Palace,eason covered the period from 27 July 2020 to 30 June 2021. Palace finished the season in fourteenth place which also saw the 
+1376892747-6,false_positive,TEAM,Albion,"since its breakaway from the Football League in 1992. It is Albion's 13th season in the Premier League, 81st season in the top"
+1372955025-2,false_positive,PLAYER,Garde,Garde put a strong emphasis on discipline at Villa. He dropped mi
+1372955025-2,false_positive,TEAM,Everton,"e first team after he went partying following a 4–0 loss at Everton. On 29 March 2016, with Villa still bottom of the league, G"
+1372955025-2,false_positive,PLAYER,Garde,"n. On 29 March 2016, with Villa still bottom of the league, Garde left the club by mutual consent with Ex-Coventry City manag"
+1372955025-2,false_negative,TEAM,Coventry City,"f the league, Garde left the club by mutual consent with Ex-Coventry City manager Eric Black taking temporary charge for the last sev"
+1378012860-40,false_positive,TEAM,Arsenal,in either half. This was the first time since May 2022 that Arsenal had lost successive away matches in the Premier League. It 
+1355621210-1,false_negative,TEAM,Stoke,", by virtue of them losing 2–1 at home to already relegated Stoke City, where only a win and a ten-goal difference swing over"
+1376808313-20,false_positive,TEAM,Stoke,ardy was sent-off for a two-footed challenge on Mame Diouf. Stoke made the most of their numerical advantage and scored twice
+1376808313-20,false_positive,PLAYER,Bojan,ost of their numerical advantage and scored twice through a Bojan penalty and a tap-in from Joe Allen to make it 2–0 at half-
+1376808313-20,false_positive,TEAM,Foxes,and goals from Leonardo Ulloa and Daniel Amartey earned the Foxes a 2–2 draw.
+1376808313-20,false_negative,TEAM,Leicester,"City then faced the champions Leicester City on 17 December, and after an even opening, the match c"
+1352350294-34,false_positive,TEAM,Wolfsburg," United had been drawn in the same group as CSKA Moscow and Wolfsburg in 2009–10, while they had met PSV in the first group stage"
+1352350294-34,false_positive,TEAM,PSV,"as CSKA Moscow and Wolfsburg in 2009–10, while they had met PSV in the first group stage of the 2000–01 competition. United"
+1352350294-34,false_positive,TEAM,PSV," the 2000–01 competition. United suffered a shock defeat to PSV in the first game as the hosts came from behind to win 2–1,"
+1352350294-34,false_positive,PLAYER,Depay," first game as the hosts came from behind to win 2–1, after Depay scored the opener following his brace against Club Brugge i"
+1299292288-0,false_positive,PLAYER,Eric Maxim Choupo-Moting,"uniesa left on season-long loans. Coming into the team were Eric Maxim Choupo-Moting, Darren Fletcher, Bruno Martins Indi, Josh Tymon and Kevin "
+1299292288-0,false_negative,PLAYER,Maxim Choupo-Moting,"a left on season-long loans. Coming into the team were Eric Maxim Choupo-Moting, Darren Fletcher, Bruno Martins Indi, Josh Tymon and Kevin "
+1378012860-33,false_positive,TEAM,Arsenal,everyone and flew straight into the back of the net. It was Arsenal's first direct free-kick goal in the Champions League since
+1378012860-33,false_positive,PLAYER,Arteta,he Champions League since November 2002. In the 64th minute Arteta handed a belated debut to summer signing Merino who had rec
+1299292288-13,false_positive,PLAYER,Mark Hughes,aced a daunting trip to title favorites Manchester City and Mark Hughes decided to give a debut to academy graduate Tom Edwards. St
+1299292288-13,false_positive,TEAM,Stoke," goals from Gabriel Jesus, Raheem Sterling and David Silva. Stoke briefly made a comeback with a goal from Diouf and an own g"
+1377860829-1,false_positive,TEAM,Cambridge United,"wn at home to Bristol City. They were then drawn at home to Cambridge United in the third round, away to Wycombe Wanderers in the fourth"
+1376913273-82,false_positive,PLAYER,Arteta,"eague final in 20 years, marking a significant milestone in Arteta's European project. The unbeaten run to the final saw Arsen"
+1375820414-0,false_positive,TEAM,Sheffield United,The 2020–21 Sheffield United Football Club season was the club's 132nd season in existen
+1376248763-4,false_positive,TEAM,Yokohama F,"the second friendly of the tour was confirmed to be against Yokohama F. Marinos in Yokohama, marking their first ever pre-season t"
+1376248763-4,false_positive,TEAM,Marinos,"riendly of the tour was confirmed to be against Yokohama F. Marinos in Yokohama, marking their first ever pre-season tour in Ja"
+1376248763-4,false_positive,TEAM,Athletic Bilbao,"e 2025. Five days later, a double-header at Anfield against Athletic Bilbao was added to conclude the pre-season fixtures. On 20 July 2"
+1376248763-4,false_positive,TEAM,Stoke City,"uly 2025, a behind-closed-doors friendly was played against Stoke City at the Liverpool Training Centre."
+1376248763-4,false_positive,VENUE,Training Centre,ors friendly was played against Stoke City at the Liverpool Training Centre.
+1376248763-4,false_negative,TEAM,Stoke,"uly 2025, a behind-closed-doors friendly was played against Stoke City at the Liverpool Training Centre."
+1378012860-76,false_positive,TEAM,England," England senior team. Aged 18 years and 176 days, he became England's youngest debutant scorer during a 2026 World Cup qualifie"
+1378012860-76,false_positive,TEAM,Albania,utant scorer during a 2026 World Cup qualifier victory over Albania on 21 March.
+1376913273-59,false_positive,PLAYER,Arteta,tch of the previous season's meeting between the two sides. Arteta made seven changes to the starting lineup from December's c
+1376913273-59,false_positive,TEAM,Gyökeres,. The game looked to be headed towards a nervy ending until Gyökeres sealed the victory with a long-ranged attempt in the 84th m
+1376913273-59,false_negative,PLAYER,Timber,"uickly, as the Brazilian centre-forward nodded in a scuffed Timber shot in the 10th minute past Yann Sommer in the Inter goal."
+1376913273-59,false_negative,PLAYER,Gyökeres,. The game looked to be headed towards a nervy ending until Gyökeres sealed the victory with a long-ranged attempt in the 84th m
+1324506488-8,false_positive,TEAM,Tottenham Hotspur," home in a 0–0 draw. The next game saw Palace beaten 4–1 by Tottenham Hotspur, with Harry Kane scoring a brace and providing two assists "
+1377440720-4,false_positive,TEAM,I Giallorossi,"two games, Brighton would end up losing 4-1 on aggregate to I Giallorossi and were inevitably eliminated from the Europa League."
+1377440720-4,false_negative,TEAM,Giallorossi,"o games, Brighton would end up losing 4-1 on aggregate to I Giallorossi and were inevitably eliminated from the Europa League."
+1378012860-68,false_positive,PLAYER,Arteta,"ka already sidelined through injury, Havertz's absence left Arteta with just two first-team forwards to choose from up front i"
+1378012860-79,false_positive,TEAM,Arsenal,Arsenal hosted 15-time and reigning European champions Real Madrid 
+1378012860-79,false_positive,TEAM,Arsenal," free-kick goal of his senior career, making him the fourth Arsenal player to score from a direct free-kick in the Champions Le"
+1378012860-79,false_positive,PLAYER,Rice,r to score from a direct free-kick in the Champions League. Rice netted his second of the night with another free-kick in th
+1378012860-79,false_positive,PLAYER,Arteta,sent off after receiving a second yellow card. The win gave Arteta's side a three-goal advantage heading to the second leg in 
+1378012860-45,false_positive,PLAYER,Arteta,"ainst 5th-placed Nottingham Forest on 23 November. This was Arteta's 250th game in charge of Arsenal in all competitions, the "
+1378012860-45,false_positive,TEAM,Gunners,"lub. Goals early in each half from Saka and Partey gave the Gunners a 2–0 lead. Nwaneri netted a late goal, becoming Arsenal's "
+1363280579-1,false_negative,TEAM,Monaco,"On 28 August 2015, the draw for the group stage was made in Monaco. Spurs faced Anderlecht, Monaco and Qarabağ in Group J. Spu"
+1374028336-3,false_positive,VENUE,Philip II Arena,"League for the 2017 UEFA Super Cup on 8 August 2017, at the Philip II Arena in Skopje, Macedonia."
+1376808313-16,false_positive,PLAYER,Giannelli Imbula," made five changes to his side which included the return of Giannelli Imbula. It paid off, as Stoke dominated the match and scored the o"
+1299292288-4,false_positive,TEAM,Stoke,th Igor Djuric scoring a late own goal. BSC Young Boys were Stoke's final opponents in the Uhrencup on 12 July 2017. The Swis
+1299292288-4,false_positive,TEAM,Stoke,draw. The winner was determined by a penalty shoot-out with Stoke winning 4–3 after 16 spot kicks. Stoke's last match in Swit
+1299292288-4,false_negative,TEAM,BSC Young Boys,e Neuchâtel Xamax with Igor Djuric scoring a late own goal. BSC Young Boys were Stoke's final opponents in the Uhrencup on 12 July 201
+1336648088-1,false_positive,TEAM,West Bromwich Albion,"During the off-season, West Bromwich Albion made several improvements to their stadium, The Hawthorns. "
+1336648088-1,false_positive,VENUE,Hawthorns,"wich Albion made several improvements to their stadium, The Hawthorns. The club increased the number of wheelchair bays from 145 "
+1377701525-5,false_positive,PLAYER,Phil Foden,"ason (50 pts); and the youngest ever Premier League winner (Phil Foden, aged 17 years and 350 days)"
