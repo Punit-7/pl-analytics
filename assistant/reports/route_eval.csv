@@ -1,0 +1,31 @@
+id,question,tool,chosen,correct
+r01,How many goals did Arsenal score at home in 2022/23?,query_warehouse,none,False
+r02,Which team had the most yellow cards last season?,query_warehouse,query_warehouse,True
+r03,Show me the league table for 2018/19.,query_warehouse,query_warehouse,True
+r04,What is Liverpool's record against Everton since 2020/21?,query_warehouse,search_articles,False
+r05,How many matches has Brentford won away from home this season?,query_warehouse,query_warehouse,True
+r06,What was Newcastle's total xG in 2023/24?,query_warehouse,search_articles,False
+r07,How many fixtures does Chelsea still have to play this season?,query_warehouse,query_warehouse,True
+r08,Which season had the fewest draws?,query_warehouse,query_warehouse,True
+r09,How many points did Leicester win in 2015/16?,query_warehouse,none,False
+r10,What are the chances that Arsenal beat Tottenham at home?,predict_match,predict_match,True
+r11,Predict the score of Liverpool against Manchester City.,predict_match,predict_match,True
+r12,"Who is more likely to win, Everton at home or Aston Villa?",predict_match,predict_match,True
+r13,What is the probability of a draw between Fulham and Brentford?,predict_match,predict_match,True
+r14,How many goals should we expect when Newcastle host Chelsea?,predict_match,predict_match,True
+r15,Which team has the strongest attack rating right now?,team_ratings,team_ratings,True
+r16,How does the model rate Brighton's defence?,team_ratings,team_ratings,True
+r17,Rank the teams by current strength.,team_ratings,team_ratings,True
+r18,Is West Ham rated above or below average by the match model?,team_ratings,team_ratings,True
+r19,Who is most likely to win the title this season?,season_outlook,season_outlook,True
+r20,What is the chance that Leeds get relegated?,season_outlook,season_outlook,True
+r21,How likely are Manchester United to finish in the top four?,season_outlook,season_outlook,True
+r22,How many points is Aston Villa expected to finish with?,season_outlook,season_outlook,True
+r23,What happened in Chelsea's 2022/23 season with their managers?,search_articles,search_articles,True
+r24,Why did Everton struggle in 2022/23?,search_articles,search_articles,True
+r25,Which players did Arsenal sign in the summer of 2023?,search_articles,search_articles,True
+r26,How did Newcastle's Champions League campaign go in 2023/24?,search_articles,search_articles,True
+r27,Tell me about Luton Town's season in the Premier League.,search_articles,query_warehouse,False
+r28,What is the capital of France?,none,none,True
+r29,Write me a poem about the sea.,none,none,True
+r30,Who won the 2022 Formula 1 championship?,none,none,True

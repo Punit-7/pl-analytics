@@ -1,0 +1,30 @@
+{"id": "r01", "question": "How many goals did Arsenal score at home in 2022/23?", "tool": "query_warehouse"}
+{"id": "r02", "question": "Which team had the most yellow cards last season?", "tool": "query_warehouse"}
+{"id": "r03", "question": "Show me the league table for 2018/19.", "tool": "query_warehouse"}
+{"id": "r04", "question": "What is Liverpool's record against Everton since 2020/21?", "tool": "query_warehouse"}
+{"id": "r05", "question": "How many matches has Brentford won away from home this season?", "tool": "query_warehouse"}
+{"id": "r06", "question": "What was Newcastle's total xG in 2023/24?", "tool": "query_warehouse"}
+{"id": "r07", "question": "How many fixtures does Chelsea still have to play this season?", "tool": "query_warehouse"}
+{"id": "r08", "question": "Which season had the fewest draws?", "tool": "query_warehouse"}
+{"id": "r09", "question": "How many points did Leicester win in 2015/16?", "tool": "query_warehouse"}
+{"id": "r10", "question": "What are the chances that Arsenal beat Tottenham at home?", "tool": "predict_match"}
+{"id": "r11", "question": "Predict the score of Liverpool against Manchester City.", "tool": "predict_match"}
+{"id": "r12", "question": "Who is more likely to win, Everton at home or Aston Villa?", "tool": "predict_match"}
+{"id": "r13", "question": "What is the probability of a draw between Fulham and Brentford?", "tool": "predict_match"}
+{"id": "r14", "question": "How many goals should we expect when Newcastle host Chelsea?", "tool": "predict_match"}
+{"id": "r15", "question": "Which team has the strongest attack rating right now?", "tool": "team_ratings"}
+{"id": "r16", "question": "How does the model rate Brighton's defence?", "tool": "team_ratings"}
+{"id": "r17", "question": "Rank the teams by current strength.", "tool": "team_ratings"}
+{"id": "r18", "question": "Is West Ham rated above or below average by the match model?", "tool": "team_ratings"}
+{"id": "r19", "question": "Who is most likely to win the title this season?", "tool": "season_outlook"}
+{"id": "r20", "question": "What is the chance that Leeds get relegated?", "tool": "season_outlook"}
+{"id": "r21", "question": "How likely are Manchester United to finish in the top four?", "tool": "season_outlook"}
+{"id": "r22", "question": "How many points is Aston Villa expected to finish with?", "tool": "season_outlook"}
+{"id": "r23", "question": "What happened in Chelsea's 2022/23 season with their managers?", "tool": "search_articles"}
+{"id": "r24", "question": "Why did Everton struggle in 2022/23?", "tool": "search_articles"}
+{"id": "r25", "question": "Which players did Arsenal sign in the summer of 2023?", "tool": "search_articles"}
+{"id": "r26", "question": "How did Newcastle's Champions League campaign go in 2023/24?", "tool": "search_articles"}
+{"id": "r27", "question": "Tell me about Luton Town's season in the Premier League.", "tool": "search_articles"}
+{"id": "r28", "question": "What is the capital of France?", "tool": "none"}
+{"id": "r29", "question": "Write me a poem about the sea.", "tool": "none"}
+{"id": "r30", "question": "Who won the 2022 Formula 1 championship?", "tool": "none"}

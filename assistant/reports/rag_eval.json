@@ -1,0 +1,22 @@
+{
+  "assistant_version": "assistant-1.0",
+  "provider": "ollama",
+  "model": "all-minilm",
+  "run_at": "2026-10-07T23:18:42+00:00",
+  "n": 40,
+  "bm25": {
+    "recall_at_1": 0.325,
+    "recall_at_5": 0.675,
+    "mrr": 0.478
+  },
+  "dense": {
+    "recall_at_1": 0.125,
+    "recall_at_5": 0.55,
+    "mrr": 0.284
+  },
+  "hybrid": {
+    "recall_at_1": 0.45,
+    "recall_at_5": 0.75,
+    "mrr": 0.575
+  }
+}
