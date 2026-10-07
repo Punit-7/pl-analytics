@@ -1,0 +1,11 @@
+{
+  "mentions": 200,
+  "accuracy": 0.925,
+  "precision_of_links": 1.0,
+  "nil_rate": 0.3,
+  "accuracy_by_label": {
+    "PLAYER": 0.854,
+    "TEAM": 0.973,
+    "VENUE": 1.0
+  }
+}
