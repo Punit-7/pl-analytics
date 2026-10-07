@@ -48,3 +48,34 @@ What the numbers say:
 ### What to fix first
 
 Wrong table or column is the largest category, but wrong team name is the cheapest to fix and would recover the most easy questions. Any prompt change is tuned on the 10 dev questions only; the 40 test questions are then run once more.
+
+## Stage 5 — second prompt version (repair_v2)
+
+Three rules were added to `RULES` in `assistant/schema.py`: use the short team name from the team list; `mart.fact_team_match` has no `home_`/`away_` columns and has two rows per match; a team's xG is `SUM(xg_for)`. Same model, settings and 40 test questions. Run on 8 October 2026.
+
+| Mode      | Accuracy      | 95% interval  | Easy  | Medium | Hard | Mean seconds |
+|-----------|---------------|---------------|-------|--------|------|--------------|
+| repair    | 16/40 = 0.400 | 0.248 – 0.552 | 7/14  | 8/16   | 1/10 | 30.1         |
+| repair_v2 | 21/40 = 0.525 | 0.370 – 0.680 | 10/14 | 10/16  | 1/10 | 23.5         |
+
+- Seven questions became correct (t03, t06, t10, t17, t25, t28, t29) and two became wrong (t21, t23): a net gain of 5.
+- This is not proof that the rules help. The intervals overlap, and 7 gains against 2 losses could happen by chance about 1 time in 5 (exact sign test, p = 0.18).
+- **The second number is optimistic.** The team-name and table rules were written after reading the test failures, so the test set is no longer unseen for this prompt. Only the xG rule came from a dev question (d03). The first run, 16/40, is the clean measurement.
+- The dev set could not check the rules: it stayed at 8/10 for all three prompt versions (`sql_eval_repair_dev_v1` to `_v3`), with d03 fixed and d08 broken by the last one.
+- Hard questions are still 1/10. Rules do not fix them.
+
+### Error analysis — repair_v2, 19 questions not correct
+
+| Category                    | Before | After | Questions after              |
+|-----------------------------|--------|-------|------------------------------|
+| Wrong table or column       | 8      | 6     | t08, t12, t26, t27, t37, t40 |
+| Wrong team name             | 6      | 2     | t04, t09                     |
+| Logic too hard              | 6      | 5     | t33, t34, t36, t38, t39      |
+| Wrong aggregation or filter | 4      | 5     | t16, t23, t24, t32, t35      |
+| Missing filter              | 0      | 1     | t21                          |
+
+- Team names: four of six fixed. 'Tottenham Hotspur' and 'Newcastle United' are still copied from the question.
+- Table confusion moved, not vanished: t08 and t12 now use `mart.fact_match` but with columns that belong to `mart.fact_team_match` (`result`, `game_no`).
+- The two losses are side effects: t21 dropped its season filter and t23 changed its xG arithmetic after the xG rule.
+
+No more prompt changes are made against these 40 questions. A further fix needs new test questions.

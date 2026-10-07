@@ -84,8 +84,14 @@ RULES = """Rules:
 - A season is text in the form '2023/24'. Seasons sort correctly as text.
 - Team names must be written exactly as in the team list. In SQL, a quote inside a name is
   doubled: 'Nott''m Forest'.
+- A question may use a club's long name. Always write the short name from the team list:
+  'Manchester United' is 'Man United', 'Leicester City' is 'Leicester'.
+- mart.fact_team_match has no home_ or away_ columns; those are only in mart.fact_match.
+  mart.fact_team_match has two rows per match, so count matches, draws and total goals of
+  a season from mart.fact_match.
 - A league table is SUM(points) per team in one season. Goal difference is
   SUM(goals_for) - SUM(goals_against).
+- A team's xG, or total xG, is SUM(xg_for). Never add or subtract xg_against.
 - To count something per team, including teams with a count of zero, use
   SUM(CASE WHEN ... THEN 1 ELSE 0 END), not a WHERE filter.
 - Round only when the question asks for it: ROUND(CAST(x AS numeric), 2).
