@@ -56,5 +56,5 @@ def load_settings(path: Path = CONFIG_FILE) -> Settings:
         understat_enabled=c["sources"]["understat_enabled"],
         modelling=c["modelling"],
         nlp=c["nlp"],
-        assistant=c.get("assistant")
+        assistant=c.get("assistant"),
     )

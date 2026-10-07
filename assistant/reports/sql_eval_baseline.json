@@ -1,0 +1,51 @@
+{
+  "assistant_version": "assistant-1.0",
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "run_at": "2026-10-07T20:59:04+00:00",
+  "mode": "baseline",
+  "split": "test",
+  "execution_accuracy": {
+    "value": 0.075,
+    "k": 3,
+    "n": 40,
+    "standard_error": 0.042,
+    "low_95": 0.0,
+    "high_95": 0.157
+  },
+  "by_difficulty": {
+    "easy": {
+      "value": 0.0,
+      "k": 0,
+      "n": 14,
+      "standard_error": 0.0,
+      "low_95": 0.0,
+      "high_95": 0.0
+    },
+    "medium": {
+      "value": 0.125,
+      "k": 2,
+      "n": 16,
+      "standard_error": 0.083,
+      "low_95": 0.0,
+      "high_95": 0.287
+    },
+    "hard": {
+      "value": 0.1,
+      "k": 1,
+      "n": 10,
+      "standard_error": 0.095,
+      "low_95": 0.0,
+      "high_95": 0.286
+    }
+  },
+  "outcomes": {
+    "sql_error": 19,
+    "wrong_result": 18,
+    "correct": 3
+  },
+  "mean_seconds": 17.9,
+  "mean_prompt_tokens": 297,
+  "mean_output_tokens": 56,
+  "cost_usd_per_question": 0.0
+}

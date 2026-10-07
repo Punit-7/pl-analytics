@@ -25,6 +25,7 @@ def make_engine() -> Engine:
     )
     return create_engine(url, pool_pre_ping=True)
 
+
 def make_reader_engine() -> Engine:
     """Engine for the read-only role pl_reader. The assistant uses only this engine."""
     load_dotenv(ROOT / ".env")
