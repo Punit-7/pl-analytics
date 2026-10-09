@@ -1,123 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="780" viewBox="0 0 720 780" role="img" aria-label="Suggested FPL team">
-<rect width="720" height="780" fill="#f6f3f9"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="820" viewBox="0 0 720 820" role="img" aria-label="Suggested FPL team">
+<rect width="720" height="820" fill="#f6f3f9"/>
 <text x="360.0" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1b1024" text-anchor="middle">Gameweek 6 — suggested team</text>
-<text x="360.0" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5a4d66" text-anchor="middle">Deadline Sat 10 Oct, 10:00 UTC · projected 64.2 points · made 2026-10-09</text>
-<text x="360.0" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">A fresh 15 for the next gameweeks (Wildcard)</text>
-<text x="360.0" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Chip advice needs your team ID in config.toml</text>
-<rect x="16" y="136" width="688" height="452" rx="10" fill="#1f8a4c"/>
-<rect x="40" y="146" width="640" height="432" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-<line x1="40" y1="362.0" x2="680" y2="362.0" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-<circle cx="360.0" cy="362.0" r="56" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-<rect x="304.0" y="150" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="304.0" y="150" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="304.0" y="164" width="112" height="8" fill="#37003c"/>
-<text x="360.0" y="166" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · GKP</text>
-<text x="360.0" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Raya</text>
-<text x="360.0" y="207" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LEE (H)</text>
-<text x="360.0" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.9 pts · £6.1m</text>
-<rect x="118.0" y="262" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="118.0" y="262" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="118.0" y="276" width="112" height="8" fill="#37003c"/>
-<text x="174.0" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">NEW · DEF</text>
-<text x="174.0" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Hall</text>
-<text x="174.0" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">COV (A)</text>
-<text x="174.0" y="337" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.6 pts · £5.3m</text>
-<circle cx="122.0" cy="266" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
-<text x="122.0" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">C</text>
-<rect x="242.0" y="262" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="242.0" y="262" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="242.0" y="276" width="112" height="8" fill="#37003c"/>
-<text x="298.0" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · DEF</text>
-<text x="298.0" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Calafiori</text>
-<text x="298.0" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LEE (H)</text>
-<text x="298.0" y="337" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.9 pts · £5.9m</text>
-<rect x="366.0" y="262" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="366.0" y="262" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="366.0" y="276" width="112" height="8" fill="#37003c"/>
-<text x="422.0" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">HUL · DEF</text>
-<text x="422.0" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Ajayi</text>
-<text x="422.0" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">EVE (H)</text>
-<text x="422.0" y="337" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.6 pts · £4.2m</text>
-<rect x="490.0" y="262" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="490.0" y="262" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="490.0" y="276" width="112" height="8" fill="#37003c"/>
-<text x="546.0" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">HUL · DEF</text>
-<text x="546.0" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Giles</text>
-<text x="546.0" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">EVE (H)</text>
-<text x="546.0" y="337" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.5 pts · £4.0m</text>
-<rect x="118.0" y="374" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="118.0" y="374" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="118.0" y="388" width="112" height="8" fill="#37003c"/>
-<text x="174.0" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · MID</text>
-<text x="174.0" y="414" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Saka</text>
-<text x="174.0" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LEE (H)</text>
-<text x="174.0" y="449" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.5 pts · £9.6m</text>
-<circle cx="122.0" cy="378" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
-<text x="122.0" y="382" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">V</text>
-<rect x="242.0" y="374" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="242.0" y="374" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="242.0" y="388" width="112" height="8" fill="#37003c"/>
-<text x="298.0" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MUN · MID</text>
-<text x="298.0" y="414" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Mbeumo</text>
-<text x="298.0" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">TOT (H)</text>
-<text x="298.0" y="449" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.0 pts · £7.9m</text>
-<rect x="366.0" y="374" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="366.0" y="374" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="366.0" y="388" width="112" height="8" fill="#37003c"/>
-<text x="422.0" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">CHE · MID</text>
-<text x="422.0" y="414" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Rogers</text>
-<text x="422.0" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">BOU (H)</text>
-<text x="422.0" y="449" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.6 pts · £7.8m</text>
-<rect x="490.0" y="374" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="490.0" y="374" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="490.0" y="388" width="112" height="8" fill="#37003c"/>
-<text x="546.0" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">BOU · MID</text>
-<text x="546.0" y="414" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Tavernier</text>
-<text x="546.0" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">CHE (A)</text>
-<text x="546.0" y="449" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.7 pts · £6.1m</text>
-<rect x="242.0" y="486" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="242.0" y="486" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="242.0" y="500" width="112" height="8" fill="#37003c"/>
-<text x="298.0" y="502" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">NEW · FWD</text>
-<text x="298.0" y="526" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Wissa</text>
-<text x="298.0" y="543" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">COV (A)</text>
-<text x="298.0" y="561" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.3 pts · £6.2m</text>
-<rect x="366.0" y="486" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="366.0" y="486" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="366.0" y="500" width="112" height="8" fill="#37003c"/>
-<text x="422.0" y="502" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MCI · FWD</text>
-<text x="422.0" y="526" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Haaland</text>
-<text x="422.0" y="543" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LIV (A)</text>
-<text x="422.0" y="561" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.0 pts · £15.6m</text>
-<rect x="16" y="602" width="688" height="118" rx="10" fill="#e4dcec"/>
-<rect x="118.0" y="618" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="118.0" y="618" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="118.0" y="632" width="112" height="8" fill="#37003c"/>
-<text x="174.0" y="634" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">1. FUL · GKP</text>
-<text x="174.0" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Leno</text>
-<text x="174.0" y="675" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">IPS (A)</text>
-<text x="174.0" y="693" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.0 pts · £4.5m</text>
-<rect x="242.0" y="618" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="242.0" y="618" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="242.0" y="632" width="112" height="8" fill="#37003c"/>
-<text x="298.0" y="634" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2. MCI · DEF</text>
-<text x="298.0" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Guéhi</text>
-<text x="298.0" y="675" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LIV (A)</text>
-<text x="298.0" y="693" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.6 pts · £6.0m</text>
-<rect x="366.0" y="618" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="366.0" y="618" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="366.0" y="632" width="112" height="8" fill="#37003c"/>
-<text x="422.0" y="634" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3. HUL · MID</text>
-<text x="422.0" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Belloumi</text>
-<text x="422.0" y="675" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">EVE (H)</text>
-<text x="422.0" y="693" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.6 pts · £5.1m</text>
-<rect x="490.0" y="618" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
-<rect x="490.0" y="618" width="112" height="22" rx="8" fill="#37003c"/>
-<rect x="490.0" y="632" width="112" height="8" fill="#37003c"/>
-<text x="546.0" y="634" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. EVE · FWD</text>
-<text x="546.0" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Barry</text>
-<text x="546.0" y="675" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">HUL (A)</text>
-<text x="546.0" y="693" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.2 pts · £5.7m</text>
-<text x="360.0" y="744" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">Projection: pl-analytics Dixon–Coles model. Data: Fantasy Premier League API, football-data.co.uk.</text>
-<text x="360.0" y="760" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">A model suggestion, not advice. Not affiliated with the Premier League or FPL.</text>
+<text x="360.0" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5a4d66" text-anchor="middle">Deadline Sat 10 Oct, 10:00 UTC · projected 58.8 points · made 2026-10-09</text>
+<text x="360.0" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Transfers: 2 free (estimate), 2 paid = −8 points</text>
+<text x="360.0" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Palmer → Saka   ·   João Pedro → Tavernier   ·   Mainoo → Guéhi</text>
+<text x="360.0" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Wan-Bissaka → Wissa</text>
+<text x="360.0" y="146" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Chip: play Wildcard (+35.0 projected; limit 15)</text>
+<rect x="16" y="176" width="688" height="452" rx="10" fill="#1f8a4c"/>
+<rect x="40" y="186" width="640" height="432" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+<line x1="40" y1="402.0" x2="680" y2="402.0" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+<circle cx="360.0" cy="402.0" r="56" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+<rect x="304.0" y="190" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="304.0" y="190" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="304.0" y="204" width="112" height="8" fill="#37003c"/>
+<text x="360.0" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">AVL · GKP</text>
+<text x="360.0" y="230" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Suzuki</text>
+<text x="360.0" y="247" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">BRE (H)</text>
+<text x="360.0" y="265" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">2.0 pts · £5.0m</text>
+<rect x="118.0" y="302" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="118.0" y="302" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="118.0" y="316" width="112" height="8" fill="#37003c"/>
+<text x="174.0" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">NEW · DEF</text>
+<text x="174.0" y="342" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Hall</text>
+<text x="174.0" y="359" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">COV (A)</text>
+<text x="174.0" y="377" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.6 pts · £5.3m</text>
+<circle cx="122.0" cy="306" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
+<text x="122.0" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">C</text>
+<rect x="242.0" y="302" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="242.0" y="302" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="242.0" y="316" width="112" height="8" fill="#37003c"/>
+<text x="298.0" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · DEF</text>
+<text x="298.0" y="342" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Calafiori</text>
+<text x="298.0" y="359" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LEE (H)</text>
+<text x="298.0" y="377" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.9 pts · £5.8m</text>
+<rect x="366.0" y="302" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="366.0" y="302" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="366.0" y="316" width="112" height="8" fill="#37003c"/>
+<text x="422.0" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">HUL · DEF</text>
+<text x="422.0" y="342" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Ajayi</text>
+<text x="422.0" y="359" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">EVE (H)</text>
+<text x="422.0" y="377" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.6 pts · £4.1m</text>
+<rect x="490.0" y="302" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="490.0" y="302" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="490.0" y="316" width="112" height="8" fill="#37003c"/>
+<text x="546.0" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MCI · DEF</text>
+<text x="546.0" y="342" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Guéhi</text>
+<text x="546.0" y="359" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LIV (A)</text>
+<text x="546.0" y="377" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.6 pts · £6.0m</text>
+<rect x="572.0" y="293" width="34" height="18" rx="4" fill="#e8590c"/>
+<text x="589.0" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
+<rect x="118.0" y="414" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="118.0" y="414" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="118.0" y="428" width="112" height="8" fill="#37003c"/>
+<text x="174.0" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · MID</text>
+<text x="174.0" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Saka</text>
+<text x="174.0" y="471" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LEE (H)</text>
+<text x="174.0" y="489" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.5 pts · £9.6m</text>
+<circle cx="122.0" cy="418" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
+<text x="122.0" y="422" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">V</text>
+<rect x="200.0" y="405" width="34" height="18" rx="4" fill="#e8590c"/>
+<text x="217.0" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
+<rect x="242.0" y="414" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="242.0" y="414" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="242.0" y="428" width="112" height="8" fill="#37003c"/>
+<text x="298.0" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MUN · MID</text>
+<text x="298.0" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">B.Fernandes</text>
+<text x="298.0" y="471" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">TOT (H)</text>
+<text x="298.0" y="489" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">6.0 pts · £11.9m</text>
+<rect x="366.0" y="414" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="366.0" y="414" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="366.0" y="428" width="112" height="8" fill="#37003c"/>
+<text x="422.0" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">BOU · MID</text>
+<text x="422.0" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Tavernier</text>
+<text x="422.0" y="471" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">CHE (A)</text>
+<text x="422.0" y="489" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.7 pts · £6.1m</text>
+<rect x="448.0" y="405" width="34" height="18" rx="4" fill="#e8590c"/>
+<text x="465.0" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
+<rect x="490.0" y="414" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="490.0" y="414" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="490.0" y="428" width="112" height="8" fill="#37003c"/>
+<text x="546.0" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MCI · MID</text>
+<text x="546.0" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Cherki</text>
+<text x="546.0" y="471" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LIV (A)</text>
+<text x="546.0" y="489" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">2.9 pts · £7.7m</text>
+<rect x="242.0" y="526" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="242.0" y="526" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="242.0" y="540" width="112" height="8" fill="#37003c"/>
+<text x="298.0" y="542" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">NEW · FWD</text>
+<text x="298.0" y="566" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Wissa</text>
+<text x="298.0" y="583" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">COV (A)</text>
+<text x="298.0" y="601" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.3 pts · £6.2m</text>
+<rect x="324.0" y="517" width="34" height="18" rx="4" fill="#e8590c"/>
+<text x="341.0" y="530" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
+<rect x="366.0" y="526" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="366.0" y="526" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="366.0" y="540" width="112" height="8" fill="#37003c"/>
+<text x="422.0" y="542" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MCI · FWD</text>
+<text x="422.0" y="566" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Haaland</text>
+<text x="422.0" y="583" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">LIV (A)</text>
+<text x="422.0" y="601" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.0 pts · £15.6m</text>
+<rect x="16" y="642" width="688" height="118" rx="10" fill="#e4dcec"/>
+<rect x="118.0" y="658" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="118.0" y="658" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="118.0" y="672" width="112" height="8" fill="#37003c"/>
+<text x="174.0" y="674" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">1. TOT · GKP</text>
+<text x="174.0" y="698" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Austin</text>
+<text x="174.0" y="715" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">MUN (A)</text>
+<text x="174.0" y="733" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">0.0 pts · £4.0m</text>
+<rect x="242.0" y="658" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="242.0" y="658" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="242.0" y="672" width="112" height="8" fill="#37003c"/>
+<text x="298.0" y="674" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2. NFO · DEF</text>
+<text x="298.0" y="698" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Aina</text>
+<text x="298.0" y="715" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">CRY (A)</text>
+<text x="298.0" y="733" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">2.2 pts · £4.4m</text>
+<rect x="366.0" y="658" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="366.0" y="658" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="366.0" y="672" width="112" height="8" fill="#37003c"/>
+<text x="422.0" y="674" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3. CRY · MID</text>
+<text x="422.0" y="698" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Hughes</text>
+<text x="422.0" y="715" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">NFO (H)</text>
+<text x="422.0" y="733" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">0.2 pts · £4.4m</text>
+<rect x="490.0" y="658" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="490.0" y="658" width="112" height="22" rx="8" fill="#37003c"/>
+<rect x="490.0" y="672" width="112" height="8" fill="#37003c"/>
+<text x="546.0" y="674" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. BRE · FWD</text>
+<text x="546.0" y="698" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Furo</text>
+<text x="546.0" y="715" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">AVL (A)</text>
+<text x="546.0" y="733" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">0.0 pts · £4.5m</text>
+<text x="360.0" y="784" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">Projection: pl-analytics Dixon–Coles model. Data: Fantasy Premier League API, football-data.co.uk.</text>
+<text x="360.0" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">A model suggestion, not advice. Not affiliated with the Premier League or FPL.</text>
 </svg>
