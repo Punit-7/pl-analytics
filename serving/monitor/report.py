@@ -16,7 +16,20 @@ log = logging.getLogger("serving.monitor")
 REPORTS = ROOT / "serving" / "reports"
 
 
-def status_page(run: dict, table: dict, html_written: bool) -> str:
+def performance_lines(perf: dict | None) -> list[str]:
+    """The live-performance section, from performance.json (Stage 14)."""
+    if not perf:
+        return []
+    lines = ["", "## Live performance", "", f"Level: **{perf['level'].upper()}**"]
+    if perf.get("note"):
+        return [*lines, "", perf["note"]]
+    lines += ["", f"Judged on the last {perf['n_matches']} scored matches.", "",
+              "| Check | Level | Detail |", "| --- | --- | --- |"]  # fmt: skip
+    lines += [f"| {c['name']} | {c['level']} | {c['reason']} |" for c in perf["checks"]]
+    return lines
+
+
+def status_page(run: dict, table: dict, html_written: bool, perf: dict | None = None) -> str:
     model, data, ledger, gate = run["model"], run["data"], run["ledger"], run.get("gate")
     lines = [
         "# Weekly status",
@@ -42,6 +55,7 @@ def status_page(run: dict, table: dict, html_written: bool) -> str:
     ):
         if key in ledger:
             lines.append(f"| {label} | {ledger[key]} |")
+    lines += performance_lines(perf)
     lines += ["", "## Drift", "", "| Column | PSI | Alert |", "| --- | --- | --- |"]
     for column, row in table.items():
         lines.append(f"| {column} | {row['psi']} | {'ALERT' if row['alert'] else 'ok'} |")
@@ -71,8 +85,15 @@ def main() -> None:
     html_written = bool(table) and drift.evidently_report(
         reference, current, REPORTS / "drift_report.html"
     )
-    (REPORTS / "STATUS.md").write_text(status_page(run, table, html_written), encoding="utf-8")
+    perf_file = REPORTS / "performance.json"
+    perf = json.loads(perf_file.read_text(encoding="utf-8")) if perf_file.exists() else None
+    page = status_page(run, table, html_written, perf)
+    (REPORTS / "STATUS.md").write_text(page, encoding="utf-8")
     params, metrics, tags = tracking.flatten(run, table)
+    if perf:
+        tags["performance_level"] = perf["level"]
+        for c in perf["checks"]:
+            metrics[f"perf_{c['name']}"] = float(c["value"])
     tracking.log_run(cfg, run["model"]["model_version"], params, metrics, tags)
     log.info("Monitoring done. Drift: %s", {c: r["psi"] for c, r in table.items()})
 

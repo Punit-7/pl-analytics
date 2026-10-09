@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write           # the job commits the new model and predictions
+  issues: write             # the job opens an issue when performance is red (Stage 14)
 
 concurrency:
   group: weekly-model-run
@@ -54,12 +55,30 @@ jobs:
           git pull --rebase --autostash
           git push
 
+      - name: Performance alerts
+        run: python -m serving.monitor.performance
+
+      - name: Open or update the alert issue
+        if: hashFiles('serving/reports/ALERT.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create model-alert --color B60205 --force
+          open=$(gh issue list --label model-alert --state open --json number --jq '.[0].number')
+          if [ -n "$open" ]; then
+            gh issue comment "$open" --body-file serving/reports/ALERT.md
+          else
+            gh issue create --title "Model performance alert $(date -u +%F)" \
+              --label model-alert --body-file serving/reports/ALERT.md
+          fi
+
       - name: Monitoring - drift, MLflow, status page
         run: python -m serving.monitor.report
 
       - name: Commit the monitoring files
         run: |
-          git add serving/reports/STATUS.md serving/reports/drift.json serving/state/mlflow.db
+          git add serving/reports/STATUS.md serving/reports/drift.json serving/reports/performance.json \
+            serving/state/mlflow.db serving/state/performance_history.jsonl
           git diff --cached --quiet || git commit -m "Weekly monitoring $(date -u +%F) [skip render]"
           git pull --rebase --autostash
           git push

@@ -245,6 +245,54 @@ python -m assistant.eval.e2e --run     # end-to-end answers; mark them, then --s
 
 It needs the `pl_reader` login in `.env` (see `.env.example`). Article text from Wikipedia, CC BY-SA 4.0.
 
+## P5 — Live match model in production
+
+![CI](https://github.com/Punit-7/pl-analytics/actions/workflows/ci.yml/badge.svg)
+
+P2's match model, running without me: every Thursday a scheduled job downloads the new results, checks them, tests a challenger configuration against the champion, refits the model, publishes predictions for every remaining match, scores the earlier ones, and redeploys a public API, with calibration and drift tracked over time. The code is in `serving/`.
+
+- **Live API**: <https://pl-match-model.onrender.com/health>. It runs on a free plan that sleeps when idle, so the first request can take about a minute.
+- **Interactive docs**: <https://pl-match-model.onrender.com/docs>
+- [Status page](serving/reports/STATUS.md): last run, live model, gate decision, live scores, performance level and drift.
+- [Runbook](serving/RUNBOOK.md): how to operate it and what to do when an alert fires.
+- [System description](serving/SYSTEM.md): design, policy, measurements and limits.
+
+```
+ GitHub Actions, Thursday 06:17 UTC
+        │
+        v
+ 1. Download the results CSV files
+ 2. Load and check them             ── broken data ──> the job stops
+        │
+        v
+ 3. Gate: champion config vs challenger config,
+    walk-forward on the last 300 matches     ── better ──> challenger becomes champion
+        │
+        v
+ 4. Refit Dixon-Coles with the champion config
+ 5. Predict every remaining match; simulate the season
+ 6. Score earlier predictions
+        │
+        v
+ 7. Tests on the new files; build the Docker image; call /health
+        │
+        v
+ 8. git commit + git push  ──> Render rebuilds the image and replaces the running API
+        │
+        v
+ 9. Monitoring: PSI drift, Evidently report, metrics to MLflow, live performance level,
+    status page  ──> a GitHub issue when the level is red
+```
+
+### How to run the API locally
+
+```
+docker build -f serving/Dockerfile -t pl-api --load .
+docker run --rm -p 10000:10000 pl-api
+```
+
+Then open <http://localhost:10000/docs>. The weekly job itself is `python -m serving.weekly`.
+
 ## Data credits
 
 - Results, match stats and odds: [football-data.co.uk](https://www.football-data.co.uk/). Match stats (shots, corners, fouls, cards) start in **2000/01**; earlier seasons have results only (checked with `data/checks.py`). Closing odds start in **2019/20**.

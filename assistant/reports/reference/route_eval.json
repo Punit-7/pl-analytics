@@ -1,0 +1,69 @@
+{
+  "assistant_version": "assistant-1.0",
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "run_at": "2026-10-07T23:48:14+00:00",
+  "tool_selection_accuracy": {
+    "value": 0.833,
+    "k": 25,
+    "n": 30,
+    "standard_error": 0.068,
+    "low_95": 0.7,
+    "high_95": 0.967
+  },
+  "by_tool": {
+    "none": {
+      "value": 1.0,
+      "k": 3,
+      "n": 3,
+      "standard_error": 0.0,
+      "low_95": 1.0,
+      "high_95": 1.0
+    },
+    "predict_match": {
+      "value": 1.0,
+      "k": 5,
+      "n": 5,
+      "standard_error": 0.0,
+      "low_95": 1.0,
+      "high_95": 1.0
+    },
+    "query_warehouse": {
+      "value": 0.556,
+      "k": 5,
+      "n": 9,
+      "standard_error": 0.166,
+      "low_95": 0.231,
+      "high_95": 0.88
+    },
+    "search_articles": {
+      "value": 0.8,
+      "k": 4,
+      "n": 5,
+      "standard_error": 0.179,
+      "low_95": 0.449,
+      "high_95": 1.0
+    },
+    "season_outlook": {
+      "value": 1.0,
+      "k": 4,
+      "n": 4,
+      "standard_error": 0.0,
+      "low_95": 1.0,
+      "high_95": 1.0
+    },
+    "team_ratings": {
+      "value": 1.0,
+      "k": 4,
+      "n": 4,
+      "standard_error": 0.0,
+      "low_95": 1.0,
+      "high_95": 1.0
+    }
+  },
+  "mistakes": {
+    "query_warehouse -> none": 2,
+    "query_warehouse -> search_articles": 2,
+    "search_articles -> query_warehouse": 1
+  }
+}

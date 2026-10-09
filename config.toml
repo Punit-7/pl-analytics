@@ -122,3 +122,11 @@ service_version = "api-1.0"
 
 [serving.challenger]           # the candidate configuration; any key left out equals the champion
 dc_xi = 0.0030
+
+[serving.alerts]               # live performance checks (Stage 14)
+window_matches = 100           # the most recent scored matches that are judged: about 10 matchweeks
+min_matches = 60               # fewer scored matches than this: no verdict yet
+baseline_history = 760         # matches before each game that set the freq baseline: two seasons
+max_gap_to_book = 0.02         # RPS gap to the bookmaker above this is amber
+max_calibration_error = 0.08   # calibration error above this is amber
+amber_runs_to_red = 3          # amber on this many runs in a row, each with new matches, is red
