@@ -10,3 +10,8 @@ nlp/artifacts/
 .archify/
 assistant/artifacts/
 assistant/logs/
+mlflow_local.db
+mlflow_view.db
+mlruns/
+mlartifacts/
+serving/reports/drift_report.html

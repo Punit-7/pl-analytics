@@ -101,3 +101,24 @@ embed_batch = 16
 # Agent
 max_steps = 3                       # model calls allowed per question
 assistant_version = "assistant-1.0"
+
+[serving]
+history_seasons = 5            # past seasons the weekly job downloads, besides the current one
+n_sims = 10000                 # season simulations per weekly run
+random_seed = 2026
+# Champion/challenger gate
+gate_matches = 300             # most recent matches used to compare two configurations
+gate_min_matches = 150         # fewer test matches than this: no decision
+gate_min_improvement = 0.001   # RPS the challenger must gain to replace the champion
+gate_require_significance = true   # also require the 95% interval of the gain to be above 0
+# Monitoring
+freshness_days = 21            # flag the data as stale if the latest result is older
+drift_current_matches = 150    # the recent window: about 15 matchweeks
+drift_reference_matches = 760  # the two seasons before it, which define "normal"
+psi_alert = 0.25               # population stability index above this raises a flag
+mlflow_uri = "sqlite:///mlflow_local.db"   # your PC; GitHub Actions sets MLFLOW_TRACKING_URI
+mlflow_experiment = "pl-weekly"
+service_version = "api-1.0"
+
+[serving.challenger]           # the candidate configuration; any key left out equals the champion
+dc_xi = 0.0030

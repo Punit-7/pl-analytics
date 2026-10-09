@@ -1,0 +1,8 @@
+-r requirements.txt
+requests==2.34.2
+python-dotenv==1.2.3
+mlflow==3.17.0
+evidently==0.7.23
+httpx==0.28.1
+pytest==9.1.1
+ruff==0.16.9

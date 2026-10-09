@@ -30,6 +30,7 @@ class Settings:
     modelling: dict
     nlp: dict
     assistant: dict = None  # Optional field for assistant settings
+    serving: dict = None
 
 
 def load_settings(path: Path = CONFIG_FILE) -> Settings:
@@ -57,4 +58,5 @@ def load_settings(path: Path = CONFIG_FILE) -> Settings:
         modelling=c["modelling"],
         nlp=c["nlp"],
         assistant=c.get("assistant"),
+        serving=c.get("serving"),
     )
