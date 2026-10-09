@@ -1,0 +1,10 @@
+{
+ "config": {
+  "dc_xi": 0.0019,
+  "dc_history_days": 1095,
+  "dc_max_goals": 10,
+  "fit_rho": true
+ },
+ "config_id": "78dd3802",
+ "since": "2026-10-09"
+}

@@ -1,0 +1,3 @@
+date,champion_id,challenger_id,n_matches,champion_rps,challenger_rps,gain,gain_low_95,gain_high_95,promoted,reason
+2026-10-09,78dd3802,905e2f7f,300,0.20882,0.20861,0.00021,-0.00101,0.00146,False,gain 0.0002 is below the required 0.001
+2026-10-09,78dd3802,905e2f7f,300,0.20882,0.20861,0.00021,-0.00101,0.00146,False,gain 0.0002 is below the required 0.001

@@ -1,0 +1,41 @@
+{
+ "run_at": "2026-10-09T11:43:40+00:00",
+ "data": {
+  "season": "2026/27",
+  "n_matches": 12754,
+  "n_current_season": 50,
+  "latest_match_date": "2026-09-20",
+  "days_since_latest": 19,
+  "stale": false
+ },
+ "model": {
+  "model_version": "dc-2026-10-09-78dd3802",
+  "fitted_on": "2026-10-09",
+  "trained_through": "2026-09-20",
+  "config": {
+   "dc_xi": 0.0019,
+   "dc_history_days": 1095,
+   "dc_max_goals": 10,
+   "fit_rho": true
+  },
+  "config_id": "78dd3802"
+ },
+ "gate": {
+  "promoted": false,
+  "reason": "gain 0.0002 is below the required 0.001",
+  "n_matches": 300,
+  "champion_rps": 0.20882,
+  "challenger_rps": 0.20861,
+  "gain": 0.00021,
+  "gain_low_95": -0.00101,
+  "gain_high_95": 0.00146
+ },
+ "published": {
+  "n_predictions": 330,
+  "stamp": "20261009T114340Z",
+  "folder": "2026-27"
+ },
+ "ledger": {
+  "n_scored": 0
+ }
+}
