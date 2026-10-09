@@ -103,7 +103,8 @@ def main() -> None:
 
     out_dir = ROOT / "modelling" / "predictions" / season.replace("/", "-")
     out_dir.mkdir(parents=True, exist_ok=True)
-    preds.to_csv(out_dir / f"{stamp}_matches.csv", index=False)
+    if not preds.empty:
+        preds.to_csv(out_dir / f"{stamp}_matches.csv", index=False)
     table.to_csv(out_dir / f"{stamp}_season_sim.csv", index=False)
     log.info(
         "Published %d match predictions (to %s) and a season simulation",
