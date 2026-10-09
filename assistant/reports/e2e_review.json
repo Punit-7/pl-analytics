@@ -1,0 +1,57 @@
+{
+  "assistant_version": "assistant-1.0",
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "run_at": "2026-10-08T00:06:59+00:00",
+  "answers_correct": {
+    "value": 0.667,
+    "k": 10,
+    "n": 15,
+    "standard_error": 0.122,
+    "low_95": 0.428,
+    "high_95": 0.905
+  },
+  "answers_grounded": {
+    "value": 0.75,
+    "k": 3,
+    "n": 4,
+    "standard_error": 0.217,
+    "low_95": 0.326,
+    "high_95": 1.0
+  },
+  "correct_by_type": {
+    "articles": {
+      "value": 0.75,
+      "k": 3,
+      "n": 4,
+      "standard_error": 0.217,
+      "low_95": 0.326,
+      "high_95": 1.0
+    },
+    "model": {
+      "value": 0.6,
+      "k": 3,
+      "n": 5,
+      "standard_error": 0.219,
+      "low_95": 0.171,
+      "high_95": 1.0
+    },
+    "none": {
+      "value": 1.0,
+      "k": 1,
+      "n": 1,
+      "standard_error": 0.0,
+      "low_95": 1.0,
+      "high_95": 1.0
+    },
+    "sql": {
+      "value": 0.6,
+      "k": 3,
+      "n": 5,
+      "standard_error": 0.219,
+      "low_95": 0.171,
+      "high_95": 1.0
+    }
+  },
+  "mean_seconds": 34.8
+}

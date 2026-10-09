@@ -90,13 +90,3 @@ embed_batch = 16
 # Agent
 max_steps = 3                       # model calls allowed per question
 assistant_version = "assistant-1.0"
-
-[theme]
-base = "dark"
-primaryColor = "#E90052"
-backgroundColor = "#12001A"
-secondaryBackgroundColor = "#1E0A2A"
-textColor = "#FFFFFF"
-
-[browser]
-gatherUsageStats = false

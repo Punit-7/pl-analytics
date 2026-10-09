@@ -91,3 +91,68 @@ Three rules were added to `RULES` in `assistant/schema.py`: use the short team n
 - The two losses are side effects: t21 dropped its season filter and t23 changed its xG arithmetic after the xG rule.
 
 No more prompt changes are made against these 40 questions. A further fix needs new test questions.
+
+## Stage 8 — article search
+
+40 reviewed questions over 3,030 paragraphs, embeddings from `all-minilm`. Run on 7 October 2026 (UTC).
+
+| Method | Recall@1      | Recall@5      | MRR   |
+|--------|---------------|---------------|-------|
+| bm25   | 13/40 = 0.325 | 27/40 = 0.675 | 0.478 |
+| dense  | 5/40 = 0.125  | 22/40 = 0.550 | 0.284 |
+| hybrid | 18/40 = 0.450 | 30/40 = 0.750 | 0.575 |
+
+- Hybrid is the best method on every measure, so `Retriever.search` keeps `mode="hybrid"`.
+- Its lead over BM25 at recall@5 is 3 questions in 40, which is inside the noise.
+- The test favours BM25: the model wrote each question while reading the paragraph and reused its words.
+
+## Stage 9 — cited answers checked against their paragraphs
+
+`python -m assistant.rag` on three questions, 9 October 2026. Every citation number pointed at a real source (`Citations valid: True` three times). Each cited paragraph was then read.
+
+| Question | Statements supported by the cited paragraph | What was not |
+|----------|---------------------------------------------|--------------|
+| Who managed Chelsea during the 2022/23 season? | 2 of 3 | "The head coach was Graham Potter [2]": source 2 says only that Chelsea had four managers that season and names none |
+| How did Arsenal's 2023/24 Champions League campaign end? | 3 of 4 | "Winners of Group B [5]": source 5 says they were drawn into Group B; the fact is in source 4 |
+| What happened to Everton's points total in 2023/24? | 3 of 4 | "Everton's points total was reduced to six points": the source says the ten-point deduction was reduced to six |
+
+- 8 of 11 statements are supported by the paragraph they cite. Two cite the wrong paragraph and one misstates its source.
+- The Chelsea answer is also incomplete: it names Potter, Saltor and Lampard but not Thomas Tuchel, who started the season. His name is in a paragraph that was not in the top 5.
+- A valid citation number is not a supported statement. `check_citations` tests only the first.
+- Through the agent the model wrote no citation markers at all (Stage 12), although it does here. The agent uses its own shorter system prompt, not the `RULES` and `REMINDER` text in `assistant/rag.py`.
+
+## Stage 10 — tool selection
+
+30 labelled questions: 25/30 = 0.833 (95% interval 0.700 – 0.967). Run on 7 October 2026 (UTC).
+
+| Expected tool   | Correct |
+|-----------------|---------|
+| query_warehouse | 5/9     |
+| search_articles | 4/5     |
+| predict_match   | 5/5     |
+| team_ratings    | 4/4     |
+| season_outlook  | 4/4     |
+| none            | 3/3     |
+
+| Expected -> chosen                 | Count | Questions |
+|------------------------------------|-------|-----------|
+| query_warehouse -> none            | 2     | r01, r09  |
+| query_warehouse -> search_articles | 2     | r04, r06  |
+| search_articles -> query_warehouse | 1     | r27       |
+
+All five mistakes involve the warehouse tool.
+
+## Stage 12 — end-to-end review
+
+15 answers marked by hand on 8 October 2026: 10/15 correct (0.667, interval 0.428 – 0.905); 3/4 article answers grounded; mean 34.8 s.
+
+| Type     | Correct | Wrong                                                              |
+|----------|---------|--------------------------------------------------------------------|
+| sql      | 3/5     | e01, e05: routed to `search_articles`, then refused                 |
+| model    | 3/5     | e07, e08: right tool result, wrong row named (Liverpool, Hull)      |
+| articles | 3/4     | e12: the paragraph with the answer was retrieved, the model refused |
+| none     | 1/1     |                                                                    |
+
+- None of the four article answers wrote a `[1]`-style citation marker.
+- The off-topic refusal sentence appeared in four football answers (e01, e05, e12, e13).
+- No hosted model was run.

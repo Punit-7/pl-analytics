@@ -186,13 +186,60 @@ python -m nlp.attribution              # list every Wikipedia revision used
 
 Label Studio runs in its own environment (`.venv-ls`); the labelled export is `nlp/data/labelled/export_main.json`.
 
+## P4 — Tactical analyst assistant
+
+A question-answering assistant for Premier League football that turns a plain-English question into SQL over the warehouse, calls P2's match model for ratings and predictions, searches P3's article paragraphs for written context, and reports a measured accuracy for each of those parts, all on a free local language model. The code is in `assistant/`.
+
+![A warehouse answer with its SQL](docs/assistant_sql.png)
+![An article answer with its sources](docs/assistant_articles.png)
+
+The model (`llama3.2:3b` on Ollama, CPU only) chooses one tool and words the answer. It never computes a number: PostgreSQL counts, P2's code computes probabilities, and the search code finds the paragraphs. Model-written SQL runs only as the read-only role `pl_reader`, in a read-only transaction, with a 5-second and 200-row limit.
+
+### Four measurements
+
+| Part | Measure | Result |
+|---|---|---|
+| Text-to-SQL | Execution accuracy, 40 test questions with gold SQL | 16/40 = 0.400 (baseline prompt: 3/40) |
+| Article search | Recall@5 and MRR, 40 questions, hybrid search | 30/40 = 0.750, MRR 0.575 (BM25 alone: 27/40, 0.478) |
+| Tool choice | Tool-selection accuracy, 30 labelled questions | 25/30 = 0.833 |
+| The whole assistant | Answers correct and grounded, 15 marked by hand | 10/15 correct; 3/4 article answers grounded |
+
+A small model is often wrong, and the numbers are reported as they are. A later prompt scored 21/40 on text-to-SQL, but it was tuned after reading the test failures, so 16/40 is the clean number. Hard questions (window functions, self-joins) are 1/10 in every version. A question takes about 35 seconds.
+
+### Changes to the plan
+
+- The articles are the Wikipedia paragraphs in `nlp.document` from P3, not Guardian articles, for the same licensing reason as in P3.
+- A Streamlit chat page was added, so a question can be typed in a browser.
+- Everything runs on Ollama on one PC, so the project is free to build and run; no hosted model was used.
+
+### More detail
+
+- [System card](assistant/SYSTEM_CARD.md)
+- [Results report](assistant/reports/P4_REPORT.md)
+- [Findings and error analysis](assistant/reports/FINDINGS.md)
+
+### How to run P4
+
+```
+ollama pull llama3.2:3b                # once: chat model (2.0 GB)
+ollama pull all-minilm                 # once: embedding model (46 MB)
+python -m assistant.index              # build the search index over nlp.document
+streamlit run assistant/app.py         # the chat page
+python -m assistant.eval.sql_eval --mode repair   # text-to-SQL accuracy
+python -m assistant.eval.rag_eval      # search recall@5 and MRR
+python -m assistant.eval.route_eval    # tool-selection accuracy
+python -m assistant.eval.e2e --run     # end-to-end answers; mark them, then --score
+```
+
+It needs the `pl_reader` login in `.env` (see `.env.example`). Article text from Wikipedia, CC BY-SA 4.0.
+
 ## Data credits
 
 - Results, match stats and odds: [football-data.co.uk](https://www.football-data.co.uk/). Match stats (shots, corners, fouls, cards) start in **2000/01**; earlier seasons have results only (checked with `data/checks.py`). Closing odds start in **2019/20**.
 - Expected goals and fixtures: [Understat](https://understat.com/) via [soccerdata](https://github.com/probberechts/soccerdata). xG starts in **2014/15**.
 - Shot events for the xG model: data provided by [StatsBomb](https://github.com/statsbomb/open-data) (Open Data, 2015/16). Only 34 Bundesliga and 377 Ligue 1 matches were available, so the model has 1,551 matches, not 1,826.
 - Players, prices and game rules for the squad optimiser: the [Fantasy Premier League](https://fantasy.premierleague.com/) API.
-- Text for the entity model: [English Wikipedia](https://en.wikipedia.org/) club season articles, by Wikipedia contributors, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Every revision used is listed in [`nlp/data/SOURCES.csv`](nlp/data/SOURCES.csv); the labelled dataset carries the same licence.
+- Text for the entity model and the assistant's article search: [English Wikipedia](https://en.wikipedia.org/) club season articles, by Wikipedia contributors, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Every revision used is listed in [`nlp/data/SOURCES.csv`](nlp/data/SOURCES.csv); the labelled dataset carries the same licence.
 
 Data problems found and how they are handled are in [`analytics/notebooks/FINDINGS.md`](analytics/notebooks/FINDINGS.md).
 
@@ -203,3 +250,4 @@ Data problems found and how they are handled are in [`analytics/notebooks/FINDIN
 - A team with only a few matches in the three-year window gets an unregularised rating. After five matches Coventry's relegation probability is 100%, which is too confident.
 - The xG model has one season (2015/16) and no player-position features.
 - The FPL projection ignores saves, bonus points, cards, penalties and defensive contributions.
+- The assistant runs a small local model that is often wrong and slow, remembers nothing between questions, and is measured on small test sets; see its [system card](assistant/SYSTEM_CARD.md).

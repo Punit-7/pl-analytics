@@ -1,0 +1,16 @@
+id,type,question
+e01,sql,How many points did Arsenal win in 2023/24?
+e02,sql,Which team scored the most goals in 2022/23?
+e03,sql,How many home matches has Liverpool lost this season?
+e04,sql,What was Manchester City's goal difference in 2017/18?
+e05,sql,Which teams were in the Premier League in 2023/24 but not in 2024/25?
+e06,model,What are the chances that Arsenal beat Chelsea at home?
+e07,model,Which team has the best defence rating at the moment?
+e08,model,Who is most likely to be relegated this season?
+e09,model,What is the most likely score if Manchester United host Newcastle?
+e10,model,How likely is Liverpool to finish in the top four?
+e11,articles,Who managed Chelsea during the 2022/23 season?
+e12,articles,How did Arsenal's 2023/24 Champions League campaign end?
+e13,articles,Which players did Newcastle sign before the 2023/24 season?
+e14,articles,What happened to Everton's points total in 2023/24?
+e15,none,What is the tallest mountain in the world?
