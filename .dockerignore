@@ -1,0 +1,14 @@
+# Send Docker nothing except the files the image needs.
+*
+!serving/requirements.txt
+!serving/__init__.py
+!serving/model_io.py
+!serving/api
+!serving/models
+!serving/predictions/latest.json
+!modelling/__init__.py
+!modelling/match/__init__.py
+!modelling/match/dixon_coles.py
+!modelling/xg/__init__.py
+!modelling/xg/features.py
+**/__pycache__

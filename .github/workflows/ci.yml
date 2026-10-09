@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: serving/requirements-job.txt
+      - name: Install packages
+        run: pip install -r serving/requirements-job.txt
+      - name: Lint
+        run: ruff check serving tests/test_serving_*.py
+      - name: Tests
+        run: pytest -q tests/test_serving_*.py
+
+  image:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build the API image
+        run: docker build -f serving/Dockerfile -t pl-api .
+      - name: Start the container and call it
+        run: |
+          docker run -d --name api -p 10000:10000 pl-api
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:10000/health; then break; fi
+            sleep 2
+          done
+          curl -fsS http://localhost:10000/health
+          curl -fsS http://localhost:10000/teams > /dev/null
+      - name: Container logs
+        if: always()
+        run: docker logs api
