@@ -40,6 +40,17 @@ n_sims = 10000
 prediction_window_days = 7
 model_version = "dc-1.0"
 
+[modelling.fpl]              # FPL add-on (appendix)
+team_id = 9085825                  # your FPL team ID; 0 = no team, so only a fresh 15 is picked
+horizon = 5                  # gameweeks the squad is chosen for
+hit_cost = 4                 # points FPL deducts for each transfer beyond the free ones
+max_hits = 2                 # never suggest more than this many paid transfers
+min_gain_per_transfer = 1.0  # a transfer must gain at least this over the horizon to be used
+wildcard_min_gain = 15.0     # suggest the Wildcard if a fresh 15 gains this over the horizon
+freehit_min_gain = 10.0      # suggest the Free Hit if it gains this in the next gameweek
+bench_boost_min = 15.0       # suggest Bench Boost if the bench projects this many points
+triple_captain_min = 10.0    # suggest Triple Captain if the captain projects this many points
+
 [nlp]
 labels = ["PLAYER", "TEAM", "VENUE"]
 # Wikimedia requires a descriptive User-Agent: name/version (contact).

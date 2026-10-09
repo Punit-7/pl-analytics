@@ -21,7 +21,7 @@ from modelling.match.simulate import remaining_fixtures  # noqa: E402
 log = logging.getLogger("modelling.match.fdr")
 N_NEXT = 6
 BANDS = [(0.65, 1), (0.50, 2), (0.35, 3), (0.20, 4)]  # win probability >= threshold -> rating
-COLOURS = ["#00FF85", "#04F5FF", "#8C7FA0", "#963CFF", "#E90052"]  # design system, 1..5
+COLOURS = ["#375523", "#01FC7A", "#E7E7E7", "#FF1751", "#80072D"]  # the FPL key, 1..5
 
 
 def difficulty(p_win: float) -> int:
@@ -73,7 +73,7 @@ def main() -> None:
     ax.imshow(grid.to_numpy() - 1, cmap=ListedColormap(COLOURS), vmin=0, vmax=4, aspect="auto")
     for i in range(grid.shape[0]):
         for j in range(grid.shape[1]):
-            text_colour = "#FFFFFF" if grid.iat[i, j] == 5 else "#12001A"
+            text_colour = "#FFFFFF" if grid.iat[i, j] in (1, 5) else "#12001A"
             ax.text(j, i, labels.iat[i, j], ha="center", va="center", fontsize=7, color=text_colour)
     ax.set_yticks(range(len(order)), order)
     ax.set_xticks(range(grid.shape[1]), [f"Next {j}" for j in grid.columns])

@@ -107,7 +107,7 @@ LightGBM's expected calibration error is 0.009, and its total xG on the test set
 ### FPL add-ons
 
 - **Fixture difficulty**: a 1–5 rating for each team's next six fixtures, from the model's win probability (1 = 65% or more, 2 = 50%, 3 = 35%, 4 = 20%, 5 = below 20%).
-- **Squad optimiser**: the 15-player squad with the highest projected points over the next five gameweeks, solved as a mixed-integer linear program. Budget, squad and formation rules are read from the FPL API. On 2 October 2026 (gameweeks 6–10) it spent 100.0 of 100.0 and projected 303 points for the starting XI, with Haaland as captain: [`fpl_squad.csv`](modelling/reports/fpl_squad.csv). The projection counts appearances, goals, assists, clean sheets and goals conceded only.
+- **FPL planner**: starting from the squad you own, a mixed-integer linear program picks the transfers (free ones first, then up to two paid ones if they pay for themselves), the starting XI, the captain and the bench for the next gameweek, and checks each chip against a fixed limit. With no team ID set it picks a fresh 15 (the Wildcard plan). Budget, squad, transfer and chip rules are read from the FPL API. The projection counts appearances, goals, assists, clean sheets and goals conceded only. See [FPL suggestion](#fpl-suggestion-updated-daily).
 
 ![Fixture difficulty](modelling/reports/figures/fdr_next6.png)
 
@@ -131,9 +131,21 @@ python -m modelling.match.simulate     # season simulation
 python -m modelling.match.predict      # publish next week's predictions; commit them before kick-off
 python -m modelling.match.ledger       # score published predictions
 python -m modelling.match.fdr          # fixture difficulty
-python -m data.ingest.fpl              # FPL players, prices and rules
-python -m modelling.match.fpl_squad    # FPL squad optimiser
+python -m data.ingest.fpl              # FPL players, prices, rules and your team
+python -m modelling.match.fpl_squad    # FPL planner: transfers, line-up, chip advice
+python -m modelling.match.fpl_pitch    # draw the suggested team (SVG and HTML)
 ```
+
+## FPL suggestion (updated daily)
+
+![Suggested FPL team](modelling/reports/fpl_pitch.svg)
+
+Made every morning by a GitHub workflow: the Dixon–Coles match model projects each player's
+points, and a mixed-integer program picks the transfers, the starting XI and the captain.
+Chip advice uses fixed limits. A model suggestion, not advice.
+Data: Fantasy Premier League API and football-data.co.uk.
+
+Set `team_id` in `config.toml` to plan transfers for your own team; the three plans and the chip checks are in [`fpl_plan.json`](modelling/reports/fpl_plan.json).
 
 ## P3 — Match report entity extraction
 
@@ -249,5 +261,7 @@ Data problems found and how they are handled are in [`analytics/notebooks/FINDIN
 - The match model uses goals only: no injuries, line-ups, transfers or manager changes. It does not beat closing odds.
 - A team with only a few matches in the three-year window gets an unregularised rating. After five matches Coventry's relegation probability is 100%, which is too confident.
 - The xG model has one season (2015/16) and no player-position features.
-- The FPL projection ignores saves, bonus points, cards, penalties and defensive contributions.
+- The FPL projection ignores saves, bonus points, cards, penalties and defensive contributions, so goalkeepers and defensive players are underrated. Its shares come from the season so far and are noisy early on.
+- The FPL planner does not see transfers made in the app this week until the deadline passes. Selling prices and the free-transfer number are estimates, the plan is chosen once for the five gameweeks, and the chip limits are judgement, not measured.
+- The match model ignores injuries; the FPL suggestion reflects them only as of its last download.
 - The assistant runs a small local model that is often wrong and slow, remembers nothing between questions, and is measured on small test sets; see its [system card](assistant/SYSTEM_CARD.md).

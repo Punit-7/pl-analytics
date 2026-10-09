@@ -1,16 +1,16 @@
-gameweeks,name,team,position,price,points,start,captain
-6-10,Raya,Arsenal,GKP,6.1,18.81,True,False
-6-10,Calafiori,Arsenal,DEF,5.8,23.19,True,False
-6-10,Hall,Newcastle,DEF,5.3,23.03,True,False
-6-10,Guéhi,Man City,DEF,6.0,22.7,True,False
-6-10,Saka,Arsenal,MID,9.5,29.43,True,False
-6-10,Rogers,Chelsea,MID,7.7,27.56,True,False
-6-10,Mbeumo,Man United,MID,7.9,26.44,True,False
-6-10,Tavernier,Bournemouth,MID,6.1,25.6,True,False
-6-10,E.Le Fée,Sunderland,MID,5.7,22.18,True,False
-6-10,Haaland,Man City,FWD,15.6,29.7,True,True
-6-10,Wissa,Newcastle,FWD,6.2,24.64,True,False
-6-10,Leno,Fulham,GKP,4.5,15.67,False,False
-6-10,Giles,Hull,DEF,4.0,20.75,False,False
-6-10,Egan,Hull,DEF,4.1,17.6,False,False
-6-10,McBurnie,Hull,FWD,5.5,16.99,False,False
+gameweek,id,name,club,position,price,next_points,horizon_points,start,captain,vice,bench_order,transfer_in,opponents
+6,1,Raya,ARS,GKP,6.1,3.89,18.78,True,False,False,0,False,['LEE (H)']
+6,8,Calafiori,ARS,DEF,5.9,4.93,23.17,True,False,False,0,False,['LEE (H)']
+6,12,Saka,ARS,MID,9.6,6.46,29.45,True,False,True,0,False,['LEE (H)']
+6,68,Tavernier,BOU,MID,6.1,4.74,25.63,True,False,False,0,False,['CHE (A)']
+6,40,Rogers,CHE,MID,7.8,5.63,27.51,True,False,False,0,False,['BOU (H)']
+6,249,Barry,EVE,FWD,5.7,3.23,20.12,False,False,False,4,False,['HUL (A)']
+6,250,Leno,FUL,GKP,4.5,2.95,15.69,False,False,False,1,False,['IPS (A)']
+6,279,Ajayi,HUL,DEF,4.2,4.62,21.77,True,False,False,0,False,['EVE (H)']
+6,282,Giles,HUL,DEF,4.0,4.47,20.75,True,False,False,0,False,['EVE (H)']
+6,286,Belloumi,HUL,MID,5.1,3.59,18.39,False,False,False,3,False,['EVE (H)']
+6,388,Guéhi,MCI,DEF,6.0,3.62,22.71,False,False,False,2,False,['LIV (A)']
+6,411,Haaland,MCI,FWD,15.6,5.01,29.73,True,False,False,0,False,['LIV (A)']
+6,427,Mbeumo,MUN,MID,7.9,5.97,26.42,True,False,False,0,False,['TOT (H)']
+6,449,Hall,NEW,DEF,5.3,6.63,23.05,True,True,False,0,False,['COV (A)']
+6,464,Wissa,NEW,FWD,6.2,5.26,24.64,True,False,False,0,False,['COV (A)']
