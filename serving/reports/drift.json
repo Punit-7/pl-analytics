@@ -1,0 +1,22 @@
+{
+ "reference_matches": 760,
+ "current_matches": 150,
+ "columns": {
+  "home_goals": {
+   "psi": 0.0174,
+   "alert": false
+  },
+  "away_goals": {
+   "psi": 0.0326,
+   "alert": false
+  },
+  "total_goals": {
+   "psi": 0.0742,
+   "alert": false
+  },
+  "result": {
+   "psi": 0.0161,
+   "alert": false
+  }
+ }
+}
