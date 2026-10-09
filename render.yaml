@@ -1,0 +1,17 @@
+# Render builds this service from serving/Dockerfile and redeploys it on every push.
+services:
+  - type: web
+    name: pl-match-model
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./serving/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - serving/**
+        - modelling/match/dixon_coles.py
+        - modelling/xg/features.py
+        - render.yaml
