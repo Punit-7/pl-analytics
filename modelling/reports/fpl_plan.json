@@ -1,84 +1,87 @@
 {
- "generated_at": "2026-10-09T14:22:31+00:00",
- "gameweek": 6,
- "deadline": "2026-10-10T10:00:00Z",
+ "generated_at": "2026-10-10T11:24:00+00:00",
+ "gameweek": 7,
+ "deadline": "2026-10-17T10:00:00Z",
  "gameweeks": [
-  6,
   7,
   8,
   9,
-  10
+  10,
+  11
  ],
  "shown": "transfers",
- "free_transfers": 2,
- "bank": 0.7,
+ "free_transfers": 3,
+ "bank": 0.9,
  "chips": {
   "available": [
-   "wildcard",
    "freehit",
    "bboost"
   ],
   "checks": [
    {
-    "chip": "wildcard",
-    "name": "Wildcard",
-    "gain": 35.05,
-    "limit": 15.0,
-    "passes": true
-   },
-   {
     "chip": "freehit",
     "name": "Free Hit",
-    "gain": 7.65,
+    "gain": 3.13,
     "limit": 10.0,
     "passes": false
    },
    {
     "chip": "bboost",
     "name": "Bench Boost",
-    "gain": 2.42,
+    "gain": 14.8,
     "limit": 15.0,
     "passes": false
    }
   ],
-  "play": "wildcard"
+  "play": null
  },
  "free_transfers_source": "estimate",
  "plans": {
   "transfers": {
-   "next_gw_points": 58.79,
-   "bench_points": 2.42,
-   "captain_points": 6.63,
-   "horizon_value": 275.77,
-   "hits": 2,
+   "next_gw_points": 68.27,
+   "bench_points": 14.8,
+   "captain_points": 8.32,
+   "horizon_value": 309.13,
+   "hits": 0,
    "transfers_in": [
-    "Saka",
-    "Tavernier",
-    "Gu\u00e9hi",
-    "Wissa"
+    "Van Hecke"
    ],
    "transfers_out": [
-    "Palmer",
-    "Jo\u00e3o Pedro",
-    "Mainoo",
-    "Wan-Bissaka"
+    "Hall"
    ],
    "players": [
     {
-     "id": 8,
-     "name": "Calafiori",
+     "id": 1,
+     "name": "Raya",
      "club": "ARS",
-     "position": "DEF",
-     "price": 5.8,
-     "next_points": 4.93,
-     "horizon_points": 23.17,
+     "position": "GKP",
+     "price": 6.1,
+     "next_points": 3.66,
+     "horizon_points": 18.11,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "LEE (H)"
+      "NFO (A)"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Calafiori",
+     "club": "ARS",
+     "position": "DEF",
+     "price": 5.8,
+     "next_points": 4.57,
+     "horizon_points": 22.55,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "NFO (A)"
      ]
     },
     {
@@ -86,33 +89,16 @@
      "name": "Saka",
      "club": "ARS",
      "position": "MID",
-     "price": 9.6,
-     "next_points": 6.46,
-     "horizon_points": 29.45,
-     "start": true,
-     "captain": false,
-     "vice": true,
-     "bench_order": 0,
-     "transfer_in": true,
-     "opponents": [
-      "LEE (H)"
-     ]
-    },
-    {
-     "id": 597,
-     "name": "Suzuki",
-     "club": "AVL",
-     "position": "GKP",
-     "price": 5.0,
-     "next_points": 2.02,
-     "horizon_points": 9.34,
+     "price": 9.5,
+     "next_points": 5.94,
+     "horizon_points": 29.29,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "BRE (H)"
+      "NFO (A)"
      ]
     },
     {
@@ -121,49 +107,66 @@
      "club": "BOU",
      "position": "MID",
      "price": 6.1,
-     "next_points": 4.74,
-     "horizon_points": 25.63,
+     "next_points": 5.15,
+     "horizon_points": 25.93,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
-     "transfer_in": true,
-     "opponents": [
-      "CHE (A)"
-     ]
-    },
-    {
-     "id": 107,
-     "name": "Furo",
-     "club": "BRE",
-     "position": "FWD",
-     "price": 4.5,
-     "next_points": 0.0,
-     "horizon_points": 0.0,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 4,
      "transfer_in": false,
      "opponents": [
-      "AVL (A)"
+      "SUN (H)"
      ]
     },
     {
-     "id": 212,
-     "name": "Hughes",
-     "club": "CRY",
+     "id": 40,
+     "name": "Rogers",
+     "club": "CHE",
      "position": "MID",
-     "price": 4.4,
-     "next_points": 0.19,
-     "horizon_points": 0.93,
+     "price": 7.7,
+     "next_points": 4.76,
+     "horizon_points": 27.31,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "EVE (A)"
+     ]
+    },
+    {
+     "id": 249,
+     "name": "Barry",
+     "club": "EVE",
+     "position": "FWD",
+     "price": 5.7,
+     "next_points": 4.6,
+     "horizon_points": 20.92,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "CHE (H)"
+     ]
+    },
+    {
+     "id": 250,
+     "name": "Leno",
+     "club": "FUL",
+     "position": "GKP",
+     "price": 4.5,
+     "next_points": 3.06,
+     "horizon_points": 14.35,
      "start": false,
      "captain": false,
      "vice": false,
-     "bench_order": 3,
+     "bench_order": 1,
      "transfer_in": false,
      "opponents": [
-      "NFO (H)"
+      "HUL (H)"
      ]
     },
     {
@@ -171,16 +174,50 @@
      "name": "Ajayi",
      "club": "HUL",
      "position": "DEF",
-     "price": 4.1,
-     "next_points": 4.62,
-     "horizon_points": 21.77,
-     "start": true,
+     "price": 4.2,
+     "next_points": 4.2,
+     "horizon_points": 21.32,
+     "start": false,
      "captain": false,
      "vice": false,
-     "bench_order": 0,
+     "bench_order": 2,
      "transfer_in": false,
      "opponents": [
-      "EVE (H)"
+      "FUL (A)"
+     ]
+    },
+    {
+     "id": 282,
+     "name": "Giles",
+     "club": "HUL",
+     "position": "DEF",
+     "price": 4.0,
+     "next_points": 4.04,
+     "horizon_points": 20.24,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 3,
+     "transfer_in": false,
+     "opponents": [
+      "FUL (A)"
+     ]
+    },
+    {
+     "id": 286,
+     "name": "Belloumi",
+     "club": "HUL",
+     "position": "MID",
+     "price": 5.1,
+     "next_points": 3.5,
+     "horizon_points": 18.45,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 4,
+     "transfer_in": false,
+     "opponents": [
+      "FUL (A)"
      ]
     },
     {
@@ -189,32 +226,15 @@
      "club": "MCI",
      "position": "DEF",
      "price": 6.0,
-     "next_points": 3.62,
-     "horizon_points": 22.71,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": true,
-     "opponents": [
-      "LIV (A)"
-     ]
-    },
-    {
-     "id": 399,
-     "name": "Cherki",
-     "club": "MCI",
-     "position": "MID",
-     "price": 7.7,
-     "next_points": 2.91,
-     "horizon_points": 17.07,
+     "next_points": 6.12,
+     "horizon_points": 24.08,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "LIV (A)"
+      "IPS (H)"
      ]
     },
     {
@@ -223,49 +243,32 @@
      "club": "MCI",
      "position": "FWD",
      "price": 15.6,
-     "next_points": 5.01,
-     "horizon_points": 29.73,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "LIV (A)"
-     ]
-    },
-    {
-     "id": 426,
-     "name": "B.Fernandes",
-     "club": "MUN",
-     "position": "MID",
-     "price": 11.9,
-     "next_points": 5.96,
-     "horizon_points": 26.36,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "TOT (H)"
-     ]
-    },
-    {
-     "id": 449,
-     "name": "Hall",
-     "club": "NEW",
-     "position": "DEF",
-     "price": 5.3,
-     "next_points": 6.63,
-     "horizon_points": 23.05,
+     "next_points": 8.32,
+     "horizon_points": 30.69,
      "start": true,
      "captain": true,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "COV (A)"
+      "IPS (H)"
+     ]
+    },
+    {
+     "id": 427,
+     "name": "Mbeumo",
+     "club": "MUN",
+     "position": "MID",
+     "price": 7.9,
+     "next_points": 4.68,
+     "horizon_points": 24.99,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "LEE (A)"
      ]
     },
     {
@@ -274,58 +277,41 @@
      "club": "NEW",
      "position": "FWD",
      "price": 6.2,
-     "next_points": 5.26,
-     "horizon_points": 24.64,
+     "next_points": 5.16,
+     "horizon_points": 23.14,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "AVL (H)"
+     ]
+    },
+    {
+     "id": 112,
+     "name": "Van Hecke",
+     "club": "TOT",
+     "position": "DEF",
+     "price": 4.9,
+     "next_points": 6.99,
+     "horizon_points": 23.63,
+     "start": true,
+     "captain": false,
+     "vice": true,
+     "bench_order": 0,
      "transfer_in": true,
      "opponents": [
-      "COV (A)"
-     ]
-    },
-    {
-     "id": 473,
-     "name": "Aina",
-     "club": "NFO",
-     "position": "DEF",
-     "price": 4.4,
-     "next_points": 2.23,
-     "horizon_points": 10.23,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 2,
-     "transfer_in": false,
-     "opponents": [
-      "CRY (A)"
-     ]
-    },
-    {
-     "id": 495,
-     "name": "Austin",
-     "club": "TOT",
-     "position": "GKP",
-     "price": 4.0,
-     "next_points": 0.0,
-     "horizon_points": 0.0,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 1,
-     "transfer_in": false,
-     "opponents": [
-      "MUN (A)"
+      "COV (H)"
      ]
     }
    ]
   },
   "wildcard": {
-   "next_gw_points": 64.24,
-   "bench_points": 14.13,
-   "captain_points": 6.63,
-   "horizon_value": 310.82,
+   "next_gw_points": 68.27,
+   "bench_points": 15.75,
+   "captain_points": 8.32,
+   "horizon_value": 310.26,
    "hits": 0,
    "transfers_in": [],
    "transfers_out": [],
@@ -336,15 +322,15 @@
      "club": "ARS",
      "position": "GKP",
      "price": 6.1,
-     "next_points": 3.89,
-     "horizon_points": 18.78,
+     "next_points": 3.66,
+     "horizon_points": 18.11,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "LEE (H)"
+      "NFO (A)"
      ]
     },
     {
@@ -353,15 +339,15 @@
      "club": "ARS",
      "position": "DEF",
      "price": 5.9,
-     "next_points": 4.93,
-     "horizon_points": 23.17,
+     "next_points": 4.57,
+     "horizon_points": 22.55,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "LEE (H)"
+      "NFO (A)"
      ]
     },
     {
@@ -370,15 +356,15 @@
      "club": "ARS",
      "position": "MID",
      "price": 9.6,
-     "next_points": 6.46,
-     "horizon_points": 29.45,
+     "next_points": 5.94,
+     "horizon_points": 29.29,
      "start": true,
      "captain": false,
-     "vice": true,
+     "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "LEE (H)"
+      "NFO (A)"
      ]
     },
     {
@@ -387,15 +373,15 @@
      "club": "BOU",
      "position": "MID",
      "price": 6.1,
-     "next_points": 4.74,
-     "horizon_points": 25.63,
+     "next_points": 5.15,
+     "horizon_points": 25.93,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "CHE (A)"
+      "SUN (H)"
      ]
     },
     {
@@ -404,15 +390,15 @@
      "club": "CHE",
      "position": "MID",
      "price": 7.8,
-     "next_points": 5.63,
-     "horizon_points": 27.51,
+     "next_points": 4.76,
+     "horizon_points": 27.31,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "BOU (H)"
+      "EVE (A)"
      ]
     },
     {
@@ -421,32 +407,15 @@
      "club": "EVE",
      "position": "FWD",
      "price": 5.7,
-     "next_points": 3.23,
-     "horizon_points": 20.12,
-     "start": false,
+     "next_points": 4.6,
+     "horizon_points": 20.92,
+     "start": true,
      "captain": false,
      "vice": false,
-     "bench_order": 4,
+     "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "HUL (A)"
-     ]
-    },
-    {
-     "id": 250,
-     "name": "Leno",
-     "club": "FUL",
-     "position": "GKP",
-     "price": 4.5,
-     "next_points": 2.95,
-     "horizon_points": 15.69,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 1,
-     "transfer_in": false,
-     "opponents": [
-      "IPS (A)"
+      "CHE (H)"
      ]
     },
     {
@@ -455,15 +424,15 @@
      "club": "HUL",
      "position": "DEF",
      "price": 4.2,
-     "next_points": 4.62,
-     "horizon_points": 21.77,
-     "start": true,
+     "next_points": 4.2,
+     "horizon_points": 21.32,
+     "start": false,
      "captain": false,
      "vice": false,
-     "bench_order": 0,
+     "bench_order": 2,
      "transfer_in": false,
      "opponents": [
-      "EVE (H)"
+      "FUL (A)"
      ]
     },
     {
@@ -472,281 +441,15 @@
      "club": "HUL",
      "position": "DEF",
      "price": 4.0,
-     "next_points": 4.47,
-     "horizon_points": 20.75,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "EVE (H)"
-     ]
-    },
-    {
-     "id": 388,
-     "name": "Gu\u00e9hi",
-     "club": "MCI",
-     "position": "DEF",
-     "price": 6.0,
-     "next_points": 3.62,
-     "horizon_points": 22.71,
+     "next_points": 4.04,
+     "horizon_points": 20.24,
      "start": false,
      "captain": false,
      "vice": false,
      "bench_order": 3,
      "transfer_in": false,
      "opponents": [
-      "LIV (A)"
-     ]
-    },
-    {
-     "id": 411,
-     "name": "Haaland",
-     "club": "MCI",
-     "position": "FWD",
-     "price": 15.6,
-     "next_points": 5.01,
-     "horizon_points": 29.73,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "LIV (A)"
-     ]
-    },
-    {
-     "id": 427,
-     "name": "Mbeumo",
-     "club": "MUN",
-     "position": "MID",
-     "price": 7.9,
-     "next_points": 5.97,
-     "horizon_points": 26.42,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "TOT (H)"
-     ]
-    },
-    {
-     "id": 449,
-     "name": "Hall",
-     "club": "NEW",
-     "position": "DEF",
-     "price": 5.3,
-     "next_points": 6.63,
-     "horizon_points": 23.05,
-     "start": true,
-     "captain": true,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "COV (A)"
-     ]
-    },
-    {
-     "id": 464,
-     "name": "Wissa",
-     "club": "NEW",
-     "position": "FWD",
-     "price": 6.2,
-     "next_points": 5.26,
-     "horizon_points": 24.64,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "COV (A)"
-     ]
-    },
-    {
-     "id": 542,
-     "name": "E.Le F\u00e9e",
-     "club": "SUN",
-     "position": "MID",
-     "price": 5.7,
-     "next_points": 4.33,
-     "horizon_points": 22.17,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 2,
-     "transfer_in": false,
-     "opponents": [
-      "BHA (H)"
-     ]
-    }
-   ]
-  },
-  "freehit": {
-   "next_gw_points": 66.44,
-   "bench_points": 16.8,
-   "captain_points": 6.63,
-   "horizon_value": 296.29,
-   "hits": 0,
-   "transfers_in": [],
-   "transfers_out": [],
-   "players": [
-    {
-     "id": 4,
-     "name": "Gabriel",
-     "club": "ARS",
-     "position": "DEF",
-     "price": 8.0,
-     "next_points": 4.68,
-     "horizon_points": 22.22,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "LEE (H)"
-     ]
-    },
-    {
-     "id": 8,
-     "name": "Calafiori",
-     "club": "ARS",
-     "position": "DEF",
-     "price": 5.9,
-     "next_points": 4.93,
-     "horizon_points": 23.17,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "LEE (H)"
-     ]
-    },
-    {
-     "id": 12,
-     "name": "Saka",
-     "club": "ARS",
-     "position": "MID",
-     "price": 9.6,
-     "next_points": 6.46,
-     "horizon_points": 29.45,
-     "start": true,
-     "captain": false,
-     "vice": true,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "LEE (H)"
-     ]
-    },
-    {
-     "id": 68,
-     "name": "Tavernier",
-     "club": "BOU",
-     "position": "MID",
-     "price": 6.1,
-     "next_points": 4.74,
-     "horizon_points": 25.63,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "CHE (A)"
-     ]
-    },
-    {
-     "id": 106,
-     "name": "Thiago",
-     "club": "BRE",
-     "position": "FWD",
-     "price": 7.8,
-     "next_points": 3.81,
-     "horizon_points": 18.61,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 4,
-     "transfer_in": false,
-     "opponents": [
-      "AVL (A)"
-     ]
-    },
-    {
-     "id": 40,
-     "name": "Rogers",
-     "club": "CHE",
-     "position": "MID",
-     "price": 7.8,
-     "next_points": 5.63,
-     "horizon_points": 27.51,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "BOU (H)"
-     ]
-    },
-    {
-     "id": 569,
-     "name": "Gonzalo",
-     "club": "FUL",
-     "position": "FWD",
-     "price": 6.0,
-     "next_points": 4.58,
-     "horizon_points": 19.28,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 2,
-     "transfer_in": false,
-     "opponents": [
-      "IPS (A)"
-     ]
-    },
-    {
-     "id": 279,
-     "name": "Ajayi",
-     "club": "HUL",
-     "position": "DEF",
-     "price": 4.2,
-     "next_points": 4.62,
-     "horizon_points": 21.77,
-     "start": true,
-     "captain": false,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "EVE (H)"
-     ]
-    },
-    {
-     "id": 282,
-     "name": "Giles",
-     "club": "HUL",
-     "position": "DEF",
-     "price": 4.0,
-     "next_points": 4.47,
-     "horizon_points": 20.75,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 3,
-     "transfer_in": false,
-     "opponents": [
-      "EVE (H)"
+      "FUL (A)"
      ]
     },
     {
@@ -755,32 +458,49 @@
      "club": "HUL",
      "position": "GKP",
      "price": 4.7,
-     "next_points": 3.94,
-     "horizon_points": 17.72,
+     "next_points": 3.5,
+     "horizon_points": 17.13,
      "start": false,
      "captain": false,
      "vice": false,
      "bench_order": 1,
      "transfer_in": false,
      "opponents": [
-      "EVE (H)"
+      "FUL (A)"
      ]
     },
     {
-     "id": 426,
-     "name": "B.Fernandes",
-     "club": "MUN",
-     "position": "MID",
-     "price": 11.9,
-     "next_points": 5.96,
-     "horizon_points": 26.36,
+     "id": 388,
+     "name": "Gu\u00e9hi",
+     "club": "MCI",
+     "position": "DEF",
+     "price": 6.0,
+     "next_points": 6.12,
+     "horizon_points": 24.08,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "TOT (H)"
+      "IPS (H)"
+     ]
+    },
+    {
+     "id": 411,
+     "name": "Haaland",
+     "club": "MCI",
+     "position": "FWD",
+     "price": 15.6,
+     "next_points": 8.32,
+     "horizon_points": 30.69,
+     "start": true,
+     "captain": true,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "IPS (H)"
      ]
     },
     {
@@ -789,32 +509,15 @@
      "club": "MUN",
      "position": "MID",
      "price": 7.9,
-     "next_points": 5.97,
-     "horizon_points": 26.42,
+     "next_points": 4.68,
+     "horizon_points": 24.99,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "TOT (H)"
-     ]
-    },
-    {
-     "id": 449,
-     "name": "Hall",
-     "club": "NEW",
-     "position": "DEF",
-     "price": 5.3,
-     "next_points": 6.63,
-     "horizon_points": 23.05,
-     "start": true,
-     "captain": true,
-     "vice": false,
-     "bench_order": 0,
-     "transfer_in": false,
-     "opponents": [
-      "COV (A)"
+      "LEE (A)"
      ]
     },
     {
@@ -823,32 +526,315 @@
      "club": "NEW",
      "position": "FWD",
      "price": 6.2,
-     "next_points": 5.26,
-     "horizon_points": 24.64,
+     "next_points": 5.16,
+     "horizon_points": 23.14,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "COV (A)"
+      "AVL (H)"
      ]
     },
     {
-     "id": 567,
-     "name": "Horn\u00ed\u010dek",
-     "club": "NEW",
-     "position": "GKP",
-     "price": 5.0,
-     "next_points": 4.93,
-     "horizon_points": 15.38,
+     "id": 112,
+     "name": "Van Hecke",
+     "club": "TOT",
+     "position": "DEF",
+     "price": 4.9,
+     "next_points": 6.99,
+     "horizon_points": 23.63,
+     "start": true,
+     "captain": false,
+     "vice": true,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "COV (H)"
+     ]
+    },
+    {
+     "id": 542,
+     "name": "E.Le F\u00e9e",
+     "club": "SUN",
+     "position": "MID",
+     "price": 5.7,
+     "next_points": 4.01,
+     "horizon_points": 21.89,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 4,
+     "transfer_in": false,
+     "opponents": [
+      "BOU (A)"
+     ]
+    }
+   ]
+  },
+  "freehit": {
+   "next_gw_points": 71.4,
+   "bench_points": 17.43,
+   "captain_points": 8.32,
+   "horizon_value": 296.03,
+   "hits": 0,
+   "transfers_in": [],
+   "transfers_out": [],
+   "players": [
+    {
+     "id": 12,
+     "name": "Saka",
+     "club": "ARS",
+     "position": "MID",
+     "price": 9.6,
+     "next_points": 5.94,
+     "horizon_points": 29.29,
      "start": true,
      "captain": false,
      "vice": false,
      "bench_order": 0,
      "transfer_in": false,
      "opponents": [
-      "COV (A)"
+      "NFO (A)"
+     ]
+    },
+    {
+     "id": 68,
+     "name": "Tavernier",
+     "club": "BOU",
+     "position": "MID",
+     "price": 6.1,
+     "next_points": 5.15,
+     "horizon_points": 25.93,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "SUN (H)"
+     ]
+    },
+    {
+     "id": 115,
+     "name": "De Cuyper",
+     "club": "BHA",
+     "position": "DEF",
+     "price": 5.0,
+     "next_points": 5.04,
+     "horizon_points": 19.46,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "CRY (H)"
+     ]
+    },
+    {
+     "id": 124,
+     "name": "Gro\u00df",
+     "club": "BHA",
+     "position": "MID",
+     "price": 5.9,
+     "next_points": 4.65,
+     "horizon_points": 19.74,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 3,
+     "transfer_in": false,
+     "opponents": [
+      "CRY (H)"
+     ]
+    },
+    {
+     "id": 40,
+     "name": "Rogers",
+     "club": "CHE",
+     "position": "MID",
+     "price": 7.8,
+     "next_points": 4.76,
+     "horizon_points": 27.31,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "EVE (A)"
+     ]
+    },
+    {
+     "id": 249,
+     "name": "Barry",
+     "club": "EVE",
+     "position": "FWD",
+     "price": 5.7,
+     "next_points": 4.6,
+     "horizon_points": 20.92,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 4,
+     "transfer_in": false,
+     "opponents": [
+      "CHE (H)"
+     ]
+    },
+    {
+     "id": 572,
+     "name": "Tzolakis",
+     "club": "HUL",
+     "position": "GKP",
+     "price": 4.7,
+     "next_points": 3.5,
+     "horizon_points": 17.13,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 1,
+     "transfer_in": false,
+     "opponents": [
+      "FUL (A)"
+     ]
+    },
+    {
+     "id": 388,
+     "name": "Gu\u00e9hi",
+     "club": "MCI",
+     "position": "DEF",
+     "price": 6.0,
+     "next_points": 6.12,
+     "horizon_points": 24.08,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "IPS (H)"
+     ]
+    },
+    {
+     "id": 390,
+     "name": "R\u00faben",
+     "club": "MCI",
+     "position": "DEF",
+     "price": 5.5,
+     "next_points": 5.25,
+     "horizon_points": 21.21,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "IPS (H)"
+     ]
+    },
+    {
+     "id": 411,
+     "name": "Haaland",
+     "club": "MCI",
+     "position": "FWD",
+     "price": 15.6,
+     "next_points": 8.32,
+     "horizon_points": 30.69,
+     "start": true,
+     "captain": true,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "IPS (H)"
+     ]
+    },
+    {
+     "id": 427,
+     "name": "Mbeumo",
+     "club": "MUN",
+     "position": "MID",
+     "price": 7.9,
+     "next_points": 4.68,
+     "horizon_points": 24.99,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 2,
+     "transfer_in": false,
+     "opponents": [
+      "LEE (A)"
+     ]
+    },
+    {
+     "id": 464,
+     "name": "Wissa",
+     "club": "NEW",
+     "position": "FWD",
+     "price": 6.2,
+     "next_points": 5.16,
+     "horizon_points": 23.14,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "AVL (H)"
+     ]
+    },
+    {
+     "id": 112,
+     "name": "Van Hecke",
+     "club": "TOT",
+     "position": "DEF",
+     "price": 4.9,
+     "next_points": 6.99,
+     "horizon_points": 23.63,
+     "start": true,
+     "captain": false,
+     "vice": true,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "COV (H)"
+     ]
+    },
+    {
+     "id": 496,
+     "name": "Kinsky",
+     "club": "TOT",
+     "position": "GKP",
+     "price": 4.5,
+     "next_points": 5.0,
+     "horizon_points": 14.53,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "COV (H)"
+     ]
+    },
+    {
+     "id": 503,
+     "name": "Van de Ven",
+     "club": "TOT",
+     "position": "DEF",
+     "price": 5.0,
+     "next_points": 5.35,
+     "horizon_points": 17.79,
+     "start": true,
+     "captain": false,
+     "vice": false,
+     "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "COV (H)"
      ]
     }
    ]
