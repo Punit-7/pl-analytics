@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T12:58:50+00:00",
+ "generated_at": "2026-10-14T10:38:57+00:00",
  "gameweek": 7,
  "deadline": "2026-10-17T10:00:00Z",
  "gameweeks": [
@@ -577,9 +577,9 @@
   },
   "freehit": {
    "next_gw_points": 65.29,
-   "bench_points": 16.5,
+   "bench_points": 16.45,
    "captain_points": 8.04,
-   "horizon_value": 287.09,
+   "horizon_value": 287.23,
    "hits": 0,
    "transfers_in": [],
    "transfers_out": [],
@@ -636,6 +636,23 @@
      ]
     },
     {
+     "id": 45,
+     "name": "McGinn",
+     "club": "AVL",
+     "position": "MID",
+     "price": 5.4,
+     "next_points": 4.26,
+     "horizon_points": 21.16,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 4,
+     "transfer_in": false,
+     "opponents": [
+      "NEW (A)"
+     ]
+    },
+    {
      "id": 68,
      "name": "Tavernier",
      "club": "BOU",
@@ -674,7 +691,7 @@
      "name": "Verbruggen",
      "club": "BHA",
      "position": "GKP",
-     "price": 4.5,
+     "price": 4.6,
      "next_points": 3.25,
      "horizon_points": 12.8,
      "start": false,
@@ -759,7 +776,7 @@
      "name": "Cherki",
      "club": "MCI",
      "position": "MID",
-     "price": 7.8,
+     "price": 7.9,
      "next_points": 5.42,
      "horizon_points": 20.69,
      "start": true,
@@ -786,23 +803,6 @@
      "transfer_in": false,
      "opponents": [
       "IPS (H)"
-     ]
-    },
-    {
-     "id": 453,
-     "name": "Barnes",
-     "club": "NEW",
-     "position": "MID",
-     "price": 6.1,
-     "next_points": 4.31,
-     "horizon_points": 19.78,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 4,
-     "transfer_in": false,
-     "opponents": [
-      "AVL (H)"
      ]
     },
     {
