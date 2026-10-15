@@ -1,4 +1,4 @@
-name: FPL suggestion
+name: Daily update
 
 on:
   schedule:
@@ -6,18 +6,20 @@ on:
   workflow_dispatch:        # also allows a manual run from the Actions tab
 
 permissions:
-  contents: write           # the job commits the new picture and plan
+  contents: write           # the job commits the new pictures, plan, scoreboard and README
 
 concurrency:
-  group: fpl-suggestion
+  group: daily-update
   cancel-in-progress: false
 
 jobs:
-  suggest:
+  update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0    # full history, so the scoreboard can check when predictions were committed
       - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
@@ -27,20 +29,42 @@ jobs:
         run: pip install -r modelling/requirements-fpl.txt
 
       - name: Download FPL data
+        id: fpl
+        continue-on-error: true   # if the FPL site refuses, the scoreboard still runs
         run: python -m data.ingest.fpl
 
       - name: Plan the team
+        id: plan
+        if: steps.fpl.outcome == 'success'
+        continue-on-error: true
         run: python -m modelling.match.fpl_squad --from-csv
 
       - name: Draw the pitch
+        id: draw
+        if: steps.plan.outcome == 'success'
+        continue-on-error: true
         run: python -m modelling.match.fpl_pitch
+
+      - name: Score predictions against results
+        run: python -m modelling.match.scoreboard --download
 
       - name: Commit if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add modelling/reports/fpl_pitch.svg modelling/reports/fpl_pitch.html \
-            modelling/reports/fpl_plan.json modelling/reports/fpl_squad.csv
-          git diff --cached --quiet || git commit -m "FPL suggestion $(date -u +%F) [skip render]"
+          for f in README.md \
+            modelling/reports/fpl_pitch.svg modelling/reports/fpl_pitch.html \
+            modelling/reports/fpl_plan.json modelling/reports/fpl_squad.csv \
+            modelling/reports/scoreboard.md modelling/reports/scoreboard.svg \
+            modelling/reports/scoreboard.json modelling/reports/scoreboard.csv; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+          git diff --cached --quiet || git commit -m "Daily update $(date -u +%F) [skip render]"
           git pull --rebase --autostash
           git push
+
+      - name: Fail the run if an FPL step failed
+        if: steps.fpl.outcome == 'failure' || steps.plan.outcome == 'failure' || steps.draw.outcome == 'failure'
+        run: |
+          echo "::error::An FPL step failed, so the FPL picture was not updated. The scoreboard was."
+          exit 1

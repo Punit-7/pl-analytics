@@ -1,0 +1,40 @@
+{
+  "updated": "2026-10-15",
+  "git_checked": true,
+  "summary": {
+    "matches": 10,
+    "model_rps": 0.2567473830835885,
+    "freq_rps": 0.21462991438445034,
+    "model_right": 5,
+    "freq_right": 5,
+    "odds_matches": 10,
+    "book_rps": 0.20729696233478162,
+    "model_rps_on_odds": 0.2567473830835885,
+    "book_right": 4,
+    "vs_freq": [
+      0.042117468699138134,
+      null,
+      null
+    ],
+    "vs_book": [
+      0.049450420748806866,
+      null,
+      null
+    ],
+    "rounds": [
+      {
+        "round": "GW 6",
+        "first_date": "2026-10-10",
+        "last_date": "2026-10-12",
+        "matches": 10,
+        "model_rps": 0.2567473830835885,
+        "freq_rps": 0.21462991438445034,
+        "book_rps": 0.20729696233478162,
+        "model_right": 5,
+        "cum_model_rps": 0.2567473830835885,
+        "cum_freq_rps": 0.21462991438445034,
+        "cum_book_rps": 0.20729696233478162
+      }
+    ]
+  }
+}

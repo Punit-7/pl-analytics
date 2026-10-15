@@ -134,6 +134,7 @@ python -m modelling.match.fdr          # fixture difficulty
 python -m data.ingest.fpl              # FPL players, prices, rules and your team
 python -m modelling.match.fpl_squad    # FPL planner: transfers, line-up, chip advice
 python -m modelling.match.fpl_pitch    # draw the suggested team (SVG and HTML)
+python -m modelling.match.scoreboard --no-readme  # preview the scoreboard below
 ```
 
 ## FPL suggestion (updated daily)
@@ -146,6 +147,11 @@ Chip advice uses fixed limits. A model suggestion, not advice.
 Data: Fantasy Premier League API and football-data.co.uk.
 
 Set `team_id` in `config.toml` to plan transfers for your own team; the three plans and the chip checks are in [`fpl_plan.json`](modelling/reports/fpl_plan.json).
+
+## Match predictions against results (updated daily)
+
+<!-- scoreboard:start -->
+<!-- scoreboard:end -->
 
 ## P3 — Match report entity extraction
 
@@ -312,4 +318,5 @@ Data problems found and how they are handled are in [`analytics/notebooks/FINDIN
 - The FPL projection ignores saves, bonus points, cards, penalties and defensive contributions, so goalkeepers and defensive players are underrated. Its shares come from the season so far and are noisy early on.
 - The FPL planner does not see transfers made in the app this week until the deadline passes. Selling prices and the free-transfer number are estimates, the plan is chosen once for the five gameweeks, and the chip limits are judgement, not measured.
 - The match model ignores injuries; the FPL suggestion reflects them only as of its last download.
+- The scoreboard: results and closing odds come from football-data.co.uk, usually a day or two after each match. Matches are joined by team names, so a prediction that never finds its result is listed as "Waiting for a result". The rule works in whole days (UTC), not kick-off times. Gameweek names come from the FPL fixtures file, or dates if that download fails. The interval assumes matches are independent, so the true uncertainty is a little larger.
 - The assistant runs a small local model that is often wrong and slow, remembers nothing between questions, and is measured on small test sets; see its [system card](assistant/SYSTEM_CARD.md).
