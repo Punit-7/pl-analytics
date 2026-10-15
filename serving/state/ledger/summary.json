@@ -1,3 +1,10 @@
 {
- "n_scored": 0
+ "n_scored": 10,
+ "model_rps": 0.2571,
+ "pick_accuracy": 0.5,
+ "calibration_error": 0.2096,
+ "n_with_odds": 10,
+ "model_rps_on_odds_matches": 0.2571,
+ "book_rps": 0.2073,
+ "rps_gap_to_book": 0.0498
 }
