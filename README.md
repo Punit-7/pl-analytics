@@ -183,6 +183,21 @@ Model minus closing odds: +0.0495 on 10 matches. Too few matches for an interval
 | Mon 12 Oct | Coventry v Newcastle | 5% / 21% / 74% | Away | 4–1 | ✗ | 0.728 | 0.384 |
 
 This round: model 0.2567, baseline 0.2146, closing odds 0.2073. One round is about 10 matches, too few to judge a model; the season figures above are the ones to compare.
+
+**Next predictions**
+
+| Date | Match | Home / Draw / Away | Pick | Most likely score | Made (UTC) | In Git (UTC) |
+|---|---|---|---|---|---|---|
+| Sat 17 Oct | Brentford v Liverpool | 36% / 26% / 38% | Away | 1–1 | 2026-10-15 06:56 | not yet |
+| Sat 17 Oct | Everton v Chelsea | 35% / 29% / 36% | Away | 1–1 | 2026-10-15 06:56 | not yet |
+| Sat 17 Oct | Fulham v Hull | 27% / 32% / 41% | Away | 1–1 | 2026-10-15 06:56 | not yet |
+| Sat 17 Oct | Man City v Ipswich | 87% / 9% / 4% | Home | 3–0 | 2026-10-15 06:56 | not yet |
+| Sat 17 Oct | Newcastle v Aston Villa | 43% / 25% / 32% | Home | 1–1 | 2026-10-15 06:56 | not yet |
+| Sun 18 Oct | Bournemouth v Sunderland | 48% / 28% / 24% | Home | 1–1 | 2026-10-15 06:56 | not yet |
+| Sun 18 Oct | Brighton v Crystal Palace | 55% / 25% / 20% | Home | 1–1 | 2026-10-15 06:56 | not yet |
+| Sun 18 Oct | Leeds v Man United | 39% / 28% / 33% | Home | 1–1 | 2026-10-15 06:56 | not yet |
+| Sun 18 Oct | Nott'm Forest v Arsenal | 17% / 28% / 55% | Away | 0–1 | 2026-10-15 06:56 | not yet |
+| Mon 19 Oct | Tottenham v Coventry | 47% / 28% / 25% | Home | 1–1 | 2026-10-15 06:56 | not yet |
 <!-- scoreboard:end -->
 
 ## P3 — Match report entity extraction
