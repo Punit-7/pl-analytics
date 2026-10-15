@@ -1,7 +1,7 @@
 {
  "level": "waiting",
- "n_matches": 0,
+ "n_matches": 10,
  "checks": [],
- "note": "no scored matches yet",
- "run_at": "2026-10-09T14:22:37+00:00"
+ "note": "only 10 scored matches; 60 needed for a verdict",
+ "run_at": "2026-10-15T11:40:59+00:00"
 }
