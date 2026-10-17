@@ -11,6 +11,6 @@ gameweek,id,name,club,position,price,next_points,horizon_points,start,captain,vi
 7,279,Ajayi,HUL,DEF,4.2,3.93,19.68,False,False,False,3,False,['FUL (A)']
 7,282,Giles,HUL,DEF,4.0,3.53,17.42,False,False,False,4,False,['FUL (A)']
 7,388,Guéhi,MCI,DEF,6.0,5.89,23.72,True,False,True,0,False,['IPS (H)']
-7,411,Haaland,MCI,FWD,15.6,8.04,29.94,True,True,False,0,False,['IPS (H)']
-7,427,Mbeumo,MUN,MID,7.9,4.64,24.95,True,False,False,0,False,['LEE (A)']
+7,411,Haaland,MCI,FWD,15.7,8.04,29.94,True,True,False,0,False,['IPS (H)']
+7,427,Mbeumo,MUN,MID,7.8,4.64,24.95,True,False,False,0,False,['LEE (A)']
 7,464,Wissa,NEW,FWD,6.2,4.44,20.06,True,False,False,0,False,['AVL (H)']
