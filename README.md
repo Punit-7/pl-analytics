@@ -151,7 +151,7 @@ Set `team_id` in `config.toml` to plan transfers for your own team; the three pl
 ## Match predictions against results (updated daily)
 
 <!-- scoreboard:start -->
-_Updated 2026-10-18. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-10-19. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
@@ -184,16 +184,12 @@ Model minus closing odds: +0.0495 on 10 matches. Too few matches for an interval
 
 This round: model 0.2567, baseline 0.2146, closing odds 0.2073. One round is about 10 matches, too few to judge a model; the season figures above are the ones to compare.
 
-Waiting for a result: Brentford v Liverpool (Sat 17 Oct), Everton v Chelsea (Sat 17 Oct), Fulham v Hull (Sat 17 Oct), Man City v Ipswich (Sat 17 Oct), Newcastle v Aston Villa (Sat 17 Oct).
+Waiting for a result: Brentford v Liverpool (Sat 17 Oct), Everton v Chelsea (Sat 17 Oct), Fulham v Hull (Sat 17 Oct), Man City v Ipswich (Sat 17 Oct), Newcastle v Aston Villa (Sat 17 Oct), Bournemouth v Sunderland (Sun 18 Oct), Brighton v Crystal Palace (Sun 18 Oct), Leeds v Man United (Sun 18 Oct), Nott'm Forest v Arsenal (Sun 18 Oct).
 
 **Next predictions**
 
 | Date | Match | Home / Draw / Away | Pick | Most likely score | Made (UTC) | In Git (UTC) |
 |---|---|---|---|---|---|---|
-| Sun 18 Oct | Bournemouth v Sunderland | 48% / 28% / 24% | Home | 1–1 | 2026-10-15 06:56 | 2026-10-15 07:00 |
-| Sun 18 Oct | Brighton v Crystal Palace | 55% / 25% / 20% | Home | 1–1 | 2026-10-15 06:56 | 2026-10-15 07:00 |
-| Sun 18 Oct | Leeds v Man United | 39% / 28% / 33% | Home | 1–1 | 2026-10-15 06:56 | 2026-10-15 07:00 |
-| Sun 18 Oct | Nott'm Forest v Arsenal | 17% / 28% / 55% | Away | 0–1 | 2026-10-15 06:56 | 2026-10-15 07:00 |
 | Mon 19 Oct | Tottenham v Coventry | 47% / 28% / 25% | Home | 1–1 | 2026-10-15 06:56 | 2026-10-15 07:00 |
 <!-- scoreboard:end -->
 
