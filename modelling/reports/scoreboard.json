@@ -1,23 +1,23 @@
 {
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "git_checked": true,
   "summary": {
-    "matches": 10,
-    "model_rps": 0.2567473830835885,
-    "freq_rps": 0.21462991438445034,
-    "model_right": 5,
-    "freq_right": 5,
-    "odds_matches": 10,
-    "book_rps": 0.20729696233478162,
-    "model_rps_on_odds": 0.2567473830835885,
-    "book_right": 4,
+    "matches": 20,
+    "model_rps": 0.22351049934474454,
+    "freq_rps": 0.23270990068435382,
+    "model_right": 12,
+    "freq_right": 10,
+    "odds_matches": 20,
+    "book_rps": 0.17844229043878876,
+    "model_rps_on_odds": 0.22351049934474454,
+    "book_right": 12,
     "vs_freq": [
-      0.042117468699138134,
+      -0.009199401339609278,
       null,
       null
     ],
     "vs_book": [
-      0.049450420748806866,
+      0.04506820890595577,
       null,
       null
     ],
@@ -34,6 +34,19 @@
         "cum_model_rps": 0.2567473830835885,
         "cum_freq_rps": 0.21462991438445034,
         "cum_book_rps": 0.20729696233478162
+      },
+      {
+        "round": "GW 7",
+        "first_date": "2026-10-17",
+        "last_date": "2026-10-19",
+        "matches": 10,
+        "model_rps": 0.19027361560590056,
+        "freq_rps": 0.2507898869842572,
+        "book_rps": 0.1495876185427959,
+        "model_right": 7,
+        "cum_model_rps": 0.22351049934474454,
+        "cum_freq_rps": 0.23270990068435382,
+        "cum_book_rps": 0.17844229043878876
       }
     ]
   }
