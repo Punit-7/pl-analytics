@@ -1,4 +1,4 @@
-_Updated 2026-10-20. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-10-21. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
