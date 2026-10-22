@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img" aria-label="Suggested FPL team">
 <rect width="720" height="800" fill="#f6f3f9"/>
 <text x="360.0" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1b1024" text-anchor="middle">Gameweek 8 — suggested team</text>
-<text x="360.0" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5a4d66" text-anchor="middle">Deadline Fri 23 Oct, 17:30 UTC · projected 56.5 points · made 2026-10-21</text>
+<text x="360.0" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5a4d66" text-anchor="middle">Deadline Fri 23 Oct, 17:30 UTC · projected 55.0 points · made 2026-10-22</text>
 <text x="360.0" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Transfers: 1 free (estimate)</text>
-<text x="360.0" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Cherki → Saka</text>
+<text x="360.0" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Amad → Tavernier</text>
 <text x="360.0" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1b1024" text-anchor="middle">Chip: none this week (no chip passes its limit)</text>
 <rect x="16" y="156" width="688" height="452" rx="10" fill="#1f8a4c"/>
 <rect x="40" y="166" width="640" height="432" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
@@ -53,24 +53,24 @@
 <text x="174.0" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.9 pts · £7.8m</text>
 <circle cx="122.0" cy="398" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
 <text x="122.0" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">C</text>
-<rect x="242.0" y="394" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="242.0" y="394" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
 <rect x="242.0" y="394" width="112" height="22" rx="8" fill="#37003c"/>
 <rect x="242.0" y="408" width="112" height="8" fill="#37003c"/>
-<text x="298.0" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ARS · MID</text>
-<text x="298.0" y="434" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Saka</text>
-<text x="298.0" y="451" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">EVE (H)</text>
-<text x="298.0" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.6 pts · £9.6m</text>
+<text x="298.0" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MUN · MID</text>
+<text x="298.0" y="434" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Mbeumo</text>
+<text x="298.0" y="451" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">BOU (H)</text>
+<text x="298.0" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.6 pts · £7.8m</text>
 <circle cx="246.0" cy="398" r="11" fill="#1b1024" stroke="#ffffff" stroke-width="2"/>
 <text x="246.0" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">V</text>
-<rect x="324.0" y="385" width="34" height="18" rx="4" fill="#e8590c"/>
-<text x="341.0" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
-<rect x="366.0" y="394" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
+<rect x="366.0" y="394" width="112" height="86" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
 <rect x="366.0" y="394" width="112" height="22" rx="8" fill="#37003c"/>
 <rect x="366.0" y="408" width="112" height="8" fill="#37003c"/>
-<text x="422.0" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">MUN · MID</text>
-<text x="422.0" y="434" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Mbeumo</text>
-<text x="422.0" y="451" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">BOU (H)</text>
-<text x="422.0" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">5.6 pts · £7.8m</text>
+<text x="422.0" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">BOU · MID</text>
+<text x="422.0" y="434" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Tavernier</text>
+<text x="422.0" y="451" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">MUN (A)</text>
+<text x="422.0" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">4.1 pts · £6.2m</text>
+<rect x="448.0" y="385" width="34" height="18" rx="4" fill="#e8590c"/>
+<text x="465.0" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">IN</text>
 <rect x="490.0" y="394" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
 <rect x="490.0" y="394" width="112" height="22" rx="8" fill="#37003c"/>
 <rect x="490.0" y="408" width="112" height="8" fill="#37003c"/>
@@ -117,10 +117,10 @@
 <rect x="490.0" y="638" width="112" height="86" rx="8" fill="#ffffff" stroke="#d0c8d8" stroke-width="1"/>
 <rect x="490.0" y="638" width="112" height="22" rx="8" fill="#37003c"/>
 <rect x="490.0" y="652" width="112" height="8" fill="#37003c"/>
-<text x="546.0" y="654" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. MUN · MID</text>
-<text x="546.0" y="678" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Amad</text>
-<text x="546.0" y="695" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">BOU (H)</text>
-<text x="546.0" y="713" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">0.7 pts · £5.7m</text>
+<text x="546.0" y="654" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. MCI · MID</text>
+<text x="546.0" y="678" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1024" text-anchor="middle">Cherki</text>
+<text x="546.0" y="695" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">AVL (A)</text>
+<text x="546.0" y="713" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#1b1024" text-anchor="middle">3.0 pts · £7.9m</text>
 <text x="360.0" y="764" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">Projection: pl-analytics Dixon–Coles model. Data: Fantasy Premier League API, football-data.co.uk.</text>
 <text x="360.0" y="780" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" fill="#5a4d66" text-anchor="middle">A model suggestion, not advice. Not affiliated with the Premier League or FPL.</text>
 </svg>
