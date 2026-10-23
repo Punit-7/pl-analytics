@@ -365,9 +365,9 @@ def match_table(df: pd.DataFrame) -> list[str]:
 
 def upcoming_table(df: pd.DataFrame, git_checked: bool) -> list[str]:
     lines = [
-        "| Date | Match | Home / Draw / Away | Pick | Most likely score "
+        "| Date | Match | Home / Draw / Away | Pick | Most likely score | Expected goals "
         "| Made (UTC) | In Git (UTC) |",
-        "|---|---|---|---|---|---|---|",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for r in df.sort_values(["fixture_date", "home_team"]).itertuples():
         probs = np.array([r.p_home, r.p_draw, r.p_away])
@@ -379,6 +379,11 @@ def upcoming_table(df: pd.DataFrame, git_checked: bool) -> list[str]:
         score_text = (
             r.most_likely_score.replace("-", "–") if isinstance(r.most_likely_score, str) else "–"
         )
+        xg = (
+            f"{r.exp_home_goals:.1f} – {r.exp_away_goals:.1f}"
+            if pd.notna(r.exp_home_goals) and pd.notna(r.exp_away_goals)
+            else "–"
+        )
         if pd.notna(r.committed_at):
             git = f"{r.committed_at:%Y-%m-%d %H:%M}"
         else:
@@ -386,7 +391,7 @@ def upcoming_table(df: pd.DataFrame, git_checked: bool) -> list[str]:
         lines.append(
             f"| {day_name(r.fixture_date)} | {r.home_team} v {r.away_team} "
             f"| {pct(r.p_home)} / {pct(r.p_draw)} / {pct(r.p_away)} | {pick} | {score_text} "
-            f"| {r.created_at:%Y-%m-%d %H:%M} | {git} |"
+            f"| {xg} | {r.created_at:%Y-%m-%d %H:%M} | {git} |"
         )
     return lines
 
