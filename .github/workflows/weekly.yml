@@ -30,8 +30,16 @@ jobs:
       - name: Install packages
         run: pip install -r serving/requirements-job.txt
 
+      - name: Restore downloaded results
+        uses: actions/cache@v4
+        with:
+          path: data/raw/football_data
+          key: football-data-${{ github.run_id }}
+          restore-keys: football-data-
+
       - name: Retrain, gate, publish, score
-        run: python -m serving.weekly
+        # one retry after 10 minutes: the runner's route to football-data.co.uk is sometimes down
+        run: python -m serving.weekly || (sleep 600 && python -m serving.weekly)
 
       - name: Test the new model files and the API
         run: pytest -q tests/test_serving_artifacts.py tests/test_serving_api.py

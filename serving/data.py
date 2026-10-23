@@ -7,6 +7,7 @@ from dataclasses import replace
 from datetime import date
 
 import pandas as pd
+import requests
 
 from data.build_warehouse import load_matches
 from data.common.config import Settings
@@ -28,7 +29,11 @@ def load_results(s: Settings, ingest: bool = True, today: date | None = None) ->
     """Download the recent season files (optional), then load every file on disk."""
     if ingest:
         first = current_season_start(today, s.season_start_month) - s.serving["history_seasons"]
-        football_data.run(replace(s, first_season=first))
+        try:
+            football_data.run(replace(s, first_season=first))
+        except requests.RequestException as e:
+            # Use the files on disk; validate() still stops the job if they are incomplete or old.
+            log.warning("Download failed, using files on disk: %s", e)
     m = load_matches(s).reindex(columns=NEEDED + ODDS)
     m["match_date"] = pd.to_datetime(m["match_date"])
     return m.sort_values(["match_date", "home_team"]).reset_index(drop=True)
