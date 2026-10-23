@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from data.build_warehouse import load_matches
+from data.build_warehouse import load_matches, name_lookup
 from data.common.config import ROOT, Settings, load_settings
 from data.common.logging_setup import setup_logging
 from data.common.seasons import current_season_start
@@ -24,6 +24,7 @@ from data.common.seasons import current_season_start
 log = logging.getLogger("modelling.match.scoreboard")
 REPORTS = ROOT / "modelling" / "reports"
 PREDICTIONS = ROOT / "modelling" / "predictions"
+SERVING_PREDICTIONS = ROOT / "serving" / "predictions"  # the weekly job (P5), from 2026-10-09
 README = ROOT / "README.md"
 START, END = "<!-- scoreboard:start -->", "<!-- scoreboard:end -->"
 PROBS = ["p_home", "p_draw", "p_away"]
@@ -82,15 +83,58 @@ def load_predictions(folder: Path) -> pd.DataFrame:
     frames = []
     for path in sorted(folder.glob("*/*_matches.csv")):
         try:
-            df = pd.read_csv(path, parse_dates=["created_at", "match_date"])
+            df = pd.read_csv(path)
         except pd.errors.EmptyDataError:
             continue
         if df.empty:
             continue
-        frames.append(df.assign(file=path.relative_to(ROOT).as_posix()))
+        df = df.assign(
+            created_at=pd.to_datetime(df["created_at"]), file=path.relative_to(ROOT).as_posix()
+        )
+        if "match_date" in df.columns:
+            df["match_date"] = pd.to_datetime(df["match_date"])
+        frames.append(df)
     if not frames:
         return pd.DataFrame()
     return pd.concat(frames, ignore_index=True).rename(columns={"match_date": "fixture_date"})
+
+
+def fixture_dates(s: Settings) -> pd.DataFrame:
+    """Home team, away team and kick-off date from the FPL files, with the team names used here.
+    Empty if the FPL files are not on disk."""
+    folder = s.raw / "fpl"
+    if not (folder / "fixtures.json").exists():
+        return pd.DataFrame(columns=["home_team", "away_team", "fixture_date"])
+    boot = json.loads((folder / "bootstrap-static.json").read_text(encoding="utf-8"))
+    fixtures = json.loads((folder / "fixtures.json").read_text(encoding="utf-8"))
+    lookup = name_lookup(s, "fpl")
+    name = {t["id"]: lookup.get(t["name"], t["name"]) for t in boot["teams"]}
+    rows = [
+        {
+            "home_team": name[f["team_h"]],
+            "away_team": name[f["team_a"]],
+            "fixture_date": pd.Timestamp(f["kickoff_time"]).tz_localize(None).normalize(),
+        }
+        for f in fixtures
+        if f.get("kickoff_time")
+    ]
+    return pd.DataFrame(rows)
+
+
+def add_live_predictions(old: pd.DataFrame, s: Settings) -> pd.DataFrame:
+    """Add the weekly job's predictions for matches the first folder has no prediction for.
+    Matches already in the first folder keep their first prediction, so history does not change."""
+    live = load_predictions(SERVING_PREDICTIONS)
+    if live.empty:
+        return old
+    if "fixture_date" not in live.columns:
+        live = live.merge(fixture_dates(s), on=["home_team", "away_team"], how="left")
+    live = first_predictions(live)
+    key = ["season", "home_team", "away_team"]
+    seen = old[key].merge(live[key].drop_duplicates(), on=key, how="inner")
+    new = live.merge(seen, on=key, how="left", indicator=True)
+    new = new[new["_merge"] == "left_only"].drop(columns="_merge")
+    return pd.concat([old, new], ignore_index=True)
 
 
 def first_predictions(preds: pd.DataFrame) -> pd.DataFrame:
@@ -355,6 +399,7 @@ def markdown(
     waiting: pd.DataFrame,
     today: date,
     git_checked: bool,
+    next_round: str = "",
 ) -> str:
     out = [
         f"_Updated {today.isoformat()}. Only each match's first prediction counts. It must be made "
@@ -441,7 +486,7 @@ def markdown(
         out += [f"Waiting for a result: {names}.", ""]
     if len(upcoming):
         out += [
-            "**Next predictions**",
+            f"**Next round: {next_round}**" if next_round else "**Next predictions**",
             "",
             *upcoming_table(upcoming, git_checked),
             "",
@@ -588,10 +633,10 @@ def main(argv=None) -> None:
     today = datetime.now(UTC).date()
 
     preds = load_predictions(PREDICTIONS)
-    if preds.empty:
+    if preds.empty and not SERVING_PREDICTIONS.exists():
         log.info("No published predictions yet: nothing to score")
         return
-    preds = first_predictions(preds)
+    preds = add_live_predictions(first_predictions(preds), s)
     results = load_results(s, args.download)
     df = attach_results(preds, results)
     commits, git_checked = commit_times(sorted(df["file"].unique()))
@@ -609,12 +654,17 @@ def main(argv=None) -> None:
     excluded = played[~played["counts"]]
     unplayed = df[df["result_date"].isna()]
     upcoming = unplayed[unplayed["fixture_date"].dt.date >= today]
+    next_round = ""
+    if len(upcoming):
+        labels = round_labels(upcoming, gw_map)
+        next_round = labels.loc[upcoming["fixture_date"].idxmin()]
+        upcoming = upcoming[labels == next_round]
     waiting = unplayed[unplayed["fixture_date"].dt.date < today]  # postponed, or no result yet
     scored = score(counted, results, s.modelling["dc_history_days"]) if len(counted) else counted
     summary = summarise(scored) if len(scored) else None
 
     REPORTS.mkdir(parents=True, exist_ok=True)
-    block = markdown(summary, scored, upcoming, excluded, waiting, today, git_checked)
+    block = markdown(summary, scored, upcoming, excluded, waiting, today, git_checked, next_round)
     (REPORTS / "scoreboard.md").write_text(block, encoding="utf-8")
     (REPORTS / "scoreboard.json").write_text(
         json.dumps(

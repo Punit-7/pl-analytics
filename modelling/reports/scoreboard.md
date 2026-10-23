@@ -37,3 +37,18 @@ This round: model 0.1903, baseline 0.2508, closing odds 0.1496. One round is abo
 |---|---|---|---|---|---|---|
 | GW 7 | Sat 17 Oct – Mon 19 Oct | 10 | 0.1903 | 0.2508 | 0.1496 | 7 of 10 |
 | GW 6 | Sat 10 Oct – Mon 12 Oct | 10 | 0.2567 | 0.2146 | 0.2073 | 5 of 10 |
+
+**Next round: GW 8**
+
+| Date | Match | Home / Draw / Away | Pick | Most likely score | Made (UTC) | In Git (UTC) |
+|---|---|---|---|---|---|---|
+| Fri 23 Oct | Ipswich v Nott'm Forest | 21% / 25% / 54% | Away | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sat 24 Oct | Arsenal v Everton | 62% / 26% / 12% | Home | 1–0 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sat 24 Oct | Aston Villa v Man City | 22% / 25% / 53% | Away | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sat 24 Oct | Chelsea v Tottenham | 55% / 23% / 22% | Home | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sat 24 Oct | Coventry v Fulham | 7% / 29% / 65% | Away | 0–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sun 25 Oct | Crystal Palace v Newcastle | 33% / 27% / 40% | Away | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sun 25 Oct | Hull v Brentford | 43% / 32% / 25% | Home | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sun 25 Oct | Liverpool v Brighton | 49% / 25% / 26% | Home | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sun 25 Oct | Man United v Bournemouth | 44% / 26% / 30% | Home | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
+| Sun 25 Oct | Sunderland v Leeds | 33% / 31% / 35% | Away | 1–1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
