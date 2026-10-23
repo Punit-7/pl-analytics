@@ -5,6 +5,7 @@ python -m serving.monitor.report
 
 import json
 import logging
+import re
 from datetime import date
 
 from data.common.config import ROOT, load_settings
@@ -14,6 +15,7 @@ from serving.monitor import drift, tracking
 
 log = logging.getLogger("serving.monitor")
 REPORTS = ROOT / "serving" / "reports"
+README = ROOT / "README.md"
 
 
 def performance_lines(perf: dict | None) -> list[str]:
@@ -65,6 +67,21 @@ def status_page(run: dict, table: dict, html_written: bool, perf: dict | None = 
     return "\n".join(lines) + "\n"
 
 
+def summary_table(page: str) -> str:
+    """The Item / Value table at the top of the status page."""
+    return page[page.index("| Item | Value |") :].split("\n\n", 1)[0]
+
+
+def splice_readme(readme: str, table: str) -> str:
+    """Replace what sits between the status markers in README.md (left alone if none)."""
+    return re.sub(
+        r"(<!-- status:start -->).*?(<!-- status:end -->)",
+        lambda m: f"{m.group(1)}\n{table}\n{m.group(2)}",
+        readme,
+        flags=re.S,
+    )
+
+
 def main() -> None:
     s = load_settings()
     setup_logging(s.logs)
@@ -89,6 +106,9 @@ def main() -> None:
     perf = json.loads(perf_file.read_text(encoding="utf-8")) if perf_file.exists() else None
     page = status_page(run, table, html_written, perf)
     (REPORTS / "STATUS.md").write_text(page, encoding="utf-8")
+    if README.exists():
+        readme = README.read_text(encoding="utf-8")
+        README.write_text(splice_readme(readme, summary_table(page)), encoding="utf-8")
     params, metrics, tags = tracking.flatten(run, table)
     if perf:
         tags["performance_level"] = perf["level"]

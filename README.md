@@ -302,6 +302,11 @@ P2's match model, running without me: every Thursday a scheduled job downloads t
 - [Runbook](serving/RUNBOOK.md): how to operate it and what to do when an alert fires.
 - [System description](serving/SYSTEM.md): design, policy, measurements and limits.
 
+Latest weekly run (updated by the weekly job):
+
+<!-- status:start -->
+<!-- status:end -->
+
 ```
  GitHub Actions, Thursday 06:17 UTC
         │

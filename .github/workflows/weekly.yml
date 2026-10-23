@@ -85,7 +85,7 @@ jobs:
 
       - name: Commit the monitoring files
         run: |
-          git add serving/reports/STATUS.md serving/reports/drift.json serving/reports/performance.json \
+          git add README.md serving/reports/STATUS.md serving/reports/drift.json serving/reports/performance.json \
             serving/state/mlflow.db serving/state/performance_history.jsonl
           git diff --cached --quiet || git commit -m "Weekly monitoring $(date -u +%F) [skip render]"
           git pull --rebase --autostash

@@ -1,5 +1,7 @@
 """FPL add-on: fixture difficulty (1 easiest - 5 hardest) for each team's next fixtures."""
 
+import argparse
+import json
 import logging
 from datetime import date
 
@@ -31,17 +33,54 @@ def difficulty(p_win: float) -> int:
     return 5
 
 
-def main() -> None:
+def csv_inputs(s) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Results and unplayed fixtures without the database (for GitHub Actions): football-data
+    results, and the FPL fixture list (python -m data.ingest.fpl must have run first)."""
+    from data.build_warehouse import name_lookup
+    from modelling.match.fpl_squad import results_from_csv
+
+    folder = s.raw / "fpl"
+    read = lambda n: json.loads((folder / f"{n}.json").read_text(encoding="utf-8"))  # noqa: E731
+    boot, fixtures, lookup = read("bootstrap-static"), read("fixtures"), name_lookup(s, "fpl")
+    name = {t["id"]: lookup.get(t["name"], t["name"]) for t in boot["teams"]}
+    rows = [
+        {
+            "match_date": pd.Timestamp(f["kickoff_time"] or "2100-01-01").tz_localize(None),
+            "home_team": name[f["team_h"]],
+            "away_team": name[f["team_a"]],
+        }
+        for f in fixtures
+        if f["event"]
+    ]
+    results = results_from_csv(s)
+    # FPL marks a game finished only after bonus points, so the results are the played list
+    start = pd.Timestamp(
+        current_season_start(start_month=s.season_start_month), s.season_start_month, 1
+    )
+    played = results.loc[results["match_date"] >= start, ["home_team", "away_team"]]
+    merged = pd.DataFrame(rows).merge(
+        played, on=["home_team", "away_team"], how="left", indicator=True
+    )
+    return results, merged[merged["_merge"] == "left_only"].drop(columns="_merge")
+
+
+def main(argv=None) -> None:
+    parser = argparse.ArgumentParser(description="Fixture difficulty picture")
+    parser.add_argument("--from-csv", action="store_true", help="no database")
+    args = parser.parse_args(argv)
     s = load_settings()
     setup_logging(s.logs)
     m = s.modelling
-    engine = make_engine()
-    season = season_label(current_season_start(start_month=s.season_start_month))
-    results = load_results(engine)
+    if args.from_csv:
+        results, remaining = csv_inputs(s)
+    else:
+        engine = make_engine()
+        season = season_label(current_season_start(start_month=s.season_start_month))
+        results = load_results(engine)
+        remaining = remaining_fixtures(load_fixtures(engine, season), results, season)
     model = fit_dixon_coles(
         results, date.today(), m["dc_xi"], m["dc_history_days"], m["dc_max_goals"]
     )
-    remaining = remaining_fixtures(load_fixtures(engine, season), results, season)
     remaining = remaining.sort_values("match_date")
 
     rows = []

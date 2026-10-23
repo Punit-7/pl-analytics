@@ -39,6 +39,12 @@ jobs:
         continue-on-error: true
         run: python -m modelling.match.fpl_squad --from-csv
 
+      - name: Fixture difficulty
+        id: fdr
+        if: steps.fpl.outcome == 'success'
+        continue-on-error: true
+        run: python -m modelling.match.fdr --from-csv
+
       - name: Draw the pitch
         id: draw
         if: steps.plan.outcome == 'success'
@@ -64,7 +70,7 @@ jobs:
           git push
 
       - name: Fail the run if an FPL step failed
-        if: steps.fpl.outcome == 'failure' || steps.plan.outcome == 'failure' || steps.draw.outcome == 'failure'
+        if: steps.fpl.outcome == 'failure' || steps.plan.outcome == 'failure' || steps.draw.outcome == 'failure' || steps.fdr.outcome == 'failure'
         run: |
           echo "::error::An FPL step failed, so the FPL picture was not updated. The scoreboard was."
           exit 1
