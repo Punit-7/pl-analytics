@@ -16,3 +16,6 @@ mlruns/
 mlartifacts/
 serving/reports/drift_report.html
 serving/reports/ALERT.md
+graphify-out/
+CLAUDE.md
+.claude/
