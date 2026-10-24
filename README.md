@@ -151,7 +151,7 @@ Set `team_id` in `config.toml` to plan transfers for your own team; the three pl
 ## Match predictions against results (updated daily)
 
 <!-- scoreboard:start -->
-_Updated 2026-10-23. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-10-24. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
@@ -191,11 +191,12 @@ This round: model 0.1903, baseline 0.2508, closing odds 0.1496. One round is abo
 | GW 7 | Sat 17 Oct – Mon 19 Oct | 10 | 0.1903 | 0.2508 | 0.1496 | 7 of 10 |
 | GW 6 | Sat 10 Oct – Mon 12 Oct | 10 | 0.2567 | 0.2146 | 0.2073 | 5 of 10 |
 
+Waiting for a result: Ipswich v Nott'm Forest (Fri 23 Oct).
+
 **Next round: GW 8**
 
 | Date | Match | Home / Draw / Away | Pick | Most likely score | Expected goals | Made (UTC) | In Git (UTC) |
 |---|---|---|---|---|---|---|---|
-| Fri 23 Oct | Ipswich v Nott'm Forest | 21% / 25% / 54% | Away | 1–1 | 1.1 – 1.9 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 24 Oct | Arsenal v Everton | 62% / 26% / 12% | Home | 1–0 | 1.6 – 0.6 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 24 Oct | Aston Villa v Man City | 22% / 25% / 53% | Away | 1–1 | 1.1 – 1.9 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 24 Oct | Chelsea v Tottenham | 55% / 23% / 22% | Home | 1–1 | 2.1 – 1.2 | 2026-10-09 11:39 | 2026-10-09 11:47 |
