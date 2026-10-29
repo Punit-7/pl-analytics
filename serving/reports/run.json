@@ -1,17 +1,17 @@
 {
- "run_at": "2026-10-23T09:37:23+00:00",
+ "run_at": "2026-10-29T13:16:19+00:00",
  "data": {
   "season": "2026/27",
-  "n_matches": 1970,
-  "n_current_season": 70,
-  "latest_match_date": "2026-10-19",
+  "n_matches": 1980,
+  "n_current_season": 80,
+  "latest_match_date": "2026-10-25",
   "days_since_latest": 4,
   "stale": false
  },
  "model": {
-  "model_version": "dc-2026-10-23-78dd3802",
-  "fitted_on": "2026-10-23",
-  "trained_through": "2026-10-19",
+  "model_version": "dc-2026-10-29-78dd3802",
+  "fitted_on": "2026-10-29",
+  "trained_through": "2026-10-25",
   "config": {
    "dc_xi": 0.0019,
    "dc_history_days": 1095,
@@ -22,27 +22,27 @@
  },
  "gate": {
   "promoted": false,
-  "reason": "gain 0.0000 is below the required 0.001",
+  "reason": "gain -0.0003 is below the required 0.001",
   "n_matches": 300,
-  "champion_rps": 0.20911,
-  "challenger_rps": 0.20908,
-  "gain": 3e-05,
-  "gain_low_95": -0.0012,
-  "gain_high_95": 0.00135
+  "champion_rps": 0.21173,
+  "challenger_rps": 0.21203,
+  "gain": -0.0003,
+  "gain_low_95": -0.00163,
+  "gain_high_95": 0.00106
  },
  "published": {
-  "n_predictions": 310,
-  "stamp": "20261023T093723Z",
+  "n_predictions": 300,
+  "stamp": "20261029T131619Z",
   "folder": "2026-27"
  },
  "ledger": {
-  "n_scored": 20,
-  "model_rps": 0.2237,
-  "pick_accuracy": 0.6,
-  "calibration_error": 0.1054,
-  "n_with_odds": 20,
-  "model_rps_on_odds_matches": 0.2237,
-  "book_rps": 0.1784,
-  "rps_gap_to_book": 0.0453
+  "n_scored": 30,
+  "model_rps": 0.2288,
+  "pick_accuracy": 0.5333,
+  "calibration_error": 0.0692,
+  "n_with_odds": 30,
+  "model_rps_on_odds_matches": 0.2288,
+  "book_rps": 0.1962,
+  "rps_gap_to_book": 0.0326
  }
 }
