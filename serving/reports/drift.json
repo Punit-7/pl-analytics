@@ -3,19 +3,19 @@
  "current_matches": 150,
  "columns": {
   "home_goals": {
-   "psi": 0.0134,
+   "psi": 0.0078,
    "alert": false
   },
   "away_goals": {
-   "psi": 0.0369,
+   "psi": 0.0349,
    "alert": false
   },
   "total_goals": {
-   "psi": 0.0336,
+   "psi": 0.02,
    "alert": false
   },
   "result": {
-   "psi": 0.0165,
+   "psi": 0.01,
    "alert": false
   }
  }
