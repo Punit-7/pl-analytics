@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T11:48:29+00:00",
+ "generated_at": "2026-10-30T11:40:57+00:00",
  "gameweek": 9,
  "deadline": "2026-10-31T11:00:00Z",
  "gameweeks": [
@@ -373,7 +373,7 @@
      "name": "Evanilson",
      "club": "BOU",
      "position": "FWD",
-     "price": 6.2,
+     "price": 6.3,
      "next_points": 3.64,
      "horizon_points": 19.03,
      "start": false,
