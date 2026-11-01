@@ -1,4 +1,4 @@
-_Updated 2026-10-31. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-11-01. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
@@ -39,17 +39,11 @@ This round: model 0.2196, baseline 0.2365, closing odds 0.2316. One round is abo
 | GW 7 | Sat 17 Oct – Mon 19 Oct | 10 | 0.1903 | 0.2508 | 0.1496 | 7 of 10 |
 | GW 6 | Sat 10 Oct – Mon 12 Oct | 10 | 0.2567 | 0.2146 | 0.2073 | 5 of 10 |
 
+Waiting for a result: Aston Villa v Fulham (Sat 31 Oct), Bournemouth v Leeds (Sat 31 Oct), Brentford v Nott'm Forest (Sat 31 Oct), Chelsea v Man United (Sat 31 Oct), Coventry v Sunderland (Sat 31 Oct), Hull v Ipswich (Sat 31 Oct), Man City v Brighton (Sat 31 Oct), Tottenham v Crystal Palace (Sat 31 Oct).
+
 **Next round: GW 9**
 
 | Date | Match | Home / Draw / Away | Pick | Most likely score | Expected goals | Made (UTC) | In Git (UTC) |
 |---|---|---|---|---|---|---|---|
-| Sat 31 Oct | Aston Villa v Fulham | 46% / 28% / 26% | Home | 1–1 | 1.6 – 1.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Bournemouth v Leeds | 42% / 29% / 29% | Home | 1–1 | 1.4 – 1.2 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Brentford v Nott'm Forest | 46% / 28% / 26% | Home | 1–1 | 1.6 – 1.2 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Chelsea v Man United | 43% / 25% / 32% | Home | 1–1 | 1.8 – 1.5 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Coventry v Sunderland | 7% / 31% / 62% | Away | 0–1 | 0.3 – 1.3 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Hull v Ipswich | 70% / 21% / 9% | Home | 2–0 | 2.0 – 0.6 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Man City v Brighton | 60% / 23% / 17% | Home | 1–1 | 2.1 – 1.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 31 Oct | Tottenham v Crystal Palace | 40% / 28% / 32% | Home | 1–1 | 1.5 – 1.3 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sun 1 Nov | Liverpool v Arsenal | 27% / 29% / 44% | Away | 1–1 | 1.1 – 1.5 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Mon 2 Nov | Newcastle v Everton | 45% / 29% / 27% | Home | 1–1 | 1.5 – 1.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
