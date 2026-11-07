@@ -1,4 +1,4 @@
-_Updated 2026-11-06. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-11-07. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
@@ -40,11 +40,12 @@ This round: model 0.2932, baseline 0.2330, closing odds 0.2333. One round is abo
 | GW 7 | Sat 17 Oct – Mon 19 Oct | 10 | 0.1903 | 0.2508 | 0.1496 | 7 of 10 |
 | GW 6 | Sat 10 Oct – Mon 12 Oct | 10 | 0.2567 | 0.2146 | 0.2073 | 5 of 10 |
 
+Waiting for a result: Everton v Coventry (Fri 6 Nov).
+
 **Next round: GW 10**
 
 | Date | Match | Home / Draw / Away | Pick | Most likely score | Expected goals | Made (UTC) | In Git (UTC) |
 |---|---|---|---|---|---|---|---|
-| Fri 6 Nov | Everton v Coventry | 70% / 26% / 4% | Home | 1–0 | 1.5 – 0.2 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 7 Nov | Arsenal v Hull | 50% / 33% / 17% | Home | 1–0 | 1.2 – 0.6 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 7 Nov | Fulham v Newcastle | 35% / 27% / 38% | Away | 1–1 | 1.4 – 1.5 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sat 7 Nov | Leeds v Tottenham | 50% / 27% / 23% | Home | 1–1 | 1.6 – 1.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
