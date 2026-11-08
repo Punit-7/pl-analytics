@@ -1,4 +1,4 @@
-_Updated 2026-11-07. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
+_Updated 2026-11-08. Only each match's first prediction counts. It must be made before match day and committed to Git before match day. Results and closing odds: football-data.co.uk. RPS (ranked probability score): 0 is a perfect forecast; lower is better._
 
 **Season so far**
 
@@ -40,16 +40,12 @@ This round: model 0.2932, baseline 0.2330, closing odds 0.2333. One round is abo
 | GW 7 | Sat 17 Oct – Mon 19 Oct | 10 | 0.1903 | 0.2508 | 0.1496 | 7 of 10 |
 | GW 6 | Sat 10 Oct – Mon 12 Oct | 10 | 0.2567 | 0.2146 | 0.2073 | 5 of 10 |
 
-Waiting for a result: Everton v Coventry (Fri 6 Nov).
+Waiting for a result: Everton v Coventry (Fri 6 Nov), Arsenal v Hull (Sat 7 Nov), Fulham v Newcastle (Sat 7 Nov), Leeds v Tottenham (Sat 7 Nov), Nott'm Forest v Man City (Sat 7 Nov).
 
 **Next round: GW 10**
 
 | Date | Match | Home / Draw / Away | Pick | Most likely score | Expected goals | Made (UTC) | In Git (UTC) |
 |---|---|---|---|---|---|---|---|
-| Sat 7 Nov | Arsenal v Hull | 50% / 33% / 17% | Home | 1–0 | 1.2 – 0.6 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 7 Nov | Fulham v Newcastle | 35% / 27% / 38% | Away | 1–1 | 1.4 – 1.5 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 7 Nov | Leeds v Tottenham | 50% / 27% / 23% | Home | 1–1 | 1.6 – 1.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
-| Sat 7 Nov | Nott'm Forest v Man City | 20% / 26% / 54% | Away | 1–1 | 1.0 – 1.8 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sun 8 Nov | Brighton v Brentford | 45% / 26% / 29% | Home | 1–1 | 1.7 – 1.4 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sun 8 Nov | Crystal Palace v Liverpool | 25% / 26% / 49% | Away | 1–1 | 1.2 – 1.7 | 2026-10-09 11:39 | 2026-10-09 11:47 |
 | Sun 8 Nov | Ipswich v Bournemouth | 18% / 22% / 60% | Away | 1–1 | 1.1 – 2.1 | 2026-10-09 11:39 | 2026-10-09 11:47 |
