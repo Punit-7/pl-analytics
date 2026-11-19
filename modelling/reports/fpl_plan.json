@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T14:35:55+00:00",
+ "generated_at": "2026-11-19T14:43:33+00:00",
  "gameweek": 11,
  "deadline": "2026-11-21T11:00:00Z",
  "gameweeks": [
@@ -92,7 +92,7 @@
      "name": "McGinn",
      "club": "AVL",
      "position": "MID",
-     "price": 5.4,
+     "price": 5.5,
      "next_points": 4.66,
      "horizon_points": 24.27,
      "start": true,
@@ -358,7 +358,7 @@
      "name": "McGinn",
      "club": "AVL",
      "position": "MID",
-     "price": 5.4,
+     "price": 5.5,
      "next_points": 4.66,
      "horizon_points": 24.27,
      "start": true,
@@ -561,9 +561,9 @@
   },
   "freehit": {
    "next_gw_points": 55.23,
-   "bench_points": 14.85,
+   "bench_points": 14.78,
    "captain_points": 5.15,
-   "horizon_value": 262.08,
+   "horizon_value": 261.91,
    "hits": 0,
    "transfers_in": [],
    "transfers_out": [],
@@ -603,28 +603,11 @@
      ]
     },
     {
-     "id": 37,
-     "name": "Lindel\u00f6f",
-     "club": "AVL",
-     "position": "DEF",
-     "price": 4.5,
-     "next_points": 3.73,
-     "horizon_points": 17.23,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 4,
-     "transfer_in": false,
-     "opponents": [
-      "SUN (H)"
-     ]
-    },
-    {
      "id": 45,
      "name": "McGinn",
      "club": "AVL",
      "position": "MID",
-     "price": 5.4,
+     "price": 5.5,
      "next_points": 4.66,
      "horizon_points": 24.27,
      "start": true,
@@ -671,23 +654,6 @@
      ]
     },
     {
-     "id": 566,
-     "name": "Silva",
-     "club": "BOU",
-     "position": "DEF",
-     "price": 5.1,
-     "next_points": 3.86,
-     "horizon_points": 16.92,
-     "start": false,
-     "captain": false,
-     "vice": false,
-     "bench_order": 3,
-     "transfer_in": false,
-     "opponents": [
-      "NFO (H)"
-     ]
-    },
-    {
      "id": 115,
      "name": "De Cuyper",
      "club": "BHA",
@@ -719,6 +685,23 @@
      "transfer_in": false,
      "opponents": [
       "LEE (H)"
+     ]
+    },
+    {
+     "id": 176,
+     "name": "Dasilva",
+     "club": "COV",
+     "position": "DEF",
+     "price": 4.0,
+     "next_points": 3.37,
+     "horizon_points": 14.63,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 4,
+     "transfer_in": false,
+     "opponents": [
+      "CRY (H)"
      ]
     },
     {
@@ -784,6 +767,23 @@
      "captain": false,
      "vice": false,
      "bench_order": 0,
+     "transfer_in": false,
+     "opponents": [
+      "FUL (H)"
+     ]
+    },
+    {
+     "id": 390,
+     "name": "R\u00faben",
+     "club": "MCI",
+     "position": "DEF",
+     "price": 5.5,
+     "next_points": 4.15,
+     "horizon_points": 17.82,
+     "start": false,
+     "captain": false,
+     "vice": false,
+     "bench_order": 3,
      "transfer_in": false,
      "opponents": [
       "FUL (H)"

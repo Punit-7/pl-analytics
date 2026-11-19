@@ -2,7 +2,7 @@ gameweek,id,name,club,position,price,next_points,horizon_points,start,captain,vi
 11,1,Raya,ARS,GKP,6.1,3.48,17.88,True,False,False,0,False,['NEW (A)']
 11,4,Gabriel,ARS,DEF,8.1,4.51,22.88,True,False,False,0,True,['NEW (A)']
 11,8,Calafiori,ARS,DEF,5.8,4.1,20.76,True,False,False,0,False,['NEW (A)']
-11,45,McGinn,AVL,MID,5.4,4.66,24.27,True,False,False,0,True,['SUN (H)']
+11,45,McGinn,AVL,MID,5.5,4.66,24.27,True,False,False,0,True,['SUN (H)']
 11,115,De Cuyper,BHA,DEF,5.3,4.29,22.16,True,False,False,0,False,['HUL (A)']
 11,124,Groß,BHA,MID,6.1,3.96,21.86,True,False,False,0,False,['HUL (A)']
 11,40,Rogers,CHE,MID,7.9,4.82,23.52,True,False,True,0,False,['LEE (H)']
