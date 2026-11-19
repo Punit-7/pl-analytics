@@ -325,9 +325,9 @@ Latest weekly run (updated by the weekly job):
 <!-- status:start -->
 | Item | Value |
 | --- | --- |
-| Live model | `dc-2026-11-12-78dd3802` |
+| Live model | `dc-2026-11-19-78dd3802` |
 | Trained on results up to | 2026-11-08 |
-| Data | 2000 matches, latest 4 days old |
+| Data | 2000 matches, latest 11 days old |
 | Predictions published | 280 |
 | Gate | gain 0.0000 is below the required 0.001 |
 | Matches scored so far | 50 |
