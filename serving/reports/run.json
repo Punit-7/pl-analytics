@@ -1,16 +1,16 @@
 {
- "run_at": "2026-11-12T15:25:22+00:00",
+ "run_at": "2026-11-19T15:53:07+00:00",
  "data": {
   "season": "2026/27",
   "n_matches": 2000,
   "n_current_season": 100,
   "latest_match_date": "2026-11-08",
-  "days_since_latest": 4,
+  "days_since_latest": 11,
   "stale": false
  },
  "model": {
-  "model_version": "dc-2026-11-12-78dd3802",
-  "fitted_on": "2026-11-12",
+  "model_version": "dc-2026-11-19-78dd3802",
+  "fitted_on": "2026-11-19",
   "trained_through": "2026-11-08",
   "config": {
    "dc_xi": 0.0019,
@@ -27,12 +27,12 @@
   "champion_rps": 0.21481,
   "challenger_rps": 0.21481,
   "gain": 0.0,
-  "gain_low_95": -0.00135,
-  "gain_high_95": 0.00137
+  "gain_low_95": -0.00136,
+  "gain_high_95": 0.00136
  },
  "published": {
   "n_predictions": 280,
-  "stamp": "20261112T152522Z",
+  "stamp": "20261119T155307Z",
   "folder": "2026-27"
  },
  "ledger": {

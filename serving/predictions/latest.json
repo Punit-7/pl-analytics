@@ -1,6 +1,6 @@
 {
- "created_at": "2026-11-12T15:25:22",
- "model_version": "dc-2026-11-12-78dd3802",
+ "created_at": "2026-11-19T15:53:07",
+ "model_version": "dc-2026-11-19-78dd3802",
  "season": "2026/27",
  "matches": [
   {
@@ -156,7 +156,7 @@
    "exp_home_goals": 1.893,
    "exp_away_goals": 0.485,
    "most_likely_score": "1-0",
-   "most_likely_score_prob": 0.1694,
+   "most_likely_score_prob": 0.1693,
    "predicted_result": "home"
   },
   {
@@ -286,7 +286,7 @@
    "p_draw": 0.2529,
    "p_away": 0.4066,
    "exp_home_goals": 1.48,
-   "exp_away_goals": 1.633,
+   "exp_away_goals": 1.634,
    "most_likely_score": "1-1",
    "most_likely_score_prob": 0.1153,
    "predicted_result": "away"
@@ -346,7 +346,7 @@
    "p_draw": 0.2735,
    "p_away": 0.5292,
    "exp_home_goals": 0.851,
-   "exp_away_goals": 1.549,
+   "exp_away_goals": 1.55,
    "most_likely_score": "0-1",
    "most_likely_score_prob": 0.1318,
    "predicted_result": "away"
@@ -392,11 +392,11 @@
    "away_team": "Coventry",
    "p_home": 0.6487,
    "p_draw": 0.2029,
-   "p_away": 0.1484,
+   "p_away": 0.1483,
    "exp_home_goals": 2.237,
    "exp_away_goals": 0.992,
    "most_likely_score": "2-0",
-   "most_likely_score_prob": 0.099,
+   "most_likely_score_prob": 0.0991,
    "predicted_result": "home"
   },
   {
@@ -606,10 +606,10 @@
   {
    "home_team": "Brentford",
    "away_team": "Hull",
-   "p_home": 0.4416,
+   "p_home": 0.4417,
    "p_draw": 0.3,
    "p_away": 0.2583,
-   "exp_home_goals": 1.31,
+   "exp_home_goals": 1.311,
    "exp_away_goals": 0.94,
    "most_likely_score": "1-1",
    "most_likely_score_prob": 0.1393,
@@ -996,13 +996,13 @@
    "exp_home_goals": 1.709,
    "exp_away_goals": 1.167,
    "most_likely_score": "1-1",
-   "most_likely_score_prob": 0.1207,
+   "most_likely_score_prob": 0.1206,
    "predicted_result": "home"
   },
   {
    "home_team": "Chelsea",
    "away_team": "Sunderland",
-   "p_home": 0.5561,
+   "p_home": 0.5562,
    "p_draw": 0.2493,
    "p_away": 0.1946,
    "exp_home_goals": 1.77,
@@ -1027,8 +1027,8 @@
    "home_team": "Coventry",
    "away_team": "Aston Villa",
    "p_home": 0.2462,
-   "p_draw": 0.2402,
-   "p_away": 0.5136,
+   "p_draw": 0.2401,
+   "p_away": 0.5137,
    "exp_home_goals": 1.251,
    "exp_away_goals": 1.88,
    "most_likely_score": "1-1",
@@ -1050,7 +1050,7 @@
   {
    "home_team": "Coventry",
    "away_team": "Brentford",
-   "p_home": 0.2396,
+   "p_home": 0.2395,
    "p_draw": 0.2402,
    "p_away": 0.5203,
    "exp_home_goals": 1.222,
@@ -1062,7 +1062,7 @@
   {
    "home_team": "Coventry",
    "away_team": "Chelsea",
-   "p_home": 0.2267,
+   "p_home": 0.2266,
    "p_draw": 0.2277,
    "p_away": 0.5456,
    "exp_home_goals": 1.258,
@@ -1126,7 +1126,7 @@
    "p_draw": 0.2117,
    "p_away": 0.614,
    "exp_home_goals": 1.095,
-   "exp_away_goals": 2.181,
+   "exp_away_goals": 2.182,
    "most_likely_score": "1-2",
    "most_likely_score_prob": 0.0984,
    "predicted_result": "away"
@@ -1148,7 +1148,7 @@
    "away_team": "Man United",
    "p_home": 0.2569,
    "p_draw": 0.2377,
-   "p_away": 0.5053,
+   "p_away": 0.5054,
    "exp_home_goals": 1.316,
    "exp_away_goals": 1.907,
    "most_likely_score": "1-1",
@@ -1497,7 +1497,7 @@
    "p_home": 0.4503,
    "p_draw": 0.3141,
    "p_away": 0.2355,
-   "exp_home_goals": 1.233,
+   "exp_home_goals": 1.232,
    "exp_away_goals": 0.815,
    "most_likely_score": "1-0",
    "most_likely_score_prob": 0.1496,
@@ -1578,7 +1578,7 @@
   {
    "home_team": "Fulham",
    "away_team": "Coventry",
-   "p_home": 0.554,
+   "p_home": 0.5541,
    "p_draw": 0.2476,
    "p_away": 0.1983,
    "exp_home_goals": 1.789,
@@ -1676,7 +1676,7 @@
    "away_team": "Tottenham",
    "p_home": 0.4299,
    "p_draw": 0.2802,
-   "p_away": 0.2899,
+   "p_away": 0.2898,
    "exp_home_goals": 1.436,
    "exp_away_goals": 1.137,
    "most_likely_score": "1-1",
@@ -1700,7 +1700,7 @@
    "away_team": "Bournemouth",
    "p_home": 0.349,
    "p_draw": 0.3124,
-   "p_away": 0.3385,
+   "p_away": 0.3386,
    "exp_home_goals": 1.101,
    "exp_away_goals": 1.081,
    "most_likely_score": "1-1",
@@ -1722,7 +1722,7 @@
   {
    "home_team": "Hull",
    "away_team": "Chelsea",
-   "p_home": 0.3463,
+   "p_home": 0.3462,
    "p_draw": 0.3,
    "p_away": 0.3537,
    "exp_home_goals": 1.163,
@@ -1746,7 +1746,7 @@
   {
    "home_team": "Hull",
    "away_team": "Crystal Palace",
-   "p_home": 0.4618,
+   "p_home": 0.4617,
    "p_draw": 0.3042,
    "p_away": 0.2341,
    "exp_home_goals": 1.301,
@@ -1772,7 +1772,7 @@
    "away_team": "Leeds",
    "p_home": 0.3654,
    "p_draw": 0.3399,
-   "p_away": 0.2947,
+   "p_away": 0.2948,
    "exp_home_goals": 1.001,
    "exp_away_goals": 0.87,
    "most_likely_score": "0-0",
@@ -1782,7 +1782,7 @@
   {
    "home_team": "Hull",
    "away_team": "Liverpool",
-   "p_home": 0.2866,
+   "p_home": 0.2865,
    "p_draw": 0.3016,
    "p_away": 0.4118,
    "exp_home_goals": 1.012,
@@ -1818,9 +1818,9 @@
   {
    "home_team": "Hull",
    "away_team": "Nott'm Forest",
-   "p_home": 0.3841,
+   "p_home": 0.384,
    "p_draw": 0.3282,
-   "p_away": 0.2877,
+   "p_away": 0.2878,
    "exp_home_goals": 1.082,
    "exp_away_goals": 0.899,
    "most_likely_score": "0-0",
@@ -1834,7 +1834,7 @@
    "p_draw": 0.3329,
    "p_away": 0.2315,
    "exp_home_goals": 1.121,
-   "exp_away_goals": 0.739,
+   "exp_away_goals": 0.74,
    "most_likely_score": "0-0",
    "most_likely_score_prob": 0.1651,
    "predicted_result": "home"
@@ -1954,7 +1954,7 @@
    "p_draw": 0.2822,
    "p_away": 0.4583,
    "exp_home_goals": 1.032,
-   "exp_away_goals": 1.452,
+   "exp_away_goals": 1.451,
    "most_likely_score": "1-1",
    "most_likely_score_prob": 0.1342,
    "predicted_result": "away"
@@ -2190,7 +2190,7 @@
   {
    "home_team": "Liverpool",
    "away_team": "Aston Villa",
-   "p_home": 0.5361,
+   "p_home": 0.5362,
    "p_draw": 0.2334,
    "p_away": 0.2305,
    "exp_home_goals": 1.962,
@@ -2624,9 +2624,9 @@
    "away_team": "Hull",
    "p_home": 0.4295,
    "p_draw": 0.2953,
-   "p_away": 0.2753,
-   "exp_home_goals": 1.328,
-   "exp_away_goals": 1.013,
+   "p_away": 0.2752,
+   "exp_home_goals": 1.329,
+   "exp_away_goals": 1.012,
    "most_likely_score": "1-1",
    "most_likely_score_prob": 0.1389,
    "predicted_result": "home"
@@ -2720,7 +2720,7 @@
    "away_team": "Brighton",
    "p_home": 0.334,
    "p_draw": 0.2551,
-   "p_away": 0.4108,
+   "p_away": 0.4109,
    "exp_home_goals": 1.444,
    "exp_away_goals": 1.621,
    "most_likely_score": "1-1",
@@ -2959,7 +2959,7 @@
    "home_team": "Nott'm Forest",
    "away_team": "Hull",
    "p_home": 0.3826,
-   "p_draw": 0.3284,
+   "p_draw": 0.3283,
    "p_away": 0.289,
    "exp_home_goals": 1.079,
    "exp_away_goals": 0.901,
@@ -3070,7 +3070,7 @@
    "p_draw": 0.2745,
    "p_away": 0.2408,
    "exp_home_goals": 1.531,
-   "exp_away_goals": 1.01,
+   "exp_away_goals": 1.009,
    "most_likely_score": "1-1",
    "most_likely_score_prob": 0.1308,
    "predicted_result": "home"
@@ -3202,7 +3202,7 @@
    "p_draw": 0.2466,
    "p_away": 0.6083,
    "exp_home_goals": 0.732,
-   "exp_away_goals": 1.744,
+   "exp_away_goals": 1.745,
    "most_likely_score": "0-1",
    "most_likely_score_prob": 0.1387,
    "predicted_result": "away"
@@ -3367,65 +3367,65 @@
  "season_sim": [
   {
    "team": "Arsenal",
-   "exp_points": 85.6689,
+   "exp_points": 85.6699,
    "p_title": 0.8482,
    "p_top4": 0.9986,
    "p_relegation": 0.0
   },
   {
    "team": "Man City",
-   "exp_points": 74.385,
+   "exp_points": 74.3858,
    "p_title": 0.1095,
    "p_top4": 0.9466,
    "p_relegation": 0.0
   },
   {
    "team": "Brighton",
-   "exp_points": 68.9986,
-   "p_title": 0.0305,
-   "p_top4": 0.815,
+   "exp_points": 68.9996,
+   "p_title": 0.0306,
+   "p_top4": 0.8149,
    "p_relegation": 0.0
   },
   {
    "team": "Liverpool",
-   "exp_points": 66.4066,
-   "p_title": 0.01,
+   "exp_points": 66.4059,
+   "p_title": 0.0099,
    "p_top4": 0.6762,
    "p_relegation": 0.0
   },
   {
    "team": "Chelsea",
-   "exp_points": 58.5105,
+   "exp_points": 58.5103,
    "p_title": 0.0008,
-   "p_top4": 0.1961,
+   "p_top4": 0.196,
    "p_relegation": 0.0009
   },
   {
    "team": "Bournemouth",
    "exp_points": 55.979,
    "p_title": 0.0003,
-   "p_top4": 0.1097,
+   "p_top4": 0.1101,
    "p_relegation": 0.0034
   },
   {
    "team": "Brentford",
-   "exp_points": 54.7527,
+   "exp_points": 54.7524,
    "p_title": 0.0004,
-   "p_top4": 0.082,
+   "p_top4": 0.0819,
    "p_relegation": 0.0039
   },
   {
    "team": "Aston Villa",
-   "exp_points": 54.1006,
+   "exp_points": 54.1005,
    "p_title": 0.0001,
    "p_top4": 0.07,
    "p_relegation": 0.0077
   },
   {
    "team": "Leeds",
-   "exp_points": 51.4441,
+   "exp_points": 51.4436,
    "p_title": 0.0001,
-   "p_top4": 0.0349,
+   "p_top4": 0.0347,
    "p_relegation": 0.0152
   },
   {
@@ -3437,66 +3437,66 @@
   },
   {
    "team": "Newcastle",
-   "exp_points": 49.4133,
+   "exp_points": 49.4131,
    "p_title": 0.0001,
    "p_top4": 0.0152,
    "p_relegation": 0.0306
   },
   {
    "team": "Hull",
-   "exp_points": 46.6995,
+   "exp_points": 46.6991,
    "p_title": 0.0,
    "p_top4": 0.0065,
    "p_relegation": 0.066
   },
   {
    "team": "Man United",
-   "exp_points": 46.5939,
+   "exp_points": 46.594,
    "p_title": 0.0,
    "p_top4": 0.0066,
-   "p_relegation": 0.0733
+   "p_relegation": 0.0734
   },
   {
    "team": "Nott'm Forest",
-   "exp_points": 45.3385,
+   "exp_points": 45.339,
    "p_title": 0.0,
    "p_top4": 0.0051,
-   "p_relegation": 0.1027
+   "p_relegation": 0.1026
   },
   {
    "team": "Tottenham",
-   "exp_points": 44.8536,
+   "exp_points": 44.8534,
    "p_title": 0.0,
-   "p_top4": 0.0029,
-   "p_relegation": 0.1141
+   "p_top4": 0.003,
+   "p_relegation": 0.1138
   },
   {
    "team": "Fulham",
-   "exp_points": 43.7384,
+   "exp_points": 43.7385,
    "p_title": 0.0,
    "p_top4": 0.0017,
    "p_relegation": 0.1399
   },
   {
    "team": "Sunderland",
-   "exp_points": 38.8673,
+   "exp_points": 38.8668,
    "p_title": 0.0,
    "p_top4": 0.0002,
    "p_relegation": 0.3945
   },
   {
    "team": "Crystal Palace",
-   "exp_points": 37.001,
+   "exp_points": 37.0004,
    "p_title": 0.0,
    "p_top4": 0.0002,
-   "p_relegation": 0.5312
+   "p_relegation": 0.5314
   },
   {
    "team": "Coventry",
-   "exp_points": 33.6562,
+   "exp_points": 33.6566,
    "p_title": 0.0,
    "p_top4": 0.0,
-   "p_relegation": 0.7385
+   "p_relegation": 0.7386
   },
   {
    "team": "Ipswich",
