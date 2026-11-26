@@ -326,17 +326,17 @@ Latest weekly run (updated by the weekly job):
 <!-- status:start -->
 | Item | Value |
 | --- | --- |
-| Live model | `dc-2026-11-19-78dd3802` |
-| Trained on results up to | 2026-11-08 |
-| Data | 2000 matches, latest 11 days old |
-| Predictions published | 280 |
+| Live model | `dc-2026-11-26-78dd3802` |
+| Trained on results up to | 2026-11-23 |
+| Data | 2010 matches, latest 3 days old |
+| Predictions published | 270 |
 | Gate | gain 0.0000 is below the required 0.001 |
-| Matches scored so far | 50 |
-| Model RPS | 0.2262 |
-| Bookmaker RPS | 0.2033 |
-| Gap to bookmaker (lower is better) | 0.0229 |
-| Headline picks correct | 0.54 |
-| Calibration error | 0.0787 |
+| Matches scored so far | 60 |
+| Model RPS | 0.2239 |
+| Bookmaker RPS | 0.2099 |
+| Gap to bookmaker (lower is better) | 0.014 |
+| Headline picks correct | 0.5167 |
+| Calibration error | 0.0588 |
 <!-- status:end -->
 
 ```

@@ -1,7 +1,30 @@
 {
- "level": "waiting",
- "n_matches": 50,
- "checks": [],
- "note": "only 50 scored matches; 60 needed for a verdict",
- "run_at": "2026-11-19T15:53:07+00:00"
+ "level": "green",
+ "n_matches": 60,
+ "checks": [
+  {
+   "name": "vs_baseline",
+   "level": "green",
+   "reason": "the model beats the freq baseline",
+   "value": -0.0043,
+   "low_95": -0.0346,
+   "high_95": 0.0268
+  },
+  {
+   "name": "vs_bookmaker",
+   "level": "green",
+   "reason": "gap 0.0141; the limit is 0.02",
+   "value": 0.0141,
+   "n": 60
+  },
+  {
+   "name": "calibration",
+   "level": "green",
+   "value": 0.0588,
+   "reason": "error 0.0588; the limit is 0.08"
+  }
+ ],
+ "first_match": "2026-10-10",
+ "last_match": "2026-11-23",
+ "run_at": "2026-11-26T17:03:29+00:00"
 }
